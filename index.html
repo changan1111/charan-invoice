@@ -89,8 +89,8 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .page{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem 3rem;}
 
 /* ── STATS ───────────────────────────────────────────────── */
-.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-bottom:1.8rem;}
-@media(max-width:1050px){.stats{grid-template-columns:repeat(3,1fr);}}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:1.8rem;}
+@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr);}}
 .stat{
   background:var(--white);border-radius:var(--r);padding:1.15rem 1.25rem;
@@ -303,7 +303,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .chart-tab.active{background:var(--navy);color:white;border-color:var(--navy);}
 .chart-wrap{position:relative;height:320px;margin-bottom:1.5rem;}
 .chart-summary{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;
 }
 .cs-card{
   background:var(--pale);border-radius:10px;padding:.9rem 1.1rem;
@@ -515,7 +515,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
     <div class="stat" style="animation-delay:.1s"><div class="stat-lbl">Total Value</div><div class="stat-val" id="s1">—</div></div>
     <div class="stat" style="animation-delay:.15s"><div class="stat-lbl">Paid</div><div class="stat-val c-paid" id="s2">—</div><div class="stat-sub" id="s2a"></div></div>
     <div class="stat" style="animation-delay:.2s"><div class="stat-lbl">Pending</div><div class="stat-val c-pend" id="s3">—</div><div class="stat-sub" id="s3a"></div></div>
-    <div class="stat" style="animation-delay:.25s"><div class="stat-lbl">Overdue</div><div class="stat-val c-over" id="s4">—</div><div class="stat-sub" id="s4a"></div></div>
+
     <div class="stat stat-perf" style="animation-delay:.3s" onclick="openChart()">
       <div class="stat-perf-ico">📊</div>
       <div class="stat-perf-lbl">Monthly Performance</div>
@@ -602,7 +602,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       <div class="chart-summary" style="margin-bottom:1.25rem;">
         <div class="cs-card"><div class="cs-lbl">Year Total</div><div class="cs-val" id="cy-total">—</div></div>
         <div class="cs-card"><div class="cs-lbl">Paid</div><div class="cs-val c-paid" id="cy-paid">—</div></div>
-        <div class="cs-card"><div class="cs-lbl">Pending + Overdue</div><div class="cs-val c-over" id="cy-due">—</div></div>
       </div>
       <!-- Chart canvas -->
       <div class="chart-wrap" id="chartWrap">
@@ -614,9 +613,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <thead><tr>
             <th>Month</th>
             <th class="r">Total</th>
-            <th class="r">Paid</th>
-            <th class="r">Pending</th>
-            <th class="r">Overdue</th>
             <th class="r">Invoices</th>
           </tr></thead>
           <tbody id="chartTblBody"></tbody>
@@ -936,10 +932,8 @@ function renderStats(){
   ge('s1').textContent = cur+fmt(ALL.reduce((s,i)=>s+i.total,0));
   const paid=ALL.filter(i=>i.status==='paid');
   const pend=ALL.filter(i=>i.status==='pending');
-  const over=ALL.filter(i=>i.status==='overdue');
   ge('s2').textContent=paid.length; ge('s2a').textContent=cur+fmt(paid.reduce((s,i)=>s+i.total,0));
   ge('s3').textContent=pend.length; ge('s3a').textContent=cur+fmt(pend.reduce((s,i)=>s+i.total,0));
-  ge('s4').textContent=over.length; ge('s4a').textContent=cur+fmt(over.reduce((s,i)=>s+i.total,0));
 }
 
 /* ═══ FILTER / TABLE ════════════════════════════════════════ */
@@ -1534,15 +1528,18 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 
 function parseInvDate(dateStr){
   if(!dateStr) return null;
-  // Try DD-Mon-YYYY, DD/MM/YYYY, YYYY-MM-DD etc.
-  let d = new Date(dateStr);
-  if(!isNaN(d)) return d;
-  // DD-Mon-YYYY or DD Mon YYYY
-  const m = dateStr.match(/(\d{1,2})[\s\-\/]([A-Za-z]+)[\s\-\/](\d{4})/);
-  if(m){
-    d = new Date(`${m[2]} ${m[1]} ${m[3]}`);
-    if(!isNaN(d)) return d;
-  }
+  const s = dateStr.trim();
+  // 1. DD/MM/YYYY or DD-MM-YYYY (always first)
+  const dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+  if(dmy){ const d=new Date(+dmy[3],+dmy[2]-1,+dmy[1]); if(!isNaN(d)) return d; }
+  // 2. DD-Mon-YYYY or DD Mon YYYY  e.g. 15-Feb-2026
+  const dmy2 = s.match(/^(\d{1,2})[\s\-]([A-Za-z]{3,})[\s\-](\d{4})$/);
+  if(dmy2){ const d=new Date(`${dmy2[2]} ${dmy2[1]} ${dmy2[3]}`); if(!isNaN(d)) return d; }
+  // 3. YYYY-MM-DD (ISO)
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(iso){ const d=new Date(+iso[1],+iso[2]-1,+iso[3]); if(!isNaN(d)) return d; }
+  // 4. Last resort
+  const d=new Date(s); if(!isNaN(d)) return d;
   return null;
 }
 
@@ -1556,9 +1553,8 @@ function buildMonthlyData(year){
     if(d.getFullYear() !== year) return;
     const mi = d.getMonth();
     data[mi].count++;
-    if(inv.status === 'paid')         data[mi].paid    += inv.total;
-    else if(inv.status === 'overdue') data[mi].overdue += inv.total;
-    else                              data[mi].pending += inv.total;
+    if(inv.status === 'paid') data[mi].paid    += inv.total;
+    else                      data[mi].pending += inv.total;
   });
   return data;
 }
@@ -1613,12 +1609,10 @@ function renderChart(){
 
   // Summary totals
   const totPaid    = data.reduce((s,m) => s+m.paid, 0);
-  const totPending = data.reduce((s,m) => s+m.pending, 0);
-  const totOverdue = data.reduce((s,m) => s+m.overdue, 0);
-  const totAll     = totPaid + totPending + totOverdue;
+  const totAll     = totPaid;
   ge('cy-total').textContent = 'S$ ' + fmt(totAll);
   ge('cy-paid').textContent  = 'S$ ' + fmt(totPaid);
-  ge('cy-due').textContent   = 'S$ ' + fmt(totPending + totOverdue);
+
 
   if(chartView === 'table'){
     renderChartTable(data);
@@ -1645,26 +1639,14 @@ function renderChart(){
       labels: MONTHS,
       datasets: [
         {
-          label: 'Paid',
-          data: data.map(m => m.paid),
-          backgroundColor: chartView === 'line' ? 'rgba(10,122,75,.12)' : 'rgba(10,122,75,.8)',
-          borderColor: 'rgba(10,122,75,1)',
+          label: 'Total',
+          data: data.map(m => m.paid + m.pending),
+          backgroundColor: chartView === 'line' ? 'rgba(19,48,94,.15)' : 'rgba(19,48,94,.8)',
+          borderColor: 'rgba(19,48,94,1)',
           ...sharedOpts,
         },
-        {
-          label: 'Pending',
-          data: data.map(m => m.pending),
-          backgroundColor: chartView === 'line' ? 'rgba(184,106,0,.12)' : 'rgba(184,106,0,.8)',
-          borderColor: 'rgba(184,106,0,1)',
-          ...sharedOpts,
-        },
-        {
-          label: 'Overdue',
-          data: data.map(m => m.overdue),
-          backgroundColor: chartView === 'line' ? 'rgba(192,40,46,.12)' : 'rgba(192,40,46,.8)',
-          borderColor: 'rgba(192,40,46,1)',
-          ...sharedOpts,
-        },
+
+
       ],
     },
     options: {
@@ -1709,9 +1691,6 @@ function renderChartTable(data){
     return `<tr>
       <td><b>${m.month}</b></td>
       <td class="r">S$ ${fmt(total)}</td>
-      <td class="r" style="color:var(--paid-tx)">S$ ${fmt(m.paid)}</td>
-      <td class="r" style="color:var(--pend-tx)">S$ ${fmt(m.pending)}</td>
-      <td class="r" style="color:var(--over-tx)">S$ ${fmt(m.overdue)}</td>
       <td class="r">${m.count}</td>
     </tr>`;
   }).join('');
