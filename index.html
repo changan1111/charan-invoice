@@ -891,8 +891,31 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         </div>
         <div class="pr-field span2">
           <label>Client Name <span style="color:#c0282e">*</span></label>
-          <input type="text" id="ai_name" placeholder="e.g. ABC Pte Ltd" oninput="aiClearErr('ai_name')"/>
-        </div>
+       <div style="display:flex; gap:8px; align-items:center;">
+  <input 
+    type="text" 
+    id="ai_name" 
+    placeholder="e.g. ABC Pte Ltd"
+    oninput="aiClearErr('ai_name')" 
+    style="flex:1;"
+  />
+
+  <button 
+    type="button" 
+    onclick="fetchClientAddress()" 
+    style="
+      white-space: nowrap;
+      padding: 6px 12px;
+      background:#2b6cb0;
+      color:white;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-size:13px;
+    ">
+    Fetch
+  </button>
+  </div>
         <div class="pr-field span2">
           <label>Client Address</label>
           <input type="text" id="ai_address" placeholder="e.g. 10 Anson Road, Singapore 079903"/>
@@ -2324,6 +2347,29 @@ async function aiSubmit() {
     btn.innerHTML = orig;
   }
 }
+
+async function fetchClientAddress() {
+  const clientName = document.getElementById('ai_name').value.trim();
+
+  if (!clientName) {
+    alert('Enter client name first');
+    return;
+  }
+
+  const { data, error } = await sb
+    .from('clients')
+    .select('name, address')
+    .ilike('name', `%${clientName}%`)
+    .limit(1);
+
+  if (error || !data || data.length === 0) {
+    alert('No matching client found');
+    return;
+  }
+
+  document.getElementById('ai_address').value = data[0].address || '';
+}
+
 
 </script>
 </body>
