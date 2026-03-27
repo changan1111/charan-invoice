@@ -2199,60 +2199,74 @@ async function aiSubmit() {
     { id:'ai_status',     label:'Status'         },
     { id:'ai_name',       label:'Client Name'    },
   ];
-  req.forEach(({id, label}) => {
+  req.forEach(({id}) => {
     const el = ge(id);
-    if(!el.value.trim()){ el.classList.add('error'); valid = false; }
+    if (!el.value.trim()) { el.classList.add('error'); valid = false; }
   });
-  if(!valid){
+  if (!valid) {
     ge('ai-error').style.display = 'block';
     ge('ai-error-msg').textContent = 'Please fill all required fields marked with *.';
-    ge('ai-error').scrollIntoView({behavior:'smooth',block:'nearest'});
+    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
     return;
   }
+
+  // ── Convert billing date: YYYY-MM-DD (date input) → DD-MM-YYYY (text storage) ──
+  const billingDateRaw = ge('ai_billingdate').value;
+  const [by, bm, bd]  = billingDateRaw.split('-');
+  const billingDate   = `${bd}-${bm}-${by}`;
 
   // ── Validate line items ──
   const rows = [...ge('ai_tbody').querySelectorAll('tr')];
   const lineItems = [];
-  let liValid = true;
-  let hasAtLeastOne = false;
+  let liValid = true, hasAtLeastOne = false;
 
   rows.forEach(r => {
-    const desc = r.cells[2].querySelector('input').value.trim();
-    const qty  = parseFloat(r.cells[3].querySelector('input').value);
-    const rate = parseFloat(r.cells[4].querySelector('input').value);
-    const date = r.cells[1].querySelector('input').value;
+    const desc      = r.cells[2].querySelector('input').value.trim();
+    const qty       = parseFloat(r.cells[3].querySelector('input').value);
+    const rate      = parseFloat(r.cells[4].querySelector('input').value);
+    const dateInput = r.cells[1].querySelector('input');
 
     // Skip fully blank rows
-    if(!desc && !qty && !rate) return;
+    if (!desc && !qty && !rate) return;
 
     hasAtLeastOne = true;
     let rowOk = true;
-    if(!desc){ r.cells[2].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if(!qty||qty<=0){ r.cells[3].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if(isNaN(rate)||rate<0){ r.cells[4].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if(rowOk){
+
+    if (!desc)               { r.cells[2].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+    if (!qty || qty <= 0)    { r.cells[3].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+    if (isNaN(rate)||rate<0) { r.cells[4].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+
+    // Convert line-item date: YYYY-MM-DD → DD-MM-YYYY (null if blank)
+    let dateVal = null;
+    if (dateInput.value) {
+      const [y, m, d] = dateInput.value.split('-');
+      dateVal = `${d}-${m}-${y}`;
+    }
+
+    if (rowOk) {
       lineItems.push({
         invoice_number: ge('ai_invnum').value.trim(),
         description:    desc,
         qty:            qty,
         unit_price:     rate,
-        date:           date || null,
+        date:           dateVal,
       });
     }
   });
 
-  if(!hasAtLeastOne){
+  if (!hasAtLeastOne) {
     ge('ai-error').style.display = 'block';
     ge('ai-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.';
     return;
   }
-  if(!liValid){
+  if (!liValid) {
     ge('ai-error').style.display = 'block';
     ge('ai-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.';
+    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
     return;
   }
 
-  // ── Calculate total from line items ──
+  // ── Calculate total ──
   const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
 
   // ── Build client record ──
@@ -2260,52 +2274,51 @@ async function aiSubmit() {
     invoice_number: ge('ai_invnum').value.trim(),
     name:           ge('ai_name').value.trim(),
     address:        ge('ai_address').value.trim() || null,
-    billing_date:   ge('ai_billingdate').value,
+    billing_date:   billingDate,
     status:         ge('ai_status').value,
     total:          total,
   };
 
   // ── Disable button / show loading ──
-  const btn = ge('ai-submit-btn');
+  const btn  = ge('ai-submit-btn');
   const orig = btn.innerHTML;
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
 
   try {
-    // 1. Upsert into clients (update if invoice number exists)
+    // 1. Upsert into clients
     const { error: e1 } = await sb
       .from('clients')
       .upsert(clientRecord, { onConflict: 'invoice_number' });
-    if(e1) throw new Error('clients table: ' + e1.message);
+    if (e1) throw new Error('clients table: ' + e1.message);
 
-    // 2. Delete existing line items for this invoice (clean re-insert)
+    // 2. Delete existing line items for this invoice
     const { error: e2 } = await sb
       .from('line_items')
       .delete()
       .eq('invoice_number', clientRecord.invoice_number);
-    if(e2) throw new Error('clearing line_items: ' + e2.message);
+    if (e2) throw new Error('clearing line_items: ' + e2.message);
 
     // 3. Insert new line items
     const { error: e3 } = await sb
       .from('line_items')
       .insert(lineItems);
-    if(e3) throw new Error('line_items table: ' + e3.message);
+    if (e3) throw new Error('line_items table: ' + e3.message);
 
     // ── Success ──
     ge('ai-success').style.display = 'block';
     ge('ai-success-msg').textContent =
       `Invoice ${clientRecord.invoice_number} saved! ` +
-      `${lineItems.length} line item${lineItems.length!==1?'s':''} · ` +
-      `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',')}`;
-    ge('ai-success').scrollIntoView({behavior:'smooth',block:'nearest'});
+      `${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · ` +
+      `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+    ge('ai-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
 
-    // Reload invoice list in background
     setTimeout(() => loadData(), 1000);
 
   } catch(err) {
     ge('ai-error').style.display = 'block';
     ge('ai-error-msg').textContent = 'Save failed: ' + err.message;
-    ge('ai-error').scrollIntoView({behavior:'smooth',block:'nearest'});
+    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
   } finally {
     btn.disabled = false;
     btn.innerHTML = orig;
