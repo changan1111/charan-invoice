@@ -873,9 +873,24 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       <div class="pr-card-title">Invoice Details</div>
       <div class="pr-form-grid">
         <div class="pr-field">
-          <label>Invoice Number <span style="color:#c0282e">*</span></label>
-          <input type="text" id="ai_invnum" placeholder="e.g. 2026/00001" oninput="aiClearErr('ai_invnum')"/>
-        </div>
+  <label>Invoice Number <span style="color:#c0282e">*</span></label>
+  <div style="display:flex; gap:8px; align-items:center;">
+    <input type="text" id="ai_invnum" placeholder="e.g. 2026/00001"
+           oninput="aiClearErr('ai_invnum')"
+           style="flex:1; min-width:0;"/>
+    <button type="button" onclick="fetchAutoInvoiceNumber()"
+            style="white-space:nowrap; padding:6px 12px; background:#2b6cb0;
+                   color:white; border:none; border-radius:6px; cursor:pointer;
+                   font-size:13px; flex-shrink:0;">
+      Auto Number
+    </button>
+  </div>
+</div>
+
+<div class="pr-field">
+  <label>Billing Date <span style="color:#c0282e">*</span></label>
+  <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
+</div>
         <div class="pr-field">
           <label>Billing Date <span style="color:#c0282e">*</span></label>
           <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
@@ -2371,7 +2386,46 @@ async function fetchClientAddress() {
   document.getElementById('ai_address').value = data[0].address || '';
 }
 
+async function fetchAutoInvoiceNumber() {
+  const btn = document.querySelector('button[onclick="fetchAutoInvoiceNumber()"]');
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '…';
 
+  try {
+    const currentYear = new Date().getFullYear();
+
+    // Fetch all invoice numbers for the current year
+    const { data, error } = await sb
+      .from('clients')
+      .select('invoice_number')
+      .like('invoice_number', `${currentYear}/%`)
+      .order('invoice_number', { ascending: false })
+      .limit(1);
+
+    if (error) throw new Error(error.message);
+
+    let nextNumber = 1; // default if no invoices yet this year
+
+    if (data && data.length > 0) {
+      // invoice_number format: "2026/00001" → extract the numeric part
+      const lastInv  = data[0].invoice_number;          // e.g. "2026/00078"
+      const lastSeq  = parseInt(lastInv.split('/')[1]);  // → 78
+      nextNumber = lastSeq + 1;
+    }
+
+    // Pad to 5 digits: 79 → "00079"
+    const padded = String(nextNumber).padStart(5, '0');
+    document.getElementById('ai_invnum').value = `${currentYear}/${padded}`;
+    aiClearErr('ai_invnum');
+
+  } catch (err) {
+    alert('Could not fetch invoice number: ' + err.message);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = orig;
+  }
+}
 </script>
 </body>
 </html>
