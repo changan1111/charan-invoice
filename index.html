@@ -319,7 +319,8 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .pr-sdot.spin-dot{background:var(--gold);animation:pulse-dot 1s infinite;}
 .pr-sdot.err{background:#e53935;}
 .pr-sdot.warn{background:#ff9800;}
-  #ai_tbody input[type="number"]::placeholder {
+
+ #ai_tbody input[type="number"]::placeholder {
   color: #cccccc;
   opacity: 1;
 }
@@ -378,7 +379,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .pr-sub-panel{display:none;}
 .pr-sub-panel.active{display:block;}
 
-/* ── RESPONSIVE ──────────────────────────────────────────── */
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 /* ── COMBINED MOBILE OPTIMIZATION ────────────────────────── */
 /* ── COMPLETE MOBILE OPTIMIZATION (CLEAN & SAFE) ────────── */
@@ -516,8 +516,8 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       <p>Customise how invoices are displayed and printed.</p>
     </div>
     <div class="cfg-grid">
-      <div class="cfg-field"><label>Business Name</label><input id="cfgName" value="My Business" placeholder="Your Company Name"/></div>
-      <div class="cfg-field"><label>Business Address</label><input id="cfgAddr" value="123 Business St, Chennai, India" placeholder="123 Main St, City"/></div>
+      <div class="cfg-field"><label>Business Name</label><input id="cfgName" value="My Business" placeholder="Your Company Name"/>CHARAN LOGISTICS PTE. LTD</div>
+      <div class="cfg-field"><label>Business Address</label><input id="cfgAddr" value="123 Business St, Chennai, India" placeholder="123 Main St, City"/>101 Kitchener Road #03-14 Singapore 208511</div>
       <div class="cfg-field" style="max-width:100px"><label>Currency</label><input id="cfgCur" value="SGD" placeholder="SGD"/></div>
     </div>
     <div class="cfg-row">
@@ -554,10 +554,10 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   <button class="sb-btn" id="sb-whatsapp" onclick="showPanel('whatsapp',this)">
     <span class="sb-ico">💬</span> WhatsApp
   </button>
+  
   <button class="sb-btn" id="sb-addinvoice" onclick="showPanel('addinvoice',this)">
     <span class="sb-ico">➕</span> Add Invoice
   </button>
-
   <div class="sb-divider" style="margin-top:auto"></div>
   <button class="sb-signout" onclick="signOut()">🚪 Sign Out</button>
 </nav>
@@ -647,14 +647,14 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         </div>
         <button class="btn btn-outline btn-sm" onclick="prCancelEdit()">✕ Cancel</button>
       </div>
-      <div id="pr-warn" class="pr-warn-note" style="display:none">⚠️ Supabase not configured. Contact admin.</div>
-      <div id="pr-ok" class="pr-info-note" style="display:none">✅ Connected to Supabase — salary slips save automatically.</div>
+      <div id="pr-warn" class="pr-warn-note" style="display:none">⚠️ Database not configured. Contact admin.</div>
+      <div id="pr-ok" class="pr-info-note" style="display:none">✅ Connected to Database — salary slips save automatically.</div>
 
       <div class="pr-card">
         <div class="pr-card-title">Employee Details</div>
         <div class="pr-form-grid">
           <div class="pr-field"><label>Employee Name</label><input type="text" id="ps_name" placeholder="Full Name"/></div>
-          <div class="pr-field"><label>NRIC No.</label><input type="text" id="ps_nric" placeholder="e.g. S1234567A"/></div>
+          <div class="pr-field"><label>NRIC/FIN No.</label><input type="text" id="ps_nric" placeholder="e.g. S1234567A"/></div>
           <div class="pr-field"><label>Designation</label><input type="text" id="ps_desig" placeholder="e.g. Driver"/></div>
           <div class="pr-field"><label>Salary Month</label><input type="month" id="ps_month"/></div>
           <div class="pr-field"><label>Payment Date</label><input type="date" id="ps_paydate"/></div>
@@ -692,7 +692,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       </div>
 
       <div class="pr-actions">
-        <button class="btn btn-green" id="pr-btn-save" onclick="prSave()">💾 Save to Supabase</button>
+        <button class="btn btn-green" id="pr-btn-save" onclick="prSave()">💾 Save</button>
         <button class="btn btn-dark" onclick="prGenPDF()">⬇ Download PDF</button>
       </div>
     </div>
@@ -859,7 +859,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-
 <!-- ══════════ ADD INVOICE PANEL ══════════ -->
 <div id="panel-addinvoice" class="panel">
   <div class="page">
@@ -895,10 +894,10 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   <label>Billing Date <span style="color:#c0282e">*</span></label>
   <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
 </div>
-        <div class="pr-field">
+        <!--div class="pr-field">
           <label>Billing Date <span style="color:#c0282e">*</span></label>
           <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
-        </div>
+        </div-->
         <div class="pr-field">
           <label>Status <span style="color:#c0282e">*</span></label>
           <select id="ai_status" oninput="aiClearErr('ai_status')">
@@ -985,7 +984,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 
   </div>
 </div>
-
 </div><!-- /content-area -->
 </div><!-- /app-body -->
 
@@ -1029,10 +1027,103 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         <button class="btn btn-white btn-sm" onclick="printInv()">🖨 Print</button>
         <button class="btn btn-primary btn-sm" onclick="dlPDF()">⬇ PDF</button>
         <button class="btn btn-white btn-sm" onclick="shareInv()">📤 Share</button>
+        <button class="btn btn-white btn-sm" onclick="openEditInvoiceModal()">✎ Edit</button>
+        <button class="btn btn-sm" id="markPaidBtn" onclick="markAsPaid()" style="background:#e4f7ee;color:#0a7a4b;border:1.5px solid #0a7a4b;">✓ Mark as Paid</button>
         <button class="xbtn" onclick="closeModal()">✕</button>
       </div>
     </div>
     <div id="invDoc"></div>
+  </div>
+</div>
+
+<!-- EDIT INVOICE MODAL -->
+<div class="overlay" id="editInvoiceOverlay" onclick="editInvoiceOverlayClick(event)">
+  <div class="modal" id="editInvoiceModal">
+    <div class="modal-bar">
+      <span class="modal-bar-lbl" id="editInvLabel">Edit Invoice</span>
+      <button class="xbtn" onclick="closeEditInvoiceModal()">✕</button>
+    </div>
+    <div style="padding: 1.5rem;">
+      <!-- Success / Error banner -->
+      <div id="ei-success" style="display:none;background:#e4f7ee;border:1.5px solid #0a7a4b;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#0a7a4b;font-weight:600;">
+        ✅ <span id="ei-success-msg"></span>
+      </div>
+      <div id="ei-error" style="display:none;background:#fdeaea;border:1.5px solid #c0282e;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#c0282e;font-weight:600;">
+        ❌ <span id="ei-error-msg"></span>
+      </div>
+
+      <!-- Invoice Header -->
+      <div class="pr-card">
+        <div class="pr-card-title">Invoice Details</div>
+        <div class="pr-form-grid">
+          <div class="pr-field">
+            <label>Invoice Number <span style="color:#c0282e">*</span></label>
+            <input type="text" id="ei_invnum" placeholder="e.g. 2026/00001" disabled style="background:#f5f5f5;cursor:not-allowed;"/>
+          </div>
+          <div class="pr-field">
+            <label>Billing Date <span style="color:#c0282e">*</span></label>
+            <input type="date" id="ei_billingdate" oninput="eiClearErr('ei_billingdate')"/>
+          </div>
+          <div class="pr-field">
+            <label>Status <span style="color:#c0282e">*</span></label>
+            <select id="ei_status" oninput="eiClearErr('ei_status')">
+              <option value="">— Select —</option>
+              <option value="pending">Pending</option>
+              <option value="paid">Paid</option>
+              <option value="overdue">Overdue</option>
+            </select>
+          </div>
+          <div class="pr-field span2">
+            <label>Client Name <span style="color:#c0282e">*</span></label>
+            <input type="text" id="ei_name" placeholder="e.g. ABC Pte Ltd" oninput="eiClearErr('ei_name')"/>
+          </div>
+          <div class="pr-field span2">
+            <label>Client Address</label>
+            <input type="text" id="ei_address" placeholder="e.g. 10 Anson Road, Singapore 079903"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Line Items -->
+      <div class="pr-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <div class="pr-card-title" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">Line Items</div>
+          <button class="qt-add-row-btn" style="margin-top:0" onclick="eiAddRow()">+ Add Row</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="qt-items-table" style="min-width:580px">
+            <thead><tr>
+              <th style="width:36px">#</th>
+              <th>Date</th>
+              <th>Description <span style="color:#f0d080">*</span></th>
+              <th style="width:70px;text-align:center">Qty <span style="color:#f0d080">*</span></th>
+              <th style="width:120px;text-align:right">Rate (S$) <span style="color:#f0d080">*</span></th>
+              <th style="width:120px;text-align:right">Amount (S$)</th>
+              <th style="width:36px"></th>
+            </tr></thead>
+            <tbody id="ei_tbody"></tbody>
+          </table>
+        </div>
+        <!-- Totals -->
+        <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:24px;align-items:center;flex-wrap:wrap;">
+          <div style="text-align:right">
+            <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#7a6e58">Total Amount</div>
+            <div style="font-size:1.6rem;font-weight:700;font-family:'Outfit',serif;color:var(--gold)" id="ei_total">S$ 0.00</div>
+          </div>
+        </div>
+        <div style="margin-top:8px;font-size:.75rem;color:var(--muted)">
+          💡 Total is auto-calculated from line items. At least one line item with Description, Qty and Rate is required.
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="pr-actions">
+        <button class="btn btn-outline" onclick="closeEditInvoiceModal()">✕ Cancel</button>
+        <button class="btn btn-primary" id="ei-submit-btn" onclick="eiSubmit()">
+          ☁ Save Changes
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1052,7 +1143,7 @@ const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { user } } = await sb.auth.getUser();
   if (!user) { window.location.replace('./login.html'); return; }
-  initApp();
+  initApp(user);
 });
 window.addEventListener('pageshow', async function(e) {
   if (e.persisted || performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
@@ -1079,7 +1170,7 @@ function showPanel(name, btn) {
     prUpdateUI();
     prFetch();
   }
-  if (name === 'addinvoice') {
+    if (name === 'addinvoice') {
     aiInit();
   }
 }
@@ -1116,8 +1207,14 @@ let CFG = {
 let ALL=[], SHOWN=[], activeFilter='all', curInv=null;
 let currentPage = 1;
 let pageSize = DEFAULT_PAGE_SIZE;
+let CLIENTS = [];
+const invoiceLineItemCache = {};
 
-function initApp() {
+function initApp(user) {
+    const addInvoiceBtn = document.getElementById('sb-addinvoice');
+  if (addInvoiceBtn) {
+    addInvoiceBtn.style.display = user.email === 'saranyasriram2014@gmail.com' ? '' : 'none';
+  }
   const savedName = localStorage.getItem('im_name') || 'Charan Logistics';
   const savedAddr = localStorage.getItem('im_addr') || '';
   const savedCur  = localStorage.getItem('im_cur')  || 'SGD ';
@@ -1178,24 +1275,18 @@ function onPageSizeChange() {
 
 async function loadData(){
   loadingRow();
+  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
   try {
-    const [{ data: clients, error: e1 }, { data: lineItems, error: e2 }] = await Promise.all([
-      sb.from('clients').select('*').order('invoice_number', { ascending: false }),
-      sb.from('line_items').select('*')
-    ]);
+    const { data: clients, error: e1 } = await sb.from('clients').select('*').order('invoice_number', { ascending: false });
     if (e1) throw new Error('clients: ' + e1.message);
-    if (e2) throw new Error('line_items: ' + e2.message);
-    const mappedClients = (clients || []).map(c => ({
+    CLIENTS = (clients || []).map(c => ({
       invoice_number: c.invoice_number, name: c.name, address: c.address,
       billing_date: c.billing_date, due_date: c.due_date, status: c.status, total: c.total,
     }));
-    const mappedItems = (lineItems || []).map(li => ({
-      invoice_number: li.invoice_number, description: li.description,
-      qty: li.qty, unit_price: li.unit_price, date: li.date,
-    }));
-    ALL = build(mappedClients, mappedItems);
+
+    buildAllInvoices();
     renderStats();
-    applyFilters();
+    await applyFilters();
   } catch(e) {
     const msg = e.message || 'Unknown error';
     if (msg.includes('JWT') || msg.includes('auth') || msg.includes('401')) {
@@ -1214,7 +1305,52 @@ function getPrice(li){ return parseFloat(li.unit_price||li.price||li.amount||0)|
 function getInvNum(r){ const v=r.invoice_number||r.invoice_no||r.id||''; return String(v).trim(); }
 function getLineItemDate(li){ return li.date||li.delivery_date||li.service_date||li.item_date||''; }
 
-function build(clients, lineItems){
+function buildAllInvoices() {
+  ALL = build(CLIENTS);
+}
+
+async function fetchLineItemsForInvoiceNumbers(invoiceNumbers) {
+  const uniqNums = Array.from(new Set((invoiceNumbers || []).map(n => String(n||'').trim()).filter(Boolean)));
+  const missing = uniqNums.filter(n => !invoiceLineItemCache[n]);
+  if (!missing.length) return;
+  const { data, error } = await sb.from('line_items').select('*').in('invoice_number', missing);
+  if (error) throw new Error('line_items: ' + error.message);
+  const grouped = {};
+  (data || []).forEach(li => {
+    const num = getInvNum(li);
+    if (!num) return;
+    grouped[num] = grouped[num] || [];
+    grouped[num].push({
+      invoice_number: num,
+      description: li.description,
+      qty: li.qty,
+      unit_price: li.unit_price,
+      date: li.date,
+    });
+  });
+  Object.entries(grouped).forEach(([num, items]) => {
+    invoiceLineItemCache[num] = items;
+  });
+}
+
+function getPageInvoiceNumbers(source) {
+  const list = Array.isArray(source) && source.length ? source : CLIENTS;
+  const startIdx = (currentPage - 1) * pageSize;
+  return list.slice(startIdx, startIdx + pageSize).map(c => getInvNum(c)).filter(Boolean);
+}
+
+async function preloadLineItemsForCurrentPage() {
+  const source = SHOWN.length ? SHOWN : CLIENTS;
+  const invoiceNumbers = getPageInvoiceNumbers(source);
+  await fetchLineItemsForInvoiceNumbers(invoiceNumbers);
+}
+
+async function preloadLineItemsForInvoice(num) {
+  if (!num) return;
+  await fetchLineItemsForInvoiceNumbers([num]);
+}
+
+function build(clients){
   const validClients = clients.filter(c => {
     const num = getInvNum(c);
     if(!num) return false;
@@ -1227,10 +1363,7 @@ function build(clients, lineItems){
   });
   return validClients.map(c => {
     const num = getInvNum(c);
-    const items = lineItems.filter(li => {
-      const ln = getInvNum(li);
-      return ln && ln.trim().toLowerCase() === num.trim().toLowerCase();
-    });
+    const items = invoiceLineItemCache[num] || [];
     const calcTotal = items.reduce((s,li) => s + getQty(li)*getPrice(li), 0);
     const rawTotal = c.total || '0';
     const sheetTotal = parseFloat(String(rawTotal).trim().replace(/[$, ]/g,'')) || 0;
@@ -1252,21 +1385,24 @@ function renderStats(){
   ge('s3').textContent=pend.length; ge('s3a').textContent=cur+fmt(pend.reduce((s,i)=>s+i.total,0));
 }
 
-function setFilter(f, btn){
+async function setFilter(f, btn){
   activeFilter=f; currentPage=1;
   document.querySelectorAll('.pill').forEach(p=>p.className='pill');
   btn.classList.add('pill','a-'+f);
-  applyFilters();
+  await applyFilters();
 }
 
-function applyFilters(){
+async function applyFilters(){
   const q=(ge('qSearch').value||'').toLowerCase();
+  currentPage = 1;
+  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
   SHOWN = ALL.filter(inv=>{
     const mf = activeFilter==='all' || inv.status===activeFilter;
     const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr||'').toLowerCase().includes(q);
     return mf && mq;
   });
-  currentPage = 1;
+  await preloadLineItemsForCurrentPage();
+  buildAllInvoices();
   renderRows();
 }
 
@@ -1320,10 +1456,14 @@ function getPageRange(cur, total){
   return pages;
 }
 
-function goPage(p){
+async function goPage(p){
   const totalPages=Math.ceil(SHOWN.length/pageSize);
   if(p<1||p>totalPages) return;
-  currentPage=p; renderRows();
+  currentPage=p;
+  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
+  await preloadLineItemsForCurrentPage();
+  buildAllInvoices();
+  renderRows();
   ge('tBody').closest('.tcard').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -1333,17 +1473,37 @@ function mkBadge(s){
 }
 
 // ── INVOICE VIEW ──
-function openInv(num){
+async function openInv(num){
   const inv=ALL.find(i=>i.number===num);
   if(!inv) return;
+  await preloadLineItemsForInvoice(num);
+  inv.items = invoiceLineItemCache[num] || inv.items || [];
+  buildAllInvoices();
   curInv=inv;
   const cur='S$';
   ge('mLabel').textContent = `Invoice #${inv.number} · ${inv.name}`;
   const hasItems = inv.items && inv.items.length;
-  const hasLineItemDates = hasItems && inv.items.some(li => getLineItemDate(li));
+
+  // ✅ Sort line items by date ascending, then by row id as tiebreaker
+  const sortedItems = hasItems
+    ? [...inv.items].sort((a, b) => {
+        const parseDate = (li) => {
+          const raw = getLineItemDate(li);
+          if (!raw) return 0;
+          const [dd, mm, yyyy] = raw.split(/[-\/]/);
+          if (!dd || !mm || !yyyy) return 0;
+          return new Date(`${yyyy}-${mm}-${dd}`).getTime();
+        };
+        const dateDiff = parseDate(a) - parseDate(b);
+        if (dateDiff !== 0) return dateDiff;
+        return (a.id ?? 0) - (b.id ?? 0);
+      })
+    : [];
+
+  const hasLineItemDates = hasItems && sortedItems.some(li => getLineItemDate(li));
   const showDateCol = hasLineItemDates;
   const rows = hasItems
-    ? inv.items.map(li=>{
+    ? sortedItems.map(li=>{
         const q=getQty(li),p=getPrice(li),d=getDesc(li);
         const liDate=getLineItemDate(li);
         return `<tr>${showDateCol?`<td class="date-col">${liDate||'—'}</td>`:''}<td>${d}</td><td class="c">${q}</td><td class="r">${cur} ${fmt(p)}</td><td class="r bold">${cur} ${fmt(q*p)}</td></tr>`;
@@ -1391,13 +1551,28 @@ function openInv(num){
   ge('overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
+function sortLineItems(items) {
+  if (!items || !items.length) return [];
+  return [...items].sort((a, b) => {
+    const parseDate = (li) => {
+      const raw = getLineItemDate(li);
+      if (!raw) return 0;
+      const [dd, mm, yyyy] = raw.split(/[-\/]/);
+      if (!dd || !mm || !yyyy) return 0;
+      return new Date(`${yyyy}-${mm}-${dd}`).getTime();
+    };
+    const dateDiff = parseDate(a) - parseDate(b);
+    if (dateDiff !== 0) return dateDiff;
+    return (a.id ?? 0) - (b.id ?? 0);
+  });
+}
 function overlayClick(e){ if(e.target===ge('overlay')) closeModal(); }
 function closeModal(){ ge('overlay').classList.remove('open'); document.body.style.overflow=''; }
 
 // ── PDF GENERATION (full original) ──
 async function dlPDF(){ if(!curInv) return; const blob=await makePDF(curInv); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; const runNum=(curInv.number||'').split('/').pop()||'0000'; const clientName=(curInv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim(); const billingDate=(curInv.billingDate||'').replace(/[\/\-]/g,'-').trim(); a.download=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`; a.click(); URL.revokeObjectURL(url); }
 async function shareInv(){ if(!curInv) return; const blob=await makePDF(curInv); const runNum=(curInv.number||'').split('/').pop()||'0000'; const clientName=(curInv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim(); const billingDate=(curInv.billingDate||'').replace(/[\/\-]/g,'-').trim(); const fileName=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`; const file=new File([blob],fileName,{type:'application/pdf'}); if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:fileName.replace('.pdf',''),text:'Please find the attached invoice.'}).catch(()=>{});} else{const inv=curInv;const cur='S$';const message=`Invoice #${inv.number} from ${CFG.name}\n\nClient: ${inv.name}\nTotal: ${cur} ${fmt(inv.total)}\n\n${inv.billingDate?'Billing Date: '+inv.billingDate:''}\n${inv.due?'Due: '+inv.due:''}\n\nPlease find the attached invoice.`;window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank');} }
-async function quickPDF(num){ const inv=ALL.find(i=>i.number===num); if(inv){const blob=await makePDF(inv);const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;const runNum=(inv.number||'').split('/').pop()||'0000';const clientName=(inv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim();const billingDate=(inv.billingDate||'').replace(/[\/\-]/g,'-').trim();a.download=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`;a.click();URL.revokeObjectURL(url);} }
+async function quickPDF(num){ const inv=ALL.find(i=>i.number===num); if(inv){ await preloadLineItemsForInvoice(num); inv.items = invoiceLineItemCache[num] || inv.items || []; const blob=await makePDF(inv);const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;const runNum=(inv.number||'').split('/').pop()||'0000';const clientName=(inv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim();const billingDate=(inv.billingDate||'').replace(/[\/\-]/g,'-').trim();a.download=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`;a.click();URL.revokeObjectURL(url);} }
 
 async function makePDF(inv){
   const {jsPDF}=window.jspdf;
@@ -1443,8 +1618,8 @@ async function makePDF(inv){
       doc.text(lines[0],valX,ty); if(lines[1]){ty+=4.3;doc.text(lines[1],valX,ty);}
       ty+=5.0;
     });
-    doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,29,58);
-    doc.text('CHARAN LOGISTICS PTE. LTD',col2x,fy+8);
+    //doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,29,58);
+    //doc.text('CHARAN LOGISTICS PTE. LTD',col2x,fy+8);
     const imgStripY=297-22;
     if(_ftrImg){ doc.addImage(_ftrImg.d,_ftrImg.ext,0,imgStripY,W,22,'','NONE'); }
     else{
@@ -1483,7 +1658,7 @@ async function makePDF(inv){
   const hasLineItemDates=(inv.items||[]).some(li=>getLineItemDate(li));
   const tableY=partyY+14+aLines.length*5.5+3;
   const tableHead=hasLineItemDates?[['Date','Description','Qty','Rate','Amount']]:[['Description','Qty','Rate','Amount']];
-  const allRows=(inv.items||[]).map(li=>{
+  const allRows=sortLineItems(inv.items||[]).map(li=>{
     const q=getQty(li),p=getPrice(li),d=getDesc(li),liDate=getLineItemDate(li);
     if(hasLineItemDates) return [liDate||'—',d.toUpperCase(),String(q),cur+' '+fmt(p),cur+' '+fmt(q*p)];
     return [d.toUpperCase(),String(q),cur+' '+fmt(p),cur+' '+fmt(q*p)];
@@ -1614,7 +1789,7 @@ function prCalc() {
 }
 
 async function prFetch(manual=false) {
-  prSetSync('spin-dot','Loading from Supabase…');
+  prSetSync('spin-dot','Loading from Database…');
   ge('ph_loading').style.display='block';
   ge('ph_table_wrap').style.display='none';
   ge('ph_empty').style.display='none';
@@ -1690,7 +1865,7 @@ function prClearForm() {
   prEditingId = null;
   ge('pr-edit-banner').classList.remove('show');
   const btn = ge('pr-btn-save');
-  btn.innerHTML = '💾 Save to Supabase';
+  btn.innerHTML = '💾 Save';
   btn.style.background = ''; btn.style.color = '';
 }
 
@@ -1804,26 +1979,43 @@ function prSetSync(state, msg) {
 
 // ── SALARY PDF ──
 async function prGenPDF() {
-  // ── Save warning ──────────────────────────────────────────
+  // ── Validation ────────────────────────────────────────────
   const name = ge('ps_name').value.trim();
   const month = ge('ps_month').value.slice(0,7);
+  const basic = prNv('ps_basic');
+  ['ps_name','ps_month','ps_basic'].forEach(id=>ge(id).classList.remove('error'));
+  if(!name){ ge('ps_name').classList.add('error'); alert('Employee Name is required'); return; }
+  if(!month){ ge('ps_month').classList.add('error'); alert('Salary Month is required'); return; }
+  if(!basic||basic<=0){ ge('ps_basic').classList.add('error'); alert('Basic Pay is required'); return; }
+  // ── Save warning ──────────────────────────────────────────
+
   if(name && month) {
-    // Check if this record already exists in Supabase cache
     const existing = PR_ALL.find(r =>
       String(r.name||'').toLowerCase() === name.toLowerCase() &&
       String(r.month||'').slice(0,7) === month
     );
+
     if(!existing && !prEditingId) {
+      // NEW record — not saved at all
       const go = confirm(
         '⚠️ Unsaved Data Warning\n\n' +
-        'This salary slip for ' + name + ' (' + prFmtMonth(month) + ') has NOT been saved to Supabase yet.\n\n' +
-        'If you download now without saving, the data will be lost when you leave this page.\n\n' +
-        'Click OK to download anyway\nClick Cancel to go back and save first'
+        'This salary slip for ' + name + ' (' + prFmtMonth(month) + ') has NOT been saved yet.\n\n' +
+        'Download now without saving? Your data will be lost when you leave this page.\n\n' +
+        'OK = Download anyway\nCancel = Go back and Save first'
+      );
+      if(!go) return;
+
+    } else if(prEditingId) {
+      // EDIT mode — unsaved changes
+      const go = confirm(
+        '⚠️ Unsaved Changes Warning\n\n' +
+        'You are editing ' + name + ' (' + prFmtMonth(month) + ') and have NOT saved your changes yet.\n\n' +
+        'The PDF will reflect your current edits, but changes will be lost if you leave without saving.\n\n' +
+        'OK = Download with current changes (unsaved)\nCancel = Save first, then download'
       );
       if(!go) return;
     }
   }
-  // ─────────────────────────────────────────────────────────
   const rec = {
     id: prEditingId||'tmp',
     name: ge('ps_name').value.trim()||'—',
@@ -1899,11 +2091,11 @@ async function prGenPDFFromRecord(r) {
   doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);doc.setLineWidth(.4);
   doc.roundedRect(14,y,182,34,3,3,'FD');
   doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);
-  doc.text('EMPLOYEE NAME',20,y+8);doc.text('NRIC NO.',20,y+17);doc.text('DESIGNATION',20,y+26);
-  doc.text('PAYMENT DATE',108,y+8);doc.text('SALARY MONTH',108,y+17);doc.text('REFERENCE NO.',108,y+26);
+  doc.text('EMPLOYEE NAME',15,y+8);doc.text('NRIC/FIN NO.',15,y+17);doc.text('DESIGNATION',15,y+26);
+  doc.text('PAYMENT DATE',130,y+8);doc.text('SALARY MONTH',130,y+17);doc.text('REFERENCE NO.',130,y+26);
   doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(26,26,46);
-  doc.text(r.name||'—',62,y+8);doc.text(r.nric||'—',62,y+17);doc.text(r.desig||'—',62,y+26);
-  doc.text(r.paydate||'—',152,y+8);doc.text(ml,152,y+17);doc.text(r.ref||'—',152,y+26);
+  doc.text(r.name||'—',50,y+8);doc.text(r.nric||'—',50,y+17);doc.text(r.desig||'—',50,y+26);
+  doc.text(r.paydate||'—',165,y+8);doc.text(ml,165,y+17);doc.text(r.ref||'—',165,y+26);
 
   // Earnings / Deductions table
   y+=40; const cw=91;
@@ -1932,27 +2124,111 @@ async function prGenPDFFromRecord(r) {
   doc.text('TOTAL DEDUCTIONS',14+cw+4,y+86);doc.setTextColor(139,58,46);doc.text(ded.toFixed(2),14+cw+cw-5,y+86,{align:'right'});
 
   // Net salary box
-  y+=82;
-  doc.setFillColor(26,26,46);doc.roundedRect(14,y,182,26,3,3,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(200,190,160);
-  doc.text('NET SALARY PAYABLE',20,y+7);
-  doc.setFontSize(17);doc.setTextColor(201,168,76);
-  doc.text(prMf(net),190,y+17,{align:'right'});
+ // --- 3 Boxes instead of 1 ---
+y += 92;
+
+const boxW = 58;   // reduced width (182 / 3 ≈ 60 → keep margin safe)
+const gap = 3;
+
+// --- 1. Earnings ---
+doc.setFillColor(240,235,220);
+doc.roundedRect(14, y, boxW, 26, 3, 3, 'F');
+
+doc.setFont('helvetica','bold');
+doc.setFontSize(8.5);
+doc.setTextColor(26,26,46);
+doc.text('TOTAL EARNINGS', 18, y+7);
+
+doc.setFontSize(12);
+doc.setTextColor(74,103,65);
+doc.text(prMf(earn), 14 + boxW - 4, y+17, { align:'right' });
+
+
+// --- 2. Deductions ---
+const x2 = 14 + boxW + gap;
+
+doc.setFillColor(240,235,220);
+doc.roundedRect(x2, y, boxW, 26, 3, 3, 'F');
+
+doc.setFontSize(8.5);
+doc.setTextColor(26,26,46);
+doc.text('TOTAL DEDUCTIONS', x2 + 4, y+7);
+
+doc.setFontSize(12);
+doc.setTextColor(139,58,46);
+doc.text(prMf(ded), x2 + boxW - 4, y+17, { align:'right' });
+
+
+// --- 3. Net Salary (highlight) ---
+const x3 = x2 + boxW + gap;
+
+doc.setFillColor(26,26,46);
+doc.roundedRect(x3, y, boxW, 26, 3, 3, 'F');
+
+doc.setFontSize(8.5);
+doc.setTextColor(200,190,160);
+doc.text('NET SALARY', x3 + 4, y+7);
+
+doc.setFontSize(14);
+doc.setTextColor(201,168,76);
+doc.text(prMf(net), x3 + boxW - 4, y+17, { align:'right' });
 
   y+=32;
   doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);doc.roundedRect(14,y,182,16,3,3,'FD');
   doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);doc.text('AMOUNT IN WORDS:',18,y+5.5);
   doc.setFont('helvetica','italic');doc.setFontSize(8.5);doc.setTextColor(26,26,46);doc.text(words(net),18,y+13);
 
+
+  // --- Approval / Receipt Section ---
+y += 24;
+
+doc.setFont('helvetica','bold');
+doc.setFontSize(8);
+doc.setTextColor(120,110,88);
+
+// LEFT → Approved By
+doc.text('APPROVED BY', 20, y);
+
+// RIGHT → Received By
+doc.text('RECEIVED BY', 190, y, { align: 'right' });
+
+// Signature lines
+doc.setDrawColor(180);
+doc.setLineWidth(0.3);
+
+// Line under Approved By (left)
+doc.line(20, y+10, 80, y+10);
+
+// Line under Received By (right)
+doc.line(130, y+10, 190, y+10);
+
+
+// --- Seal & Signature (Right side below Received By) ---
+y += 18;
+
+doc.setFont('helvetica','bold');
+doc.setFontSize(8);
+doc.setTextColor(120,110,88);
+
+// Right aligned block
+doc.text('FOR CHARAN LOGISTICS', 190, y, { align: 'right' });
+
+// Signature line
+doc.line(130, y+10, 190, y+10);
+
+// Caption
+doc.setFontSize(7);
+doc.text('Authorised Signatory & Seal', 190, y+14, { align: 'right' });
   // QR Code - show in top right of footer area
-  if(prQrImg){
+  /*if(prQrImg){
     const qsz=28;
     const qx=210-8-qsz;
     const qy=297-FOOTER_H_PR+3;
     doc.addImage(prQrImg.d,prQrImg.ext,qx,qy,qsz,qsz,'','NONE');
     doc.setFont('helvetica','normal');doc.setFontSize(6);doc.setTextColor(200,190,160);
     doc.text('Scan to Pay',qx+qsz/2,qy+qsz+3.5,{align:'center'});
-  }
+  }*/
+
 
   doc.save(`SalarySlip_${(r.name||'').replace(/\s+/g,'_')}_${ml.replace(/\s/g,'_')}.pdf`);
 }
@@ -2214,7 +2490,7 @@ function aiClearRowErr(n) {
 }
 
 function aiReset() {
-  ['ai_invnum','ai_billingdate','ai_duedate','ai_name','ai_address'].forEach(id => {
+  ['ai_invnum','ai_billingdate','ai_name','ai_address'].forEach(id => {
     const el = ge(id);
     if(el){ el.value = ''; el.classList.remove('error'); }
   });
@@ -2356,7 +2632,7 @@ async function aiSubmit() {
       `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
     ge('ai-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
 
-    setTimeout(() => loadData(), 1000);
+    setTimeout(() => { loadData(); aiReset(); }, 1000);
 
   } catch(err) {
     ge('ai-error').style.display = 'block';
@@ -2380,6 +2656,7 @@ async function fetchClientAddress() {
     .from('clients')
     .select('name, address')
     .ilike('name', `%${clientName}%`)
+    .order('updated_at', { ascending: false }) // latest first
     .limit(1);
 
   if (error || !data || data.length === 0) {
@@ -2430,6 +2707,338 @@ async function fetchAutoInvoiceNumber() {
     btn.innerHTML = orig;
   }
 }
+async function markAsPaid() {
+  if (!curInv) return;
+
+  if (curInv.status === 'paid') {
+    alert('This invoice is already marked as Paid.');
+    return;
+  }
+
+  const password = prompt(
+    `🔐 Enter your login password to mark Invoice #${curInv.number} as Paid:\n\n` +
+    `Client: ${curInv.name}\nAmount: S$ ${fmt(curInv.total)}`
+  );
+
+  if (password === null) return; // cancelled
+  if (!password.trim()) { alert('❌ Password cannot be empty.'); return; }
+
+  // Re-authenticate using current user's email + entered password
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) { alert('❌ Session expired. Please log in again.'); return; }
+
+  const { error: authError } = await sb.auth.signInWithPassword({
+    email: user.email,
+    password: password.trim()
+  });
+
+  if (authError) {
+    alert('❌ Incorrect password. Access denied.');
+    return;
+  }
+
+  // Confirmed — update status
+  const confirmed = confirm(
+    `✅ Password verified!\n\nMark Invoice #${curInv.number} (${curInv.name}) as PAID?\n\nAmount: S$ ${fmt(curInv.total)}`
+  );
+  if (!confirmed) return;
+
+  try {
+    const { error } = await sb
+      .from('clients')
+      .update({ status: 'paid' })
+      .eq('invoice_number', curInv.number);
+
+    if (error) throw error;
+
+    alert(`✅ Invoice #${curInv.number} marked as Paid!`);
+    closeModal();
+    await loadData();
+  } catch (err) {
+    alert('❌ Update failed: ' + err.message);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  EDIT INVOICE FUNCTIONS
+// ══════════════════════════════════════════════════════════════
+let eiRowId = 0;
+
+function openEditInvoiceModal() {
+  if (!curInv) return;
+  
+  // Initialize edit form with current invoice data
+  ge('ei_invnum').value = curInv.number || '';
+  
+  // Convert billing date: DD-MM-YYYY → YYYY-MM-DD (for date input)
+  const billingDateRaw = curInv.billingDate || '';
+  let billingDateISO = '';
+  if (billingDateRaw) {
+    const parts = billingDateRaw.split('-');
+    if (parts.length === 3) {
+      const [dd, mm, yyyy] = parts;
+      billingDateISO = `${yyyy}-${mm}-${dd}`;
+    }
+  }
+  ge('ei_billingdate').value = billingDateISO;
+  ge('ei_status').value = curInv.status || '';
+  ge('ei_name').value = curInv.name || '';
+  ge('ei_address').value = curInv.addr || '';
+  
+  // Clear previous line items
+  ge('ei_tbody').innerHTML = '';
+  eiRowId = 0;
+  
+  // Populate line items with same sort order as view modal (by date ascending)
+  if (curInv.items && curInv.items.length > 0) {
+    // Sort line items by date ascending, then by row id as tiebreaker (same as view modal)
+    const sortedItems = [...curInv.items].sort((a, b) => {
+      const parseDate = (li) => {
+        const raw = getLineItemDate(li);
+        if (!raw) return 0;
+        const [dd, mm, yyyy] = raw.split(/[-\/]/);
+        if (!dd || !mm || !yyyy) return 0;
+        return new Date(`${yyyy}-${mm}-${dd}`).getTime();
+      };
+      const dateDiff = parseDate(a) - parseDate(b);
+      if (dateDiff !== 0) return dateDiff;
+      return (a.id ?? 0) - (b.id ?? 0);
+    });
+    
+    sortedItems.forEach(li => {
+      let date = getLineItemDate(li) || '';
+      // Convert date from DD-MM-YYYY to YYYY-MM-DD for date input
+      if (date) {
+        const parts = date.split('-');
+        if (parts.length === 3) {
+          const [dd, mm, yyyy] = parts;
+          date = `${yyyy}-${mm}-${dd}`;
+        }
+      }
+      const desc = getDesc(li) || '';
+      const qty = getQty(li) || '';
+      const rate = getPrice(li) || '';
+      eiAddRow(date, desc, qty, rate);
+    });
+  } else {
+    // Add 3 blank rows if no items
+    eiAddRow(); eiAddRow(); eiAddRow();
+  }
+  
+  eiCalcTotal();
+  ge('ei-success').style.display = 'none';
+  ge('ei-error').style.display = 'none';
+  
+  // Open edit modal
+  ge('editInvoiceOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEditInvoiceModal() {
+  ge('editInvoiceOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function editInvoiceOverlayClick(e) {
+  if (e.target === ge('editInvoiceOverlay')) {
+    closeEditInvoiceModal();
+  }
+}
+
+function eiAddRow(date='', desc='', qty='', rate='') {
+  eiRowId++;
+  const n = eiRowId;
+  const idx = ge('ei_tbody').children.length + 1;
+  const tr = document.createElement('tr');
+  tr.id = 'eirow' + n;
+  tr.innerHTML = `
+    <td style="text-align:center;color:#7a6e58;font-weight:600;font-size:.82rem">${idx}</td>
+    <td><input type="date" value="${date}" oninput="eiCalcTotal()" style="min-width:130px"/></td>
+    <td><input type="text" placeholder="Description" value="${desc}" oninput="eiClearRowErr(${n});eiCalcTotal()"/></td>
+    <td><input type="number" placeholder="1" value="${qty}" min="0.01" step="0.01" oninput="eiClearRowErr(${n});eiCalcTotal()" style="text-align:center"/></td>
+    <td><input type="number" placeholder="0.00" value="${rate}" min="0" step="0.01" oninput="eiClearRowErr(${n});eiCalcTotal()" style="text-align:right"/></td>
+    <td style="text-align:right;font-weight:600;font-size:.85rem;color:var(--ink)" id="eiamt${n}">S$ 0.00</td>
+    <td><button class="qt-del-btn" onclick="eiDelRow(${n})" title="Remove row">✕</button></td>`;
+  ge('ei_tbody').appendChild(tr);
+  eiCalcTotal();
+}
+
+function eiDelRow(n) {
+  ge('eirow' + n)?.remove();
+  // renumber
+  [...ge('ei_tbody').children].forEach((r, i) => r.cells[0].textContent = i + 1);
+  eiCalcTotal();
+}
+
+function eiCalcTotal() {
+  let total = 0;
+  [...ge('ei_tbody').querySelectorAll('tr')].forEach(r => {
+    const qty  = parseFloat(r.cells[3].querySelector('input').value) || 0;
+    const rate = parseFloat(r.cells[4].querySelector('input').value) || 0;
+    const amt  = qty * rate;
+    total += amt;
+    const id = r.id.replace('eirow','');
+    const el = ge('eiamt' + id);
+    if(el) el.textContent = 'S$ ' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  });
+  ge('ei_total').textContent = 'S$ ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  return total;
+}
+
+function eiClearErr(id) {
+  ge(id)?.classList.remove('error');
+}
+
+function eiClearRowErr(n) {
+  const row = ge('eirow' + n);
+  if(row) row.querySelectorAll('input').forEach(i => i.classList.remove('error'));
+}
+
+async function eiSubmit() {
+  // Hide banners
+  ge('ei-success').style.display = 'none';
+  ge('ei-error').style.display = 'none';
+
+  // Validate header fields
+  let valid = true;
+  const req = [
+    { id:'ei_billingdate',label:'Billing Date'   },
+    { id:'ei_status',     label:'Status'         },
+    { id:'ei_name',       label:'Client Name'    },
+  ];
+  req.forEach(({id}) => {
+    const el = ge(id);
+    if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+  });
+  if (!valid) {
+    ge('ei-error').style.display = 'block';
+    ge('ei-error-msg').textContent = 'Please fill all required fields marked with *.';
+    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
+    return;
+  }
+
+  // Convert billing date: YYYY-MM-DD → DD-MM-YYYY
+  const billingDateRaw = ge('ei_billingdate').value;
+  const [by, bm, bd] = billingDateRaw.split('-');
+  const billingDate = `${bd}-${bm}-${by}`;
+
+  // Validate line items
+  const rows = [...ge('ei_tbody').querySelectorAll('tr')];
+  const lineItems = [];
+  let liValid = true, hasAtLeastOne = false;
+
+  rows.forEach(r => {
+    const desc      = r.cells[2].querySelector('input').value.trim();
+    const qty       = parseFloat(r.cells[3].querySelector('input').value);
+    const rate      = parseFloat(r.cells[4].querySelector('input').value);
+    const dateInput = r.cells[1].querySelector('input');
+
+    // Skip fully blank rows
+    if (!desc && !qty && !rate) return;
+
+    hasAtLeastOne = true;
+    let rowOk = true;
+
+    if (!desc)               { r.cells[2].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+    if (!qty || qty <= 0)    { r.cells[3].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+    if (isNaN(rate)||rate<0) { r.cells[4].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
+
+    // Convert line-item date: YYYY-MM-DD → DD-MM-YYYY (null if blank)
+    let dateVal = null;
+    if (dateInput.value) {
+      const [y, m, d] = dateInput.value.split('-');
+      dateVal = `${d}-${m}-${y}`;
+    }
+
+    if (rowOk) {
+      lineItems.push({
+        invoice_number: curInv.number,
+        description:    desc,
+        qty:            qty,
+        unit_price:     rate,
+        date:           dateVal,
+      });
+    }
+  });
+
+  if (!hasAtLeastOne) {
+    ge('ei-error').style.display = 'block';
+    ge('ei-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.';
+    return;
+  }
+  if (!liValid) {
+    ge('ei-error').style.display = 'block';
+    ge('ei-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.';
+    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
+    return;
+  }
+
+  // Calculate total
+  const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
+
+  // Build client record
+  const clientRecord = {
+    invoice_number: curInv.number,
+    name:           ge('ei_name').value.trim(),
+    address:        ge('ei_address').value.trim() || null,
+    billing_date:   billingDate,
+    status:         ge('ei_status').value,
+    total:          total,
+  };
+
+  // Disable button / show loading
+  const btn  = ge('ei-submit-btn');
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
+
+  try {
+    // 1. Upsert into clients
+    const { error: e1 } = await sb
+      .from('clients')
+      .upsert(clientRecord, { onConflict: 'invoice_number' });
+    if (e1) throw new Error('clients table: ' + e1.message);
+
+    // 2. Delete existing line items for this invoice
+    const { error: e2 } = await sb
+      .from('line_items')
+      .delete()
+      .eq('invoice_number', clientRecord.invoice_number);
+    if (e2) throw new Error('clearing line_items: ' + e2.message);
+
+    // 3. Insert new line items
+    const { error: e3 } = await sb
+      .from('line_items')
+      .insert(lineItems);
+    if (e3) throw new Error('line_items table: ' + e3.message);
+
+    // Success
+    delete invoiceLineItemCache[clientRecord.invoice_number];
+    ge('ei-success').style.display = 'block';
+    ge('ei-success-msg').textContent =
+      `Invoice ${clientRecord.invoice_number} updated! ` +
+      `${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · ` +
+      `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+    ge('ei-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
+
+    setTimeout(() => {
+      loadData().then(()=>{;
+      closeEditInvoiceModal();
+      // Reload the invoice display
+      openInv(clientRecord.invoice_number);
+      })
+    }, 1000);
+
+  } catch(err) {
+    ge('ei-error').style.display = 'block';
+    ge('ei-error-msg').textContent = 'Save failed: ' + err.message;
+    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = orig;
+  }
+}
+
 </script>
 </body>
 </html>
