@@ -21,7 +21,6 @@
   --sh-md:0 8px 30px rgba(11,29,58,.13);
   --sh-lg:0 24px 60px rgba(11,29,58,.22);
   --r:12px;
-  /* Payroll / Gold palette */
   --gold:#c9a84c; --gold-light:#f0d080; --cream:#faf7f0;
   --sage:#4a6741; --pborder:#d4c9a8;
 }
@@ -32,11 +31,9 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 ::-webkit-scrollbar-track{background:var(--pale);}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 
-/* ── HEADER BANNER ─────────────────────────────────────────── */
 .header-banner{line-height:0;}
 .header-banner-img{width:100%!important;max-height:160px;object-fit:cover!important;display:block!important;}
 
-/* ── NAV ─────────────────────────────────────────────────── */
 .nav{
   position:sticky;top:0;z-index:300;background:var(--ink);
   height:60px;display:flex;align-items:center;padding:0 1rem;
@@ -49,7 +46,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .nav-name span{color:var(--sky);}
 .nav-right{display:flex;align-items:center;gap:.6rem;}
 
-/* ── SIDEBAR LAYOUT ──────────────────────────────────────── */
 .app-body{display:flex;flex:1;min-height:0;}
 .sidebar{
   width:220px;min-width:220px;background:var(--ink);
@@ -75,15 +71,12 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .sb-signout{margin-top:auto;display:flex;align-items:center;gap:.6rem;padding:.5rem .75rem;border-radius:8px;font-size:.82rem;cursor:pointer;border:1px solid rgba(229,115,115,.35);background:none;color:rgba(229,115,115,.8);font-family:'Outfit',sans-serif;font-weight:500;width:100%;transition:all .2s;}
 .sb-signout:hover{background:rgba(192,57,43,.8);color:#fff;border-color:#c0392b;}
 
-/* ── CONTENT AREA ────────────────────────────────────────── */
 .content-area{flex:1;overflow-y:auto;min-width:0;}
 .page{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem 3rem;}
 
-/* ── PANELS ──────────────────────────────────────────────── */
 .panel{display:none;}
 .panel.active{display:block;animation:up .3s ease both;}
 
-/* ── BUTTONS ─────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;border-radius:8px;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;border:none;transition:all .18s;text-decoration:none;white-space:nowrap;}
 .btn-primary{background:var(--sky);color:white;} .btn-primary:hover{background:var(--steel);transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,196,.4);}
 .btn-ghost{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.15);} .btn-ghost:hover{background:rgba(255,255,255,.18);}
@@ -95,7 +88,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .btn-outline{background:#fff;border:1.5px solid var(--border);color:var(--ink);} .btn-outline:hover{border-color:var(--ink);}
 .btn-outline-red{background:#fff;border:1.5px solid #e57373;color:#c0392b;} .btn-outline-red:hover{background:#c0392b;color:#fff;}
 
-/* ── CFG PANEL ───────────────────────────────────────────── */
 .cfg-panel{background:linear-gradient(110deg,var(--navy) 0%,var(--mid) 65%,#1f5299 100%);border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden;max-height:300px;transition:max-height .4s ease,opacity .3s ease;}
 .cfg-panel.hidden{max-height:0;opacity:0;}
 .cfg-inner{padding:1.4rem 2rem 1.75rem;}
@@ -110,7 +102,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .cfg-row{display:flex;align-items:center;gap:.75rem;}
 .cfg-status{font-size:.78rem;color:rgba(255,255,255,.55);}
 
-/* ── STATS ───────────────────────────────────────────────── */
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:1.8rem;}
 @media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr);}}
 @media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr);}}
@@ -129,7 +120,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .stat-perf-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sky);margin-bottom:.2rem;font-weight:600;}
 .stat-perf-sub{font-size:.72rem;color:var(--muted);}
 
-/* ── DASH HEAD ───────────────────────────────────────────── */
 .dhead{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1rem;}
 .dhead-title{font-family:'Outfit',serif;font-size:1.15rem;color:var(--ink);}
 .dhead-right{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;}
@@ -144,7 +134,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .pill.a-pending{background:var(--pend-bg);color:var(--pend-tx);border-color:var(--pend-tx);}
 .pill.a-overdue{background:var(--over-bg);color:var(--over-tx);border-color:var(--over-tx);}
 
-/* ── PAGINATION ──────────────────────────────────────────── */
 .pagination-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.65rem;padding:.85rem 1.1rem;background:white;border-top:1px solid var(--border);border-radius:0 0 var(--r) var(--r);}
 .pagination-info{font-size:.78rem;color:var(--muted);}
 .pagination-controls{display:flex;align-items:center;gap:.45rem;}
@@ -156,7 +145,6 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .page-size-select{background:white;border:1.5px solid var(--border);border-radius:6px;padding:.22rem .5rem;font-family:'Outfit',sans-serif;font-size:.78rem;color:var(--ink);cursor:pointer;transition:border-color .15s;}
 .page-size-select:focus{outline:none;border-color:var(--sky);}
 
-/* ── TABLE ───────────────────────────────────────────────── */
 .tcard{background:white;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);overflow:hidden;animation:up .45s ease .1s both;}
 table{width:100%;border-collapse:collapse;}
 thead tr{background:var(--ink);}
@@ -177,7 +165,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .bdot{width:5px;height:5px;border-radius:50%;background:currentColor;}
 .acts{display:flex;gap:.35rem;justify-content:center;}
 
-/* ── STATE ───────────────────────────────────────────────── */
 .state{padding:3.8rem 2rem;text-align:center;}
 .state-ico{font-size:2.2rem;margin-bottom:.7rem;}
 .state-title{font-family:'Outfit',serif;font-size:1.2rem;margin-bottom:.35rem;}
@@ -187,7 +174,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 @keyframes rot{to{transform:rotate(360deg);}}
 @keyframes up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 
-/* ── OVERLAY / MODAL ─────────────────────────────────────── */
 .overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(7,18,38,.62);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:1.5rem;}
 .overlay.open{display:flex;}
 .modal{background:white;border-radius:18px;width:100%;max-width:800px;max-height:92vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:pop .28s cubic-bezier(.34,1.4,.64,1) both;}
@@ -198,9 +184,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .xbtn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:1.25rem;padding:.2rem .35rem;border-radius:6px;transition:all .15s;line-height:1;}
 .xbtn:hover{background:var(--pale);color:var(--ink);}
 
-/* ══════════════════════════════════════════════════════════
-   INVOICE DOCUMENT
-══════════════════════════════════════════════════════════ */
 #invDoc{padding:2.5rem 2.75rem;}
 .inv-hd{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:flex-start;margin-bottom:2rem;}
 .inv-brand{display:flex;gap:.9rem;align-items:flex-start;}
@@ -237,7 +220,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .inv-foot{background:var(--pale);border-radius:10px;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 .inv-foot-note{font-size:.79rem;color:var(--muted);}
 
-/* ── CHART MODAL ─────────────────────────────────────────── */
 .chart-overlay{display:none;position:fixed;inset:0;z-index:400;background:rgba(7,18,38,.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1.5rem;}
 .chart-overlay.open{display:flex;}
 .chart-modal{background:white;border-radius:18px;width:100%;max-width:860px;max-height:92vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:pop .28s cubic-bezier(.34,1.4,.64,1) both;}
@@ -263,9 +245,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .chart-tbl tbody tr:last-child td{border-bottom:none;}
 .chart-tbl tbody tr:hover td{background:var(--ice);}
 
-/* ══════════════════════════════════════════════════════════
-   PAYROLL STYLES
-══════════════════════════════════════════════════════════ */
 .pr-card{background:#fff;border:1px solid var(--pborder);border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 2px 10px rgba(26,26,46,.07);}
 .pr-card-title{font-family:'Outfit',serif;font-size:.78rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block;}
 .pr-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;}
@@ -288,7 +267,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .pr-edit-banner-sub{font-size:11.5px;color:#a07830;margin-top:2px;}
 .pr-info-note{background:linear-gradient(135deg,#fff9ec,#fff3d4);border:1px solid var(--gold);border-radius:8px;padding:10px 14px;font-size:12px;color:#7a5c10;margin-bottom:16px;}
 .pr-warn-note{background:#fdecea;border:1px solid #e57373;border-radius:8px;padding:10px 14px;font-size:12px;color:#c62828;margin-bottom:16px;}
-/* History table */
 .pr-hist-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
 .pr-hstat{background:#fff;border:1px solid var(--pborder);border-radius:10px;padding:14px 16px;box-shadow:0 2px 8px rgba(26,26,46,.06);border-left:4px solid var(--gold);}
 .pr-hstat-val{font-family:'Outfit',serif;font-size:1.4rem;font-weight:700;color:var(--ink);}
@@ -319,16 +297,9 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .pr-sdot.spin-dot{background:var(--gold);animation:pulse-dot 1s infinite;}
 .pr-sdot.err{background:#e53935;}
 .pr-sdot.warn{background:#ff9800;}
-
- #ai_tbody input[type="number"]::placeholder {
-  color: #cccccc;
-  opacity: 1;
-}
+#ai_tbody input[type="number"]::placeholder{color:#cccccc;opacity:1;}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* ══════════════════════════════════════════════════════════
-   QUOTATION STYLES
-══════════════════════════════════════════════════════════ */
 .qt-items-table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:.82rem;}
 .qt-items-table th{background:var(--ink);color:var(--gold);padding:8px 10px;text-align:left;font-size:.67rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
 .qt-items-table td{padding:6px 10px;border-bottom:1px solid var(--pborder);vertical-align:middle;}
@@ -344,9 +315,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .qt-total-value{font-size:1.3rem;font-weight:700;font-family:'Outfit',serif;color:var(--ink);}
 .qt-total-value.grand{color:var(--gold);font-size:1.6rem;}
 
-/* ══════════════════════════════════════════════════════════
-   WHATSAPP STYLES
-══════════════════════════════════════════════════════════ */
 .wa-container{max-width:700px;margin:0 auto;}
 .wa-hero{background:linear-gradient(135deg,#128C7E,#25D366);border-radius:16px;padding:2rem;margin-bottom:1.5rem;color:white;text-align:center;}
 .wa-hero-ico{font-size:3rem;margin-bottom:.75rem;}
@@ -370,130 +338,53 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .wa-preview{background:linear-gradient(135deg,#e9f5f3,#d5f5e3);border:1.5px solid #25D366;border-radius:12px;padding:1rem;margin-top:.75rem;font-size:.82rem;color:#1a5c4f;white-space:pre-wrap;line-height:1.6;display:none;}
 .wa-preview.show{display:block;}
 
-/* ══════════════════════════════════════════════════════════
-   PAYROLL SUB-TABS
-══════════════════════════════════════════════════════════ */
 .pr-sub-tabs{display:flex;gap:.4rem;margin-bottom:1.2rem;background:rgba(11,29,58,.04);border-radius:10px;padding:4px;}
 .pr-sub-tab{padding:.4rem 1rem;border-radius:8px;font-size:.82rem;font-weight:500;cursor:pointer;border:none;background:none;color:var(--muted);font-family:'Outfit',sans-serif;transition:all .18s;}
 .pr-sub-tab.active{background:white;color:var(--ink);box-shadow:0 2px 6px rgba(11,29,58,.1);}
 .pr-sub-panel{display:none;}
 .pr-sub-panel.active{display:block;}
 
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-/* ── COMBINED MOBILE OPTIMIZATION ────────────────────────── */
-/* ── COMPLETE MOBILE OPTIMIZATION (CLEAN & SAFE) ────────── */
-@media (max-width: 768px) {
-  /* 1. Prevent Horizontal White Space */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    position: relative;
-    margin: 0; padding: 0;
-  }
-
-  .app-container {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    display: block;
-  }
-
-  /* 2. Sidebar & Overlay */
-  .sidebar {
-    display: none; 
-    position: fixed; 
-    z-index: 250; 
-    left: 0; top: 60px; 
-    width: 260px; 
-    height: calc(100vh - 60px); 
-    transform: translateX(-100%); 
-    transition: transform .25s;
-  }
-  .sidebar.open { display: flex; transform: translateX(0); }
-  .sb-overlay {
-    display: none; position: fixed; inset: 0; top: 60px;
-    background: rgba(0,0,0,.4); z-index: 240;
-  }
-  .sb-overlay.show { display: block; }
-  .nav-hamburger { display: flex !important; }
-
-  /* 3. Dashboard Layout */
-  .page { 
-    padding: 1rem 10px 2rem !important; 
-    width: 100% !important;
-    box-sizing: border-box;
-  }
-  .app-body { flex-direction: column; width: 100%; }
-  
-  /* Stats: 2 columns to fit screen width */
-  .stats { 
-    grid-template-columns: repeat(2, 1fr) !important; 
-    gap: 0.5rem; 
-    width: 100% !important;
-  }
-  .stat-val { font-size: 1.2rem; }
-
-  /* Search & Header */
-  .dhead-right { width: 100%; flex-direction: column; gap: 10px; }
-  .search { width: 100% !important; }
-  .search input { width: 100% !important; }
-
-  /* 4. The "Table/Scroll" Fix (Removes White Space) */
-  /* This forces tables to scroll INSIDE their cards */
-  .tcard, .chart-tbl-wrap, .qt-items-table, .pr-hist-table {
-    width: 100% !important;
-    max-width: calc(100vw - 20px) !important;
-    overflow-x: auto !important;
-    display: block;
-    -webkit-overflow-scrolling: touch;
-    box-sizing: border-box;
-  }
-  
-  /* Ensure tables don't squish too much, just scroll */
-  table { min-width: 500px; }
-
-  /* 5. View Card (Invoice) Clarity */
-  #invDoc { padding: 1rem !important; }
-  .inv-hd, .inv-parties { 
-    grid-template-columns: 1fr !important; 
-    gap: 15px; 
-  }
-  .inv-numbox { text-align: left !important; }
-  .totals-box { width: 100% !important; margin-left: 0; }
-  .inv-foot { flex-direction: column; gap: 10px; }
-
-  /* 6. Monthly Chart & Modals */
-  .chart-modal { width: 95% !important; margin: 10px auto; }
-  .chart-wrap { height: 250px !important; }
-  .chart-summary { grid-template-columns: 1fr !important; }
-  .chart-body { padding: 10px; }
-
-  /* 7. Forms & History */
-  .pr-form-grid, .pr-form-grid.three { grid-template-columns: 1fr; }
-  .pr-field.span2 { grid-column: span 1; }
-  .pr-hist-stats { grid-template-columns: 1fr 1fr; }
-  .wa-quick-btns { grid-template-columns: 1fr; }
+@media(max-width:768px){
+  html,body{overflow-x:hidden!important;width:100%!important;position:relative;margin:0;padding:0;}
+  .app-container{overflow-x:hidden!important;width:100%!important;display:block;}
+  .sidebar{display:none;position:fixed;z-index:250;left:0;top:60px;width:260px;height:calc(100vh - 60px);transform:translateX(-100%);transition:transform .25s;}
+  .sidebar.open{display:flex;transform:translateX(0);}
+  .sb-overlay{display:none;position:fixed;inset:0;top:60px;background:rgba(0,0,0,.4);z-index:240;}
+  .sb-overlay.show{display:block;}
+  .nav-hamburger{display:flex!important;}
+  .page{padding:1rem 10px 2rem!important;width:100%!important;box-sizing:border-box;}
+  .app-body{flex-direction:column;width:100%;}
+  .stats{grid-template-columns:repeat(2,1fr)!important;gap:0.5rem;width:100%!important;}
+  .stat-val{font-size:1.2rem;}
+  .dhead-right{width:100%;flex-direction:column;gap:10px;}
+  .search{width:100%!important;}
+  .search input{width:100%!important;}
+  .tcard,.chart-tbl-wrap,.qt-items-table,.pr-hist-table{width:100%!important;max-width:calc(100vw - 20px)!important;overflow-x:auto!important;display:block;-webkit-overflow-scrolling:touch;box-sizing:border-box;}
+  table{min-width:500px;}
+  #invDoc{padding:1rem!important;}
+  .inv-hd,.inv-parties{grid-template-columns:1fr!important;gap:15px;}
+  .inv-numbox{text-align:left!important;}
+  .totals-box{width:100%!important;margin-left:0;}
+  .inv-foot{flex-direction:column;gap:10px;}
+  .chart-modal{width:95%!important;margin:10px auto;}
+  .chart-wrap{height:250px!important;}
+  .chart-summary{grid-template-columns:1fr!important;}
+  .chart-body{padding:10px;}
+  .pr-form-grid,.pr-form-grid.three{grid-template-columns:1fr;}
+  .pr-field.span2{grid-column:span 1;}
+  .pr-hist-stats{grid-template-columns:1fr 1fr;}
+  .wa-quick-btns{grid-template-columns:1fr;}
 }
-
-/* Base Hamburger Styles */
-.nav-hamburger { 
-  display: none; background: rgba(255,255,255,.1); 
-  border: 1px solid rgba(255,255,255,.2); 
-  border-radius: 7px; color: white; 
-  padding: .3rem .5rem; cursor: pointer; font-size: 1.1rem; 
-}canvas {
-  max-width: 100% !important;
-  height: auto !important;
-}
+.nav-hamburger{display:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:7px;color:white;padding:.3rem .5rem;cursor:pointer;font-size:1.1rem;}
+canvas{max-width:100%!important;height:auto!important;}
 </style>
 </head>
 <body>
 
-<!-- HEADER BANNER -->
 <div class="header-banner">
   <img src="header.png" alt="Header" class="header-banner-img"/>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-brand">
     <button class="nav-hamburger" id="sb-toggle" onclick="toggleSidebar()">☰</button>
@@ -508,7 +399,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </nav>
 
-<!-- CFG PANEL -->
 <div class="cfg-panel hidden" id="cfgPanel">
   <div class="cfg-inner">
     <div class="cfg-head">
@@ -516,8 +406,8 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       <p>Customise how invoices are displayed and printed.</p>
     </div>
     <div class="cfg-grid">
-      <div class="cfg-field"><label>Business Name</label><input id="cfgName" value="My Business" placeholder="Your Company Name"/>CHARAN LOGISTICS PTE. LTD</div>
-      <div class="cfg-field"><label>Business Address</label><input id="cfgAddr" value="123 Business St, Chennai, India" placeholder="123 Main St, City"/>101 Kitchener Road #03-14 Singapore 208511</div>
+      <div class="cfg-field"><label>Business Name</label><input id="cfgName" value="My Business" placeholder="Your Company Name"/></div>
+      <div class="cfg-field"><label>Business Address</label><input id="cfgAddr" value="123 Business St, Chennai, India" placeholder="123 Main St, City"/></div>
       <div class="cfg-field" style="max-width:100px"><label>Currency</label><input id="cfgCur" value="SGD" placeholder="SGD"/></div>
     </div>
     <div class="cfg-row">
@@ -527,25 +417,20 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- SIDEBAR OVERLAY (mobile) -->
 <div class="sb-overlay" id="sb-overlay" onclick="closeSidebar()"></div>
 
-<!-- APP BODY -->
 <div class="app-body">
 
-<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="sb-section">Invoicing</div>
   <button class="sb-btn active" id="sb-invoices" onclick="showPanel('invoices',this)">
     <span class="sb-ico">📋</span> Invoices
   </button>
-
   <div class="sb-divider"></div>
   <div class="sb-section">Payroll</div>
   <button class="sb-btn" id="sb-payroll" onclick="showPanel('payroll',this)">
     <span class="sb-ico">💰</span> Payroll
   </button>
-
   <div class="sb-divider"></div>
   <div class="sb-section">Tools</div>
   <button class="sb-btn" id="sb-quotation" onclick="showPanel('quotation',this)">
@@ -554,7 +439,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   <button class="sb-btn" id="sb-whatsapp" onclick="showPanel('whatsapp',this)">
     <span class="sb-ico">💬</span> WhatsApp
   </button>
-  
   <button class="sb-btn" id="sb-addinvoice" onclick="showPanel('addinvoice',this)">
     <span class="sb-ico">➕</span> Add Invoice
   </button>
@@ -562,13 +446,11 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   <button class="sb-signout" onclick="signOut()">🚪 Sign Out</button>
 </nav>
 
-<!-- CONTENT -->
 <div class="content-area" id="contentArea">
 
-<!-- ══════════ INVOICES PANEL ══════════ -->
+<!-- INVOICES PANEL -->
 <div id="panel-invoices" class="panel active">
   <div class="page">
-    <!-- STATS -->
     <div class="stats">
       <div class="stat" style="animation-delay:.05s"><div class="stat-lbl">Total Invoices</div><div class="stat-val" id="s0">—</div></div>
       <div class="stat" style="animation-delay:.1s"><div class="stat-lbl">Total Value</div><div class="stat-val" id="s1">—</div></div>
@@ -580,8 +462,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         <div class="stat-perf-sub">Click to view chart</div>
       </div>
     </div>
-
-    <!-- DASH HEADER -->
     <div class="dhead">
       <div class="dhead-title">All Invoices</div>
       <div class="dhead-right">
@@ -597,8 +477,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         </div>
       </div>
     </div>
-
-    <!-- TABLE -->
     <div class="tcard">
       <table>
         <thead><tr>
@@ -630,15 +508,13 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- ══════════ PAYROLL PANEL ══════════ -->
+<!-- PAYROLL PANEL -->
 <div id="panel-payroll" class="panel">
   <div class="page">
     <div class="pr-sub-tabs">
       <button class="pr-sub-tab active" id="prtab-slip" onclick="showPrTab('slip',this)">📄 Salary Slip</button>
       <button class="pr-sub-tab" id="prtab-history" onclick="showPrTab('history',this)">📊 Salary History</button>
     </div>
-
-    <!-- SALARY SLIP SUB-PANEL -->
     <div id="pr-sub-slip" class="pr-sub-panel active">
       <div class="pr-edit-banner" id="pr-edit-banner">
         <div>
@@ -649,7 +525,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       </div>
       <div id="pr-warn" class="pr-warn-note" style="display:none">⚠️ Database not configured. Contact admin.</div>
       <div id="pr-ok" class="pr-info-note" style="display:none">✅ Connected to Database — salary slips save automatically.</div>
-
       <div class="pr-card">
         <div class="pr-card-title">Employee Details</div>
         <div class="pr-form-grid">
@@ -661,7 +536,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <div class="pr-field"><label>Bank Reference No.</label><input type="text" id="ps_ref" placeholder="e.g. REF123456"/></div>
         </div>
       </div>
-
       <div class="pr-card">
         <div class="pr-card-title">Earnings</div>
         <div class="pr-form-grid three">
@@ -672,7 +546,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <div class="pr-field"><label>Other Earnings (S$)</label><input type="number" id="ps_earn_other" placeholder="0.00" min="0" step="0.01" oninput="prCalc()"/></div>
         </div>
       </div>
-
       <div class="pr-card">
         <div class="pr-card-title">Deductions</div>
         <div class="pr-form-grid three">
@@ -681,7 +554,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <div class="pr-field"><label>Other Deductions (S$)</label><input type="number" id="ps_ded_other" placeholder="0.00" min="0" step="0.01" oninput="prCalc()"/></div>
         </div>
       </div>
-
       <div class="pr-card">
         <div class="pr-card-title">Summary</div>
         <div class="pr-summary-row">
@@ -690,14 +562,11 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <div class="pr-sum-item"><div class="pr-sum-label">Net Salary Payable</div><div class="pr-sum-val gold" id="ps_net">S$ 0.00</div></div>
         </div>
       </div>
-
       <div class="pr-actions">
         <button class="btn btn-green" id="pr-btn-save" onclick="prSave()">💾 Save</button>
         <button class="btn btn-dark" onclick="prGenPDF()">⬇ Download PDF</button>
       </div>
     </div>
-
-    <!-- SALARY HISTORY SUB-PANEL -->
     <div id="pr-sub-history" class="pr-sub-panel">
       <div class="pr-hist-stats">
         <div class="pr-hstat"><div class="pr-hstat-val" id="ph_records">—</div><div class="pr-hstat-lbl">Total Records</div></div>
@@ -755,7 +624,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- ══════════ QUOTATION PANEL ══════════ -->
+<!-- QUOTATION PANEL -->
 <div id="panel-quotation" class="panel">
   <div class="page">
     <div class="pr-info-note">💡 Fill quotation details and line items — export as PDF.</div>
@@ -797,7 +666,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- ══════════ WHATSAPP PANEL ══════════ -->
+<!-- WHATSAPP PANEL -->
 <div id="panel-whatsapp" class="panel">
   <div class="page">
     <div class="wa-container">
@@ -826,26 +695,11 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       </div>
       <div class="wa-compose">
         <h3>Compose Message</h3>
-        <div class="wa-field">
-          <label>WhatsApp Number (with country code)</label>
-          <input type="tel" id="wa_phone" placeholder="e.g. 6591858511 (no + or spaces)"/>
-        </div>
-        <div class="wa-field">
-          <label>Client / Company Name</label>
-          <input type="text" id="wa_name" placeholder="e.g. Mr. Dean / ABC Pte Ltd" oninput="waUpdatePreview()"/>
-        </div>
-        <div class="wa-field">
-          <label>Invoice / Reference No. (optional)</label>
-          <input type="text" id="wa_ref" placeholder="e.g. INV-2025-001" oninput="waUpdatePreview()"/>
-        </div>
-        <div class="wa-field">
-          <label>Amount (optional)</label>
-          <input type="text" id="wa_amount" placeholder="e.g. S$ 5,750.00" oninput="waUpdatePreview()"/>
-        </div>
-        <div class="wa-field">
-          <label>Message</label>
-          <textarea id="wa_msg" rows="5" placeholder="Type your message…" oninput="waUpdatePreview()"></textarea>
-        </div>
+        <div class="wa-field"><label>WhatsApp Number (with country code)</label><input type="tel" id="wa_phone" placeholder="e.g. 6591858511 (no + or spaces)"/></div>
+        <div class="wa-field"><label>Client / Company Name</label><input type="text" id="wa_name" placeholder="e.g. Mr. Dean / ABC Pte Ltd" oninput="waUpdatePreview()"/></div>
+        <div class="wa-field"><label>Invoice / Reference No. (optional)</label><input type="text" id="wa_ref" placeholder="e.g. INV-2025-001" oninput="waUpdatePreview()"/></div>
+        <div class="wa-field"><label>Amount (optional)</label><input type="text" id="wa_amount" placeholder="e.g. S$ 5,750.00" oninput="waUpdatePreview()"/></div>
+        <div class="wa-field"><label>Message</label><textarea id="wa_msg" rows="5" placeholder="Type your message…" oninput="waUpdatePreview()"></textarea></div>
         <div class="wa-preview" id="wa_preview"></div>
         <div style="display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap">
           <button class="wa-send-btn" onclick="waSend()">
@@ -859,45 +713,29 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- ══════════ ADD INVOICE PANEL ══════════ -->
+<!-- ADD INVOICE PANEL -->
 <div id="panel-addinvoice" class="panel">
   <div class="page">
-
-    <!-- Success / Error banner -->
     <div id="ai-success" style="display:none;background:#e4f7ee;border:1.5px solid #0a7a4b;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#0a7a4b;font-weight:600;">
       ✅ <span id="ai-success-msg"></span>
     </div>
     <div id="ai-error" style="display:none;background:#fdeaea;border:1.5px solid #c0282e;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#c0282e;font-weight:600;">
       ❌ <span id="ai-error-msg"></span>
     </div>
-
-    <!-- Client / Invoice Header -->
     <div class="pr-card">
       <div class="pr-card-title">Invoice Details</div>
       <div class="pr-form-grid">
         <div class="pr-field">
-  <label>Invoice Number <span style="color:#c0282e">*</span></label>
-  <div style="display:flex; gap:8px; align-items:center;">
-    <input type="text" id="ai_invnum" placeholder="e.g. 2026/00001"
-           oninput="aiClearErr('ai_invnum')"
-           style="flex:1; min-width:0;"/>
-    <button type="button" onclick="fetchAutoInvoiceNumber()"
-            style="white-space:nowrap; padding:6px 12px; background:#2b6cb0;
-                   color:white; border:none; border-radius:6px; cursor:pointer;
-                   font-size:13px; flex-shrink:0;">
-      Auto Number
-    </button>
-  </div>
-</div>
-
-<div class="pr-field">
-  <label>Billing Date <span style="color:#c0282e">*</span></label>
-  <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
-</div>
-        <!--div class="pr-field">
+          <label>Invoice Number <span style="color:#c0282e">*</span></label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="text" id="ai_invnum" placeholder="e.g. 2026/00001" oninput="aiClearErr('ai_invnum')" style="flex:1;min-width:0;"/>
+            <button type="button" onclick="fetchAutoInvoiceNumber()" style="white-space:nowrap;padding:6px 12px;background:#2b6cb0;color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;flex-shrink:0;">Auto Number</button>
+          </div>
+        </div>
+        <div class="pr-field">
           <label>Billing Date <span style="color:#c0282e">*</span></label>
           <input type="date" id="ai_billingdate" oninput="aiClearErr('ai_billingdate')"/>
-        </div-->
+        </div>
         <div class="pr-field">
           <label>Status <span style="color:#c0282e">*</span></label>
           <select id="ai_status" oninput="aiClearErr('ai_status')">
@@ -909,31 +747,10 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         </div>
         <div class="pr-field span2">
           <label>Client Name <span style="color:#c0282e">*</span></label>
-       <div style="display:flex; gap:8px; align-items:center;">
-  <input 
-    type="text" 
-    id="ai_name" 
-    placeholder="e.g. ABC Pte Ltd"
-    oninput="aiClearErr('ai_name')" 
-    style="flex:1;"
-  />
-
-  <button 
-    type="button" 
-    onclick="fetchClientAddress()" 
-    style="
-      white-space: nowrap;
-      padding: 6px 12px;
-      background:#2b6cb0;
-      color:white;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:13px;
-    ">
-    Fetch
-  </button>
-  </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="text" id="ai_name" placeholder="e.g. ABC Pte Ltd" oninput="aiClearErr('ai_name')" style="flex:1;"/>
+            <button type="button" onclick="fetchClientAddress()" style="white-space:nowrap;padding:6px 12px;background:#2b6cb0;color:white;border:none;border-radius:6px;cursor:pointer;font-size:13px;">Fetch</button>
+          </div>
         </div>
         <div class="pr-field span2">
           <label>Client Address</label>
@@ -941,8 +758,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
         </div>
       </div>
     </div>
-
-    <!-- Line Items -->
     <div class="pr-card">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
         <div class="pr-card-title" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">Line Items</div>
@@ -962,28 +777,21 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           <tbody id="ai_tbody"></tbody>
         </table>
       </div>
-      <!-- Totals -->
       <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:24px;align-items:center;flex-wrap:wrap;">
         <div style="text-align:right">
           <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#7a6e58">Total Amount</div>
           <div style="font-size:1.6rem;font-weight:700;font-family:'Outfit',serif;color:var(--gold)" id="ai_total">S$ 0.00</div>
         </div>
       </div>
-      <div style="margin-top:8px;font-size:.75rem;color:var(--muted)">
-        💡 Total is auto-calculated from line items. At least one line item with Description, Qty and Rate is required.
-      </div>
+      <div style="margin-top:8px;font-size:.75rem;color:var(--muted)">💡 Total is auto-calculated from line items. At least one line item with Description, Qty and Rate is required.</div>
     </div>
-
-    <!-- Actions -->
     <div class="pr-actions">
       <button class="btn btn-outline" onclick="aiReset()">✕ Clear All</button>
-      <button class="btn btn-primary" id="ai-submit-btn" onclick="aiSubmit()">
-        ☁ Save Invoice to Database
-      </button>
+      <button class="btn btn-primary" id="ai-submit-btn" onclick="aiSubmit()">☁ Save Invoice to Database</button>
     </div>
-
   </div>
 </div>
+
 </div><!-- /content-area -->
 </div><!-- /app-body -->
 
@@ -1018,7 +826,7 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   </div>
 </div>
 
-<!-- INVOICE MODAL -->
+<!-- INVOICE VIEW MODAL -->
 <div class="overlay" id="overlay" onclick="overlayClick(event)">
   <div class="modal" id="modal">
     <div class="modal-bar">
@@ -1043,16 +851,13 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
       <span class="modal-bar-lbl" id="editInvLabel">Edit Invoice</span>
       <button class="xbtn" onclick="closeEditInvoiceModal()">✕</button>
     </div>
-    <div style="padding: 1.5rem;">
-      <!-- Success / Error banner -->
+    <div style="padding:1.5rem;">
       <div id="ei-success" style="display:none;background:#e4f7ee;border:1.5px solid #0a7a4b;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#0a7a4b;font-weight:600;">
         ✅ <span id="ei-success-msg"></span>
       </div>
       <div id="ei-error" style="display:none;background:#fdeaea;border:1.5px solid #c0282e;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.88rem;color:#c0282e;font-weight:600;">
         ❌ <span id="ei-error-msg"></span>
       </div>
-
-      <!-- Invoice Header -->
       <div class="pr-card">
         <div class="pr-card-title">Invoice Details</div>
         <div class="pr-form-grid">
@@ -1083,8 +888,6 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
           </div>
         </div>
       </div>
-
-      <!-- Line Items -->
       <div class="pr-card">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
           <div class="pr-card-title" style="margin-bottom:0;padding-bottom:0;border-bottom:none;">Line Items</div>
@@ -1104,24 +907,17 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
             <tbody id="ei_tbody"></tbody>
           </table>
         </div>
-        <!-- Totals -->
         <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:24px;align-items:center;flex-wrap:wrap;">
           <div style="text-align:right">
             <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:#7a6e58">Total Amount</div>
             <div style="font-size:1.6rem;font-weight:700;font-family:'Outfit',serif;color:var(--gold)" id="ei_total">S$ 0.00</div>
           </div>
         </div>
-        <div style="margin-top:8px;font-size:.75rem;color:var(--muted)">
-          💡 Total is auto-calculated from line items. At least one line item with Description, Qty and Rate is required.
-        </div>
+        <div style="margin-top:8px;font-size:.75rem;color:var(--muted)">💡 Total is auto-calculated from line items. At least one line item with Description, Qty and Rate is required.</div>
       </div>
-
-      <!-- Actions -->
       <div class="pr-actions">
         <button class="btn btn-outline" onclick="closeEditInvoiceModal()">✕ Cancel</button>
-        <button class="btn btn-primary" id="ei-submit-btn" onclick="eiSubmit()">
-          ☁ Save Changes
-        </button>
+        <button class="btn btn-primary" id="ei-submit-btn" onclick="eiSubmit()">☁ Save Changes</button>
       </div>
     </div>
   </div>
@@ -1131,8 +927,8 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 // ══════════════════════════════════════════════════════════════
 //  SUPABASE INIT
 // ══════════════════════════════════════════════════════════════
-const SUPABASE_URL      = "%%SUPABASE_URL%%";
-const SUPABASE_ANON_KEY = "%%SUPABASE_ANON_KEY%%";
+const SUPABASE_URL      = "https://tcqtwakxszryzrfxoyze.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjcXR3YWt4c3pyeXpyZnhveXplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1NzQzNzUsImV4cCI6MjA4OTE1MDM3NX0.uMYxktFu0E04WrM8VGsXng7WkuO6ACUBIAvoceylXS0";
 
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1166,13 +962,8 @@ function showPanel(name, btn) {
   document.getElementById('panel-' + name).classList.add('active');
   if (btn) btn.classList.add('active');
   closeSidebar();
-  if (name === 'payroll') {
-    prUpdateUI();
-    prFetch();
-  }
-    if (name === 'addinvoice') {
-    aiInit();
-  }
+  if (name === 'payroll') { prUpdateUI(); prFetch(); }
+  if (name === 'addinvoice') { aiInit(); }
 }
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('open');
@@ -1195,7 +986,7 @@ function showPrTab(name, btn) {
 }
 
 // ══════════════════════════════════════════════════════════════
-//  INVOICE SECTION — all original logic preserved
+//  INVOICE SECTION
 // ══════════════════════════════════════════════════════════════
 const PAGE_SIZE_OPTIONS = [50, 100];
 const DEFAULT_PAGE_SIZE = 50;
@@ -1204,14 +995,15 @@ let CFG = {
   addr: localStorage.getItem('im_addr') || '',
   cur:  localStorage.getItem('im_cur')  || 'SGD ',
 };
-let ALL=[], SHOWN=[], activeFilter='all', curInv=null;
-let currentPage = 1;
-let pageSize = DEFAULT_PAGE_SIZE;
-let CLIENTS = [];
+let ALL = [], SHOWN = [], CLIENTS = [];
+let activeFilter = 'all', curInv = null;
+let currentPage = 1, pageSize = DEFAULT_PAGE_SIZE;
+
+// ── FIX 1: invoiceLineItemCache — persistent per-session cache ──
 const invoiceLineItemCache = {};
 
 function initApp(user) {
-    const addInvoiceBtn = document.getElementById('sb-addinvoice');
+  const addInvoiceBtn = document.getElementById('sb-addinvoice');
   if (addInvoiceBtn) {
     addInvoiceBtn.style.display = user.email === 'saranyasriram2014@gmail.com' ? '' : 'none';
   }
@@ -1234,13 +1026,11 @@ function initApp(user) {
   pageSize = DEFAULT_PAGE_SIZE;
   ge('cfgToggle').addEventListener('click', () => ge('cfgPanel').classList.toggle('hidden'));
 
-  // Quotation defaults
   const today = new Date().toISOString().slice(0,10);
   ge('q_date').value = today;
   ge('ps_paydate').value = today;
   ge('ps_month').value = today.slice(0,7);
 
-  // Add default quotation items
   const DEF_ITEMS = [
     ['Van with driver',5750,1],
     ['Van with driver with Assistant',7750,1],
@@ -1256,7 +1046,7 @@ function initApp(user) {
   loadData();
 }
 
-function saveConfig(){
+function saveConfig() {
   const name = ge('cfgName').value.trim() || 'My Business';
   const addr = ge('cfgAddr').value.trim() || '';
   const cur  = ge('cfgCur').value.trim()  || 'SGD ';
@@ -1273,54 +1063,28 @@ function onPageSizeChange() {
   renderRows();
 }
 
-async function loadData(){
-  loadingRow();
-  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
-  try {
-    const { data: clients, error: e1 } = await sb.from('clients').select('*').order('invoice_number', { ascending: false });
-    if (e1) throw new Error('clients: ' + e1.message);
-    CLIENTS = (clients || []).map(c => ({
-      invoice_number: c.invoice_number, name: c.name, address: c.address,
-      billing_date: c.billing_date, due_date: c.due_date, status: c.status, total: c.total,
-    }));
+// ── HELPERS ──
+// FIX 1: r.number removed — only use DB fields
+function getInvNum(r) { const v = r.invoice_number || r.invoice_no || r.id || ''; return String(v).trim(); }
+function getDesc(li)  { return li.description || li.delivery_description || li.item || li.item_description || li.name || '—'; }
+function getQty(li)   { const v = parseFloat(li.qty || li.quantity || ''); return isNaN(v) || v <= 0 ? 1 : v; }
+function getPrice(li) { return parseFloat(li.unit_price || li.price || li.amount || 0) || 0; }
+function getLineItemDate(li) { return li.date || li.delivery_date || li.service_date || li.item_date || ''; }
 
-    buildAllInvoices();
-    renderStats();
-    await applyFilters();
-  } catch(e) {
-    const msg = e.message || 'Unknown error';
-    if (msg.includes('JWT') || msg.includes('auth') || msg.includes('401')) {
-      await sb.auth.signOut();
-      window.location.replace('./login.html');
-      return;
-    }
-    ge('tBody').innerHTML=`<tr><td colspan="6"><div class="state"><div class="state-ico">⚠️</div><div class="state-title">Could Not Load Data</div><div class="state-msg"><b>Error:</b> ${msg}</div><div style="margin-top:1.4rem"><button class="btn btn-primary btn-sm" onclick="loadData()">↻ Try Again</button></div></div></td></tr>`;
-    ge('paginationBar').style.display = 'none';
-  }
-}
-
-function getDesc(li){ return li.description||li.delivery_description||li.item||li.item_description||li.name||'—'; }
-function getQty(li){ const v=parseFloat(li.qty||li.quantity||''); return isNaN(v)||v<=0?1:v; }
-function getPrice(li){ return parseFloat(li.unit_price||li.price||li.amount||0)||0; }
-function getInvNum(r){ const v=r.invoice_number||r.invoice_no||r.id||''; return String(v).trim(); }
-function getLineItemDate(li){ return li.date||li.delivery_date||li.service_date||li.item_date||''; }
-
-function buildAllInvoices() {
-  ALL = build(CLIENTS);
-}
-
+// ── CACHE HELPERS ──
 async function fetchLineItemsForInvoiceNumbers(invoiceNumbers) {
-  const uniqNums = Array.from(new Set((invoiceNumbers || []).map(n => String(n||'').trim()).filter(Boolean)));
+  const uniqNums = Array.from(new Set((invoiceNumbers || []).map(n => String(n || '').trim()).filter(Boolean)));
   const missing = uniqNums.filter(n => !invoiceLineItemCache[n]);
   if (!missing.length) return;
   const { data, error } = await sb.from('line_items').select('*').in('invoice_number', missing);
   if (error) throw new Error('line_items: ' + error.message);
-  const grouped = {};
+  // Seed empty arrays so invoices with no line items don't get re-fetched
+  missing.forEach(n => { invoiceLineItemCache[n] = invoiceLineItemCache[n] || []; });
   (data || []).forEach(li => {
     const num = getInvNum(li);
     if (!num) return;
-    grouped[num] = grouped[num] || [];
-    grouped[num].push({
+    if (!invoiceLineItemCache[num]) invoiceLineItemCache[num] = [];
+    invoiceLineItemCache[num].push({
       invoice_number: num,
       description: li.description,
       qty: li.qty,
@@ -1328,21 +1092,13 @@ async function fetchLineItemsForInvoiceNumbers(invoiceNumbers) {
       date: li.date,
     });
   });
-  Object.entries(grouped).forEach(([num, items]) => {
-    invoiceLineItemCache[num] = items;
-  });
-}
-
-function getPageInvoiceNumbers(source) {
-  const list = Array.isArray(source) && source.length ? source : CLIENTS;
-  const startIdx = (currentPage - 1) * pageSize;
-  return list.slice(startIdx, startIdx + pageSize).map(c => getInvNum(c)).filter(Boolean);
 }
 
 async function preloadLineItemsForCurrentPage() {
   const source = SHOWN.length ? SHOWN : CLIENTS;
-  const invoiceNumbers = getPageInvoiceNumbers(source);
-  await fetchLineItemsForInvoiceNumbers(invoiceNumbers);
+  const startIdx = (currentPage - 1) * pageSize;
+  const pageNums = source.slice(startIdx, startIdx + pageSize).map(c => getInvNum(c)).filter(Boolean);
+  await fetchLineItemsForInvoiceNumbers(pageNums);
 }
 
 async function preloadLineItemsForInvoice(num) {
@@ -1350,81 +1106,121 @@ async function preloadLineItemsForInvoice(num) {
   await fetchLineItemsForInvoiceNumbers([num]);
 }
 
-function build(clients){
+function buildAllInvoices() {
+  const allCachedItems = Object.values(invoiceLineItemCache).flat();
+  ALL = build(CLIENTS, allCachedItems);
+}
+
+// ── LOAD DATA ──
+async function loadData() {
+  loadingRow();
+  // FIX 2: Clear cache on every full refresh so stale data never persists
+  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
+  try {
+    const { data: clients, error: e1 } = await sb
+      .from('clients').select('*').order('invoice_number', { ascending: false });
+    if (e1) throw new Error('clients: ' + e1.message);
+    CLIENTS = (clients || []).map(c => ({
+      invoice_number: c.invoice_number, name: c.name, address: c.address,
+      billing_date: c.billing_date, due_date: c.due_date, status: c.status, total: c.total,
+    }));
+    buildAllInvoices();
+    renderStats();
+    await applyFilters();
+  } catch(e) {
+    const msg = e.message || 'Unknown error';
+    if (msg.includes('JWT') || msg.includes('auth') || msg.includes('401')) {
+      await sb.auth.signOut(); window.location.replace('./login.html'); return;
+    }
+    ge('tBody').innerHTML = `<tr><td colspan="6"><div class="state"><div class="state-ico">⚠️</div><div class="state-title">Could Not Load Data</div><div class="state-msg"><b>Error:</b> ${msg}</div><div style="margin-top:1.4rem"><button class="btn btn-primary btn-sm" onclick="loadData()">↻ Try Again</button></div></div></td></tr>`;
+    ge('paginationBar').style.display = 'none';
+  }
+}
+
+function build(clients, lineItems) {
   const validClients = clients.filter(c => {
     const num = getInvNum(c);
-    if(!num) return false;
-    if(num.includes(',')) return false;
-    if(num.length > 30) return false;
-    if(/^(pending|paid|overdue)$/i.test(num)) return false;
-    if(/^\d+$/.test(num)) return false;
-    if(/^[a-zA-Z\s]+$/.test(num)) return false;
+    if (!num) return false;
+    if (num.includes(',')) return false;
+    if (num.length > 30) return false;
+    if (/^(pending|paid|overdue)$/i.test(num)) return false;
+    if (/^\d+$/.test(num)) return false;
+    if (/^[a-zA-Z\s]+$/.test(num)) return false;
     return true;
   });
   return validClients.map(c => {
     const num = getInvNum(c);
-    const items = invoiceLineItemCache[num] || [];
-    const calcTotal = items.reduce((s,li) => s + getQty(li)*getPrice(li), 0);
+    const items = lineItems.filter(li => {
+      const ln = getInvNum(li);
+      return ln && ln.trim().toLowerCase() === num.trim().toLowerCase();
+    });
+    const calcTotal = items.reduce((s, li) => s + getQty(li) * getPrice(li), 0);
     const rawTotal = c.total || '0';
-    const sheetTotal = parseFloat(String(rawTotal).trim().replace(/[$, ]/g,'')) || 0;
+    const sheetTotal = parseFloat(String(rawTotal).trim().replace(/[$, ]/g, '')) || 0;
     const total = calcTotal > 0 ? calcTotal : sheetTotal;
-    const rawStatus = (c.status||'pending').toLowerCase().trim();
-    const status = ['paid','pending','overdue'].includes(rawStatus) ? rawStatus : 'pending';
-    const billingDate = c.billing_date||c.date||c.invoice_date||today_str();
-    return { number:num, name:c.name||c.client_name||'', addr:c.address||c.client_address||'', billingDate, due:c.due_date||c.due||'', status, total, items };
+    const rawStatus = (c.status || 'pending').toLowerCase().trim();
+    const status = ['paid', 'pending', 'overdue'].includes(rawStatus) ? rawStatus : 'pending';
+    const billingDate = c.billing_date || c.date || c.invoice_date || today_str();
+    return { number: num, name: c.name || c.client_name || '', addr: c.address || c.client_address || '', billingDate, due: c.due_date || c.due || '', status, total, items };
   });
 }
 
-function renderStats(){
-  const cur='S$';
+function renderStats() {
+  const cur = 'S$';
   ge('s0').textContent = ALL.length;
-  ge('s1').textContent = cur+fmt(ALL.reduce((s,i)=>s+i.total,0));
-  const paid=ALL.filter(i=>i.status==='paid');
-  const pend=ALL.filter(i=>i.status==='pending');
-  ge('s2').textContent=paid.length; ge('s2a').textContent=cur+fmt(paid.reduce((s,i)=>s+i.total,0));
-  ge('s3').textContent=pend.length; ge('s3a').textContent=cur+fmt(pend.reduce((s,i)=>s+i.total,0));
+  ge('s1').textContent = cur + fmt(ALL.reduce((s, i) => s + i.total, 0));
+  const paid = ALL.filter(i => i.status === 'paid');
+  const pend = ALL.filter(i => i.status === 'pending');
+  ge('s2').textContent = paid.length; ge('s2a').textContent = cur + fmt(paid.reduce((s, i) => s + i.total, 0));
+  ge('s3').textContent = pend.length; ge('s3a').textContent = cur + fmt(pend.reduce((s, i) => s + i.total, 0));
 }
 
-async function setFilter(f, btn){
-  activeFilter=f; currentPage=1;
-  document.querySelectorAll('.pill').forEach(p=>p.className='pill');
-  btn.classList.add('pill','a-'+f);
+async function setFilter(f, btn) {
+  activeFilter = f; currentPage = 1;
+  document.querySelectorAll('.pill').forEach(p => p.className = 'pill');
+  btn.classList.add('pill', 'a-' + f);
   await applyFilters();
 }
 
-async function applyFilters(){
-  const q=(ge('qSearch').value||'').toLowerCase();
+async function applyFilters() {
+  const q = (ge('qSearch').value || '').toLowerCase();
   currentPage = 1;
-  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
-  SHOWN = ALL.filter(inv=>{
-    const mf = activeFilter==='all' || inv.status===activeFilter;
-    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr||'').toLowerCase().includes(q);
+  buildAllInvoices();
+  SHOWN = ALL.filter(inv => {
+    const mf = activeFilter === 'all' || inv.status === activeFilter;
+    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
     return mf && mq;
   });
   await preloadLineItemsForCurrentPage();
   buildAllInvoices();
+  // Rebuild SHOWN after line items loaded so totals are accurate
+  SHOWN = ALL.filter(inv => {
+    const mf = activeFilter === 'all' || inv.status === activeFilter;
+    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
+    return mf && mq;
+  });
   renderRows();
 }
 
-function renderRows(){
-  const cur='S$';
-  const tb=ge('tBody');
-  const bar=ge('paginationBar');
-  if(!SHOWN.length){
-    tb.innerHTML=`<tr><td colspan="6"><div class="state"><div class="state-ico">🔍</div><div class="state-title">No Invoices Found</div><div class="state-msg">No invoices match the current filter or search term.</div></div></td></tr>`;
-    bar.style.display='none'; return;
+function renderRows() {
+  const cur = 'S$';
+  const tb = ge('tBody');
+  const bar = ge('paginationBar');
+  if (!SHOWN.length) {
+    tb.innerHTML = `<tr><td colspan="6"><div class="state"><div class="state-ico">🔍</div><div class="state-title">No Invoices Found</div><div class="state-msg">No invoices match the current filter or search term.</div></div></td></tr>`;
+    bar.style.display = 'none'; return;
   }
   const total = SHOWN.length;
   const totalPages = Math.ceil(total / pageSize);
-  if(currentPage > totalPages) currentPage = totalPages;
+  if (currentPage > totalPages) currentPage = totalPages;
   const startIdx = (currentPage - 1) * pageSize;
   const endIdx   = Math.min(startIdx + pageSize, total);
   const pageItems = SHOWN.slice(startIdx, endIdx);
 
-  tb.innerHTML = pageItems.map((inv,i)=>`
-    <tr style="animation:up .3s ease ${i*.04}s both" onclick="openInv('${esc(inv.number)}')">
+  tb.innerHTML = pageItems.map((inv, i) => `
+    <tr style="animation:up .3s ease ${i * .04}s both" onclick="openInv('${esc(inv.number)}')">
       <td><span class="inum">#${inv.number}</span></td>
-      <td><span class="cname">${inv.name||'—'}</span><span class="caddr">${shortAddr(inv.addr)}</span></td>
+      <td><span class="cname">${inv.name || '—'}</span><span class="caddr">${shortAddr(inv.addr)}</span></td>
       <td style="color:var(--muted);font-size:.81rem">${inv.billingDate}</td>
       <td style="text-align:right"><span class="amtcell">${cur} ${fmt(inv.total)}</span></td>
       <td>${mkBadge(inv.status)}</td>
@@ -1434,57 +1230,62 @@ function renderRows(){
       </div></td>
     </tr>`).join('');
 
-  bar.style.display='flex';
-  ge('paginationInfo').textContent = `Showing ${startIdx+1}–${endIdx} of ${total} invoices`;
+  bar.style.display = 'flex';
+  ge('paginationInfo').textContent = `Showing ${startIdx + 1}–${endIdx} of ${total} invoices`;
   const ctrl = ge('paginationControls');
-  let btns = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  let btns = `<button class="page-btn" onclick="goPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>‹</button>`;
   const range = getPageRange(currentPage, totalPages);
   range.forEach(p => {
-    if(p==='...') btns += `<span style="padding:0 .2rem;color:var(--muted);font-size:.78rem">…</span>`;
-    else btns += `<button class="page-btn${p===currentPage?' active':''}" onclick="goPage(${p})">${p}</button>`;
+    if (p === '...') btns += `<span style="padding:0 .2rem;color:var(--muted);font-size:.78rem">…</span>`;
+    else btns += `<button class="page-btn${p === currentPage ? ' active' : ''}" onclick="goPage(${p})">${p}</button>`;
   });
-  btns += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+  btns += `<button class="page-btn" onclick="goPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>›</button>`;
   ctrl.innerHTML = btns;
 }
 
-function getPageRange(cur, total){
-  if(total<=7) return Array.from({length:total},(_,i)=>i+1);
-  const pages=[];
-  if(cur<=4){for(let i=1;i<=5;i++) pages.push(i); pages.push('...'); pages.push(total);}
-  else if(cur>=total-3){pages.push(1); pages.push('...'); for(let i=total-4;i<=total;i++) pages.push(i);}
-  else{pages.push(1); pages.push('...'); for(let i=cur-1;i<=cur+1;i++) pages.push(i); pages.push('...'); pages.push(total);}
+function getPageRange(cur, total) {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+  const pages = [];
+  if (cur <= 4) { for (let i = 1; i <= 5; i++) pages.push(i); pages.push('...'); pages.push(total); }
+  else if (cur >= total - 3) { pages.push(1); pages.push('...'); for (let i = total - 4; i <= total; i++) pages.push(i); }
+  else { pages.push(1); pages.push('...'); for (let i = cur - 1; i <= cur + 1; i++) pages.push(i); pages.push('...'); pages.push(total); }
   return pages;
 }
 
-async function goPage(p){
-  const totalPages=Math.ceil(SHOWN.length/pageSize);
-  if(p<1||p>totalPages) return;
-  currentPage=p;
-  Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
+async function goPage(p) {
+  const totalPages = Math.ceil(SHOWN.length / pageSize);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
   await preloadLineItemsForCurrentPage();
   buildAllInvoices();
+  // Rebuild SHOWN so page items have fresh line items
+  const q = (ge('qSearch').value || '').toLowerCase();
+  SHOWN = ALL.filter(inv => {
+    const mf = activeFilter === 'all' || inv.status === activeFilter;
+    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
+    return mf && mq;
+  });
   renderRows();
-  ge('tBody').closest('.tcard').scrollIntoView({behavior:'smooth',block:'start'});
+  ge('tBody').closest('.tcard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function mkBadge(s){
-  const m={paid:'b-paid',pending:'b-pending',overdue:'b-overdue'};
-  return `<span class="badge ${m[s]||'b-pending'}"><span class="bdot"></span>${cap(s)}</span>`;
+function mkBadge(s) {
+  const m = { paid: 'b-paid', pending: 'b-pending', overdue: 'b-overdue' };
+  return `<span class="badge ${m[s] || 'b-pending'}"><span class="bdot"></span>${cap(s)}</span>`;
 }
 
 // ── INVOICE VIEW ──
-async function openInv(num){
-  const inv=ALL.find(i=>i.number===num);
-  if(!inv) return;
+async function openInv(num) {
+  // Always fetch fresh line items for this invoice before opening
   await preloadLineItemsForInvoice(num);
-  inv.items = invoiceLineItemCache[num] || inv.items || [];
   buildAllInvoices();
-  curInv=inv;
-  const cur='S$';
+  const inv = ALL.find(i => i.number === num);
+  if (!inv) return;
+  curInv = inv;
+  const cur = 'S$';
   ge('mLabel').textContent = `Invoice #${inv.number} · ${inv.name}`;
   const hasItems = inv.items && inv.items.length;
 
-  // ✅ Sort line items by date ascending, then by row id as tiebreaker
   const sortedItems = hasItems
     ? [...inv.items].sort((a, b) => {
         const parseDate = (li) => {
@@ -1503,16 +1304,17 @@ async function openInv(num){
   const hasLineItemDates = hasItems && sortedItems.some(li => getLineItemDate(li));
   const showDateCol = hasLineItemDates;
   const rows = hasItems
-    ? sortedItems.map(li=>{
-        const q=getQty(li),p=getPrice(li),d=getDesc(li);
-        const liDate=getLineItemDate(li);
-        return `<tr>${showDateCol?`<td class="date-col">${liDate||'—'}</td>`:''}<td>${d}</td><td class="c">${q}</td><td class="r">${cur} ${fmt(p)}</td><td class="r bold">${cur} ${fmt(q*p)}</td></tr>`;
+    ? sortedItems.map(li => {
+        const q = getQty(li), p = getPrice(li), d = getDesc(li);
+        const liDate = getLineItemDate(li);
+        return `<tr>${showDateCol ? `<td class="date-col">${liDate || '—'}</td>` : ''}<td>${d}</td><td class="c">${q}</td><td class="r">${cur} ${fmt(p)}</td><td class="r bold">${cur} ${fmt(q * p)}</td></tr>`;
       }).join('')
-    : `<tr>${showDateCol?`<td class="date-col">—</td>`:''}<td style="color:var(--muted);font-style:italic">Invoice total (no line item breakdown)</td><td class="c">—</td><td class="r">—</td><td class="r bold">${cur} ${fmt(inv.total)}</td></tr>`;
-  const bc={paid:'b-paid',pending:'b-pending',overdue:'b-overdue'}[inv.status]||'b-pending';
-  const addrLines=(inv.addr||'').split(',').map(s=>s.trim()).filter(Boolean).join('<br>');
-  const bizLines=CFG.addr.split(',').map(s=>s.trim()).filter(Boolean).join('<br>');
-  ge('invDoc').innerHTML=`
+    : `<tr>${showDateCol ? `<td class="date-col">—</td>` : ''}<td style="color:var(--muted);font-style:italic">Invoice total (no line item breakdown)</td><td class="c">—</td><td class="r">—</td><td class="r bold">${cur} ${fmt(inv.total)}</td></tr>`;
+
+  const bc = { paid: 'b-paid', pending: 'b-pending', overdue: 'b-overdue' }[inv.status] || 'b-pending';
+  const addrLines = (inv.addr || '').split(',').map(s => s.trim()).filter(Boolean).join('<br>');
+  const bizLines = CFG.addr.split(',').map(s => s.trim()).filter(Boolean).join('<br>');
+  ge('invDoc').innerHTML = `
     <div class="inv-hd">
       <div class="inv-brand">
         <div class="inv-logo"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/><path d="M8 13h8v1H8zm0 3h5v1H8z"/></svg></div>
@@ -1520,14 +1322,14 @@ async function openInv(num){
       </div>
       <div class="inv-numbox">
         <div class="inv-num-lbl">Invoice</div><div class="inv-num">#${inv.number}</div>
-        <div class="inv-num-sub">${inv.billingDate?`<div>Billing Date: ${inv.billingDate}</div>`:''}${inv.due?`<div>Due: ${inv.due}</div>`:''}</div>
+        <div class="inv-num-sub">${inv.billingDate ? `<div>Billing Date: ${inv.billingDate}</div>` : ''}${inv.due ? `<div>Due: ${inv.due}</div>` : ''}</div>
       </div>
     </div>
     <div class="inv-rule"></div>
     <div class="inv-parties">
       <div>
-        <div class="p-lbl">Billed To</div><div class="p-name">${inv.name||'—'}</div>
-        <div class="p-addr">${addrLines||'—'}</div>
+        <div class="p-lbl">Billed To</div><div class="p-name">${inv.name || '—'}</div>
+        <div class="p-addr">${addrLines || '—'}</div>
         <div class="p-status"><span class="badge ${bc}"><span class="bdot"></span>${cap(inv.status)}</span></div>
       </div>
       <div style="text-align:right">
@@ -1536,7 +1338,7 @@ async function openInv(num){
       </div>
     </div>
     <table class="inv-tbl">
-      <thead><tr>${showDateCol?`<th>Date</th>`:''}<th>Description</th><th class="c">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
+      <thead><tr>${showDateCol ? `<th>Date</th>` : ''}<th>Description</th><th class="c">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
     <div class="totals-wrap"><div class="totals-box">
@@ -1549,8 +1351,9 @@ async function openInv(num){
       <span class="badge ${bc}"><span class="bdot"></span>${cap(inv.status)}</span>
     </div>`;
   ge('overlay').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
+
 function sortLineItems(items) {
   if (!items || !items.length) return [];
   return [...items].sort((a, b) => {
@@ -1566,213 +1369,229 @@ function sortLineItems(items) {
     return (a.id ?? 0) - (b.id ?? 0);
   });
 }
-function overlayClick(e){ if(e.target===ge('overlay')) closeModal(); }
-function closeModal(){ ge('overlay').classList.remove('open'); document.body.style.overflow=''; }
 
-// ── PDF GENERATION (full original) ──
-async function dlPDF(){ if(!curInv) return; const blob=await makePDF(curInv); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; const runNum=(curInv.number||'').split('/').pop()||'0000'; const clientName=(curInv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim(); const billingDate=(curInv.billingDate||'').replace(/[\/\-]/g,'-').trim(); a.download=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`; a.click(); URL.revokeObjectURL(url); }
-async function shareInv(){ if(!curInv) return; const blob=await makePDF(curInv); const runNum=(curInv.number||'').split('/').pop()||'0000'; const clientName=(curInv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim(); const billingDate=(curInv.billingDate||'').replace(/[\/\-]/g,'-').trim(); const fileName=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`; const file=new File([blob],fileName,{type:'application/pdf'}); if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:fileName.replace('.pdf',''),text:'Please find the attached invoice.'}).catch(()=>{});} else{const inv=curInv;const cur='S$';const message=`Invoice #${inv.number} from ${CFG.name}\n\nClient: ${inv.name}\nTotal: ${cur} ${fmt(inv.total)}\n\n${inv.billingDate?'Billing Date: '+inv.billingDate:''}\n${inv.due?'Due: '+inv.due:''}\n\nPlease find the attached invoice.`;window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank');} }
-async function quickPDF(num){ const inv=ALL.find(i=>i.number===num); if(inv){ await preloadLineItemsForInvoice(num); inv.items = invoiceLineItemCache[num] || inv.items || []; const blob=await makePDF(inv);const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;const runNum=(inv.number||'').split('/').pop()||'0000';const clientName=(inv.name||'Client').replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'_').trim();const billingDate=(inv.billingDate||'').replace(/[\/\-]/g,'-').trim();a.download=`${runNum}_${clientName}_Invoice_${billingDate}.pdf`;a.click();URL.revokeObjectURL(url);} }
+function overlayClick(e) { if (e.target === ge('overlay')) closeModal(); }
+function closeModal() { ge('overlay').classList.remove('open'); document.body.style.overflow = ''; }
 
-async function makePDF(inv){
-  const {jsPDF}=window.jspdf;
-  // Pre-load images using canvas (works in browser, unlike path-based addImage)
+// ── PDF ──
+async function dlPDF() { if (!curInv) return; const blob = await makePDF(curInv); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; const runNum = (curInv.number || '').split('/').pop() || '0000'; const clientName = (curInv.name || 'Client').replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').trim(); const billingDate = (curInv.billingDate || '').replace(/[\/\-]/g, '-').trim(); a.download = `${runNum}_${clientName}_Invoice_${billingDate}.pdf`; a.click(); URL.revokeObjectURL(url); }
+async function shareInv() { if (!curInv) return; const blob = await makePDF(curInv); const runNum = (curInv.number || '').split('/').pop() || '0000'; const clientName = (curInv.name || 'Client').replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').trim(); const billingDate = (curInv.billingDate || '').replace(/[\/\-]/g, '-').trim(); const fileName = `${runNum}_${clientName}_Invoice_${billingDate}.pdf`; const file = new File([blob], fileName, { type: 'application/pdf' }); if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file], title: fileName.replace('.pdf', ''), text: 'Please find the attached invoice.' }).catch(() => {}); } else { const inv = curInv; const cur = 'S$'; const message = `Invoice #${inv.number} from ${CFG.name}\n\nClient: ${inv.name}\nTotal: ${cur} ${fmt(inv.total)}\n\n${inv.billingDate ? 'Billing Date: ' + inv.billingDate : ''}\n${inv.due ? 'Due: ' + inv.due : ''}\n\nPlease find the attached invoice.`; window.open('https://wa.me/?text=' + encodeURIComponent(message), '_blank'); } }
+
+// FIX: quickPDF always fetches line items first — no View needed
+async function quickPDF(num) {
+  await preloadLineItemsForInvoice(num);
+  buildAllInvoices();
+  const inv = ALL.find(i => i.number === num);
+  if (!inv) return;
+  const blob = await makePDF(inv);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const runNum = (inv.number || '').split('/').pop() || '0000';
+  const clientName = (inv.name || 'Client').replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').trim();
+  const billingDate = (inv.billingDate || '').replace(/[\/\-]/g, '-').trim();
+  a.download = `${runNum}_${clientName}_Invoice_${billingDate}.pdf`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+async function makePDF(inv) {
+  const { jsPDF } = window.jspdf;
   const [_hdrImg, _ftrImg, _qrImg] = await Promise.all([
     loadImg('./header.png'),
     loadImg('./footer.png'),
     loadImg('./QRCode.jpeg'),
   ]);
-  const doc=new jsPDF({orientation:'p',unit:'mm',format:'a4'});
-  const W=210,M=8,cur='S$';
-  const HEADER_IMG_URL='./header.png';
-  const HEADER_H=35,FOOTER_H=62;
-  const CONTENT_TOP=HEADER_H+4,CONTENT_BTM=297-FOOTER_H-4;
-  const FOOTER={bankName:'OCBC Bank Ltd.',bankAddr:'65 Chulia Street, OCBC Singapore Centre, Singapore 049513',companyName:'Charan Logistics Ptd Ltd.',accountNo:'604233585001',payNowUEN:'202502540D'};
-  const FOOTER_IMG_B64='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7YAAABlCAIAAAD22ujTAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAEAAElEQVR4nOxdd7wURfKvDpM2vRx48Mg5ZwURlCAomBCzgjlnDKdnzolT0TOhorghogkiqCAoIiqgYlYUFcSGu//a3bm9+8cz01XdM8vuvU3wvOf5LJdHdXV1dXV11fcHIQQfjggAQCAABAADKBACjIEBAAAABAAQgAGkSBCAUGUIh4kI7R9IAJRJA...';
-  const QR_B64='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/...';
+  const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+  const W = 210, M = 8, cur = 'S$';
+  const HEADER_H = 35, FOOTER_H = 62;
+  const CONTENT_TOP = HEADER_H + 4;
+  const FOOTER = { bankName: 'OCBC Bank Ltd.', bankAddr: '65 Chulia Street, OCBC Singapore Centre, Singapore 049513', companyName: 'Charan Logistics Ptd Ltd.', accountNo: '604233585001', payNowUEN: '202502540D' };
 
-  function drawHeaderFooter(){
-    // Use preloaded canvas image (async pre-loaded above)
-    if(_hdrImg){ doc.addImage(_hdrImg.d,_hdrImg.ext,0,0,W,HEADER_H,'','NONE'); }
-    else{
-      doc.setFillColor(11,29,58); doc.rect(0,0,W,HEADER_H,'F');
-      doc.setFillColor(59,130,196); doc.rect(0,HEADER_H,W,2,'F');
-      doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(255,255,255);
-      doc.text(CFG.name,M+28,14);
-      doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(160,195,230);
-      doc.text(CFG.addr,M+28,20);
+  function drawHeaderFooter() {
+    if (_hdrImg) { doc.addImage(_hdrImg.d, _hdrImg.ext, 0, 0, W, HEADER_H, '', 'NONE'); }
+    else {
+      doc.setFillColor(11, 29, 58); doc.rect(0, 0, W, HEADER_H, 'F');
+      doc.setFillColor(59, 130, 196); doc.rect(0, HEADER_H, W, 2, 'F');
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(255, 255, 255);
+      doc.text(CFG.name, M + 28, 14);
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(160, 195, 230);
+      doc.text(CFG.addr, M + 28, 20);
     }
-    const fy=297-FOOTER_H;
-    doc.setFillColor(255,255,255); doc.rect(0,fy,W,FOOTER_H-18,'F');
-    doc.setDrawColor(210,225,245); doc.setLineWidth(0.5); doc.line(0,fy,W,fy);
-    const col1x=M,valX=52,col2x=108;
-    let ty=fy+7;
-    doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,29,58);
-    doc.text('Account Details:',col1x,ty); ty+=5.5;
-    const accRows=[['Bank Name',FOOTER.bankName],['Bank Address',FOOTER.bankAddr],['Company Name',FOOTER.companyName],['Account No.',FOOTER.accountNo],['PayNow UEN',FOOTER.payNowUEN]];
+    const fy = 297 - FOOTER_H;
+    doc.setFillColor(255, 255, 255); doc.rect(0, fy, W, FOOTER_H - 18, 'F');
+    doc.setDrawColor(210, 225, 245); doc.setLineWidth(0.5); doc.line(0, fy, W, fy);
+    const col1x = M, valX = 52, col2x = 108;
+    let ty = fy + 7;
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(9); doc.setTextColor(11, 29, 58);
+    doc.text('Account Details:', col1x, ty); ty += 5.5;
+    const accRows = [['Bank Name', FOOTER.bankName], ['Bank Address', FOOTER.bankAddr], ['Company Name', FOOTER.companyName], ['Account No.', FOOTER.accountNo], ['PayNow UEN', FOOTER.payNowUEN]];
     doc.setFontSize(8.5);
-    accRows.forEach(([lbl,val])=>{
-      doc.setFont('helvetica','bold'); doc.setTextColor(70,95,130); doc.text(lbl+' :',col1x,ty);
-      doc.setFont('helvetica','normal'); doc.setTextColor(11,29,58);
-      const maxW=col2x-valX-6; const lines=doc.splitTextToSize(val,maxW);
-      doc.text(lines[0],valX,ty); if(lines[1]){ty+=4.3;doc.text(lines[1],valX,ty);}
-      ty+=5.0;
+    accRows.forEach(([lbl, val]) => {
+      doc.setFont('helvetica', 'bold'); doc.setTextColor(70, 95, 130); doc.text(lbl + ' :', col1x, ty);
+      doc.setFont('helvetica', 'normal'); doc.setTextColor(11, 29, 58);
+      const maxW = col2x - valX - 6; const lines = doc.splitTextToSize(val, maxW);
+      doc.text(lines[0], valX, ty); if (lines[1]) { ty += 4.3; doc.text(lines[1], valX, ty); }
+      ty += 5.0;
     });
-    //doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,29,58);
-    //doc.text('CHARAN LOGISTICS PTE. LTD',col2x,fy+8);
-    const imgStripY=297-22;
-    if(_ftrImg){ doc.addImage(_ftrImg.d,_ftrImg.ext,0,imgStripY,W,22,'','NONE'); }
-    else{
-      doc.setFillColor(19,48,94); doc.rect(0,imgStripY,W,22,'F');
-      doc.setFont('helvetica','italic'); doc.setFontSize(8); doc.setTextColor(180,200,240);
-      doc.text('CHARAN LOGISTICS PTE. LTD  ·  101 Kitchener Road #03-14  ·  Singapore 208511  ·  Reg No: 202502540D',W/2,imgStripY+11+1.5,{align:'center'});
+    const imgStripY = 297 - 22;
+    if (_ftrImg) { doc.addImage(_ftrImg.d, _ftrImg.ext, 0, imgStripY, W, 22, '', 'NONE'); }
+    else {
+      doc.setFillColor(19, 48, 94); doc.rect(0, imgStripY, W, 22, 'F');
+      doc.setFont('helvetica', 'italic'); doc.setFontSize(8); doc.setTextColor(180, 200, 240);
+      doc.text('CHARAN LOGISTICS PTE. LTD  ·  101 Kitchener Road #03-14  ·  Singapore 208511  ·  Reg No: 202502540D', W / 2, imgStripY + 11 + 1.5, { align: 'center' });
     }
-    // QR code in footer (right side)
-    if(_qrImg){
-      const qsz=28; const qx=W-8-qsz; const qy=297-FOOTER_H+3;
-      doc.addImage(_qrImg.d,_qrImg.ext,qx,qy,qsz,qsz,'','NONE');
+    if (_qrImg) {
+      const qsz = 28; const qx = W - 8 - qsz; const qy = 297 - FOOTER_H + 3;
+      doc.addImage(_qrImg.d, _qrImg.ext, qx, qy, qsz, qsz, '', 'NONE');
     }
   }
 
   drawHeaderFooter();
-  const metaY=CONTENT_TOP+4;
-  doc.setFont('helvetica','bold'); doc.setFontSize(15);
-  const numStr='#'+inv.number;
-  const numW=doc.getTextWidth(numStr);
-  const labelW=doc.getTextWidth('INVOICE ');
-  doc.setTextColor(130,150,180); doc.text('INVOICE',W-M-numW-labelW,metaY);
-  doc.setTextColor(11,29,58); doc.text(numStr,W-M,metaY,{align:'right'});
-  doc.setFont('helvetica','normal'); doc.setFontSize(14); doc.setTextColor(11,29,58);
-  if(inv.billingDate) doc.text('Billing Date: '+inv.billingDate,W-M,metaY+8,{align:'right'});
-  if(inv.due) doc.text('Due: '+inv.due,W-M,metaY+14,{align:'right'});
+  const metaY = CONTENT_TOP + 4;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(15);
+  const numStr = '#' + inv.number;
+  const numW = doc.getTextWidth(numStr);
+  const labelW = doc.getTextWidth('INVOICE ');
+  doc.setTextColor(130, 150, 180); doc.text('INVOICE', W - M - numW - labelW, metaY);
+  doc.setTextColor(11, 29, 58); doc.text(numStr, W - M, metaY, { align: 'right' });
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(14); doc.setTextColor(11, 29, 58);
+  if (inv.billingDate) doc.text('Billing Date: ' + inv.billingDate, W - M, metaY + 8, { align: 'right' });
+  if (inv.due) doc.text('Due: ' + inv.due, W - M, metaY + 14, { align: 'right' });
 
-  const partyY=CONTENT_TOP+4;
-  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(59,130,196);
-  doc.text('BILLED TO',M,partyY);
-  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(11,29,58);
-  doc.text(inv.name||'—',M,partyY+6);
-  doc.setFont('helvetica','normal'); doc.setFontSize(12); doc.setTextColor(11,29,58);
-  const aLines=(inv.addr||'').split(/,|\n/).map(s=>s.trim()).filter(Boolean);
-  aLines.forEach((l,i)=>doc.text(l,M,partyY+12+i*5));
+  const partyY = CONTENT_TOP + 4;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(59, 130, 196);
+  doc.text('BILLED TO', M, partyY);
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(11, 29, 58);
+  doc.text(inv.name || '—', M, partyY + 6);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(12); doc.setTextColor(11, 29, 58);
+  const aLines = (inv.addr || '').split(/,|\n/).map(s => s.trim()).filter(Boolean);
+  aLines.forEach((l, i) => doc.text(l, M, partyY + 12 + i * 5));
 
-  const hasLineItemDates=(inv.items||[]).some(li=>getLineItemDate(li));
-  const tableY=partyY+14+aLines.length*5.5+3;
-  const tableHead=hasLineItemDates?[['Date','Description','Qty','Rate','Amount']]:[['Description','Qty','Rate','Amount']];
-  const allRows=sortLineItems(inv.items||[]).map(li=>{
-    const q=getQty(li),p=getPrice(li),d=getDesc(li),liDate=getLineItemDate(li);
-    if(hasLineItemDates) return [liDate||'—',d.toUpperCase(),String(q),cur+' '+fmt(p),cur+' '+fmt(q*p)];
-    return [d.toUpperCase(),String(q),cur+' '+fmt(p),cur+' '+fmt(q*p)];
+  const hasLineItemDates = (inv.items || []).some(li => getLineItemDate(li));
+  const tableY = partyY + 14 + aLines.length * 5.5 + 3;
+  const tableHead = hasLineItemDates ? [['Date', 'Description', 'Qty', 'Rate', 'Amount']] : [['Description', 'Qty', 'Rate', 'Amount']];
+  const allRows = sortLineItems(inv.items || []).map(li => {
+    const q = getQty(li), p = getPrice(li), d = getDesc(li), liDate = getLineItemDate(li);
+    if (hasLineItemDates) return [liDate || '—', d.toUpperCase(), String(q), cur + ' ' + fmt(p), cur + ' ' + fmt(q * p)];
+    return [d.toUpperCase(), String(q), cur + ' ' + fmt(p), cur + ' ' + fmt(q * p)];
   });
-  if(!allRows.length){
-    if(hasLineItemDates) allRows.push(['—','Invoice total (no line item breakdown)','—','—',cur+' '+fmt(inv.total)]);
-    else allRows.push(['Invoice total (no line item breakdown)','—','—',cur+' '+fmt(inv.total)]);
+  if (!allRows.length) {
+    if (hasLineItemDates) allRows.push(['—', 'Invoice total (no line item breakdown)', '—', '—', cur + ' ' + fmt(inv.total)]);
+    else allRows.push(['Invoice total (no line item breakdown)', '—', '—', cur + ' ' + fmt(inv.total)]);
   }
-  const colStyles=hasLineItemDates?{0:{cellWidth:28,halign:'left'},1:{cellWidth:'auto'},2:{halign:'center',cellWidth:18},3:{halign:'right',cellWidth:36},4:{halign:'right',cellWidth:36,fontStyle:'bold'}}:{0:{cellWidth:'auto'},1:{halign:'center',cellWidth:18},2:{halign:'right',cellWidth:36},3:{halign:'right',cellWidth:36,fontStyle:'bold'}};
+  const colStyles = hasLineItemDates
+    ? { 0: { cellWidth: 28, halign: 'left' }, 1: { cellWidth: 'auto' }, 2: { halign: 'center', cellWidth: 18 }, 3: { halign: 'right', cellWidth: 36 }, 4: { halign: 'right', cellWidth: 36, fontStyle: 'bold' } }
+    : { 0: { cellWidth: 'auto' }, 1: { halign: 'center', cellWidth: 18 }, 2: { halign: 'right', cellWidth: 36 }, 3: { halign: 'right', cellWidth: 36, fontStyle: 'bold' } };
 
   doc.autoTable({
-    startY:tableY, head:tableHead, body:allRows,
-    margin:{left:M,right:M,top:CONTENT_TOP,bottom:FOOTER_H+6},
-    rowPageBreak:'avoid',
-    headStyles:{fillColor:[11,29,58],textColor:[175,205,240],fontSize:10,fontStyle:'bold',cellPadding:4.5},
-    bodyStyles:{fontSize:10,textColor:[25,45,80],cellPadding:4.5},
-    alternateRowStyles:{fillColor:[245,249,255]},
-    columnStyles:colStyles,
-    styles:{lineColor:[220,232,248],lineWidth:0.3},
-    didDrawPage:function(){drawHeaderFooter();},
-    pageBreak:'auto',
+    startY: tableY, head: tableHead, body: allRows,
+    margin: { left: M, right: M, top: CONTENT_TOP, bottom: FOOTER_H + 6 },
+    rowPageBreak: 'avoid',
+    headStyles: { fillColor: [11, 29, 58], textColor: [175, 205, 240], fontSize: 10, fontStyle: 'bold', cellPadding: 4.5 },
+    bodyStyles: { fontSize: 10, textColor: [25, 45, 80], cellPadding: 4.5 },
+    alternateRowStyles: { fillColor: [245, 249, 255] },
+    columnStyles: colStyles,
+    styles: { lineColor: [220, 232, 248], lineWidth: 0.3 },
+    didDrawPage: function () { drawHeaderFooter(); },
+    pageBreak: 'auto',
   });
 
-  const pageCount=doc.internal.getNumberOfPages();
-  for(let p=1;p<=pageCount;p++){
-    doc.setPage(p); doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(130,150,180);
-    doc.text(`Page ${p} of ${pageCount}`,W/2,290,{align:'center'});
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let p = 1; p <= pageCount; p++) {
+    doc.setPage(p); doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(130, 150, 180);
+    doc.text(`Page ${p} of ${pageCount}`, W / 2, 290, { align: 'center' });
   }
 
-  const finalY=doc.lastAutoTable.finalY;
-  const bx=W-M-75,bw=75,bh=36,by=finalY+8;
-  doc.setFillColor(245,249,255); doc.roundedRect(bx,by,bw,bh,3,3,'F');
-  doc.setDrawColor(210,225,245); doc.setLineWidth(0.4); doc.roundedRect(bx,by,bw,bh,3,3,'S');
-  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(110,130,160);
-  doc.text('Subtotal',bx+8,by+10); doc.text('Tax (0%)',bx+8,by+19);
-  doc.setTextColor(11,29,58); doc.text(cur+' '+fmt(inv.total),bx+bw-6,by+10,{align:'right'}); doc.text(cur+' 0.00',bx+bw-6,by+19,{align:'right'});
-  doc.setDrawColor(200,218,242); doc.line(bx+5,by+23,bx+bw-5,by+23);
-  doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(11,29,58);
-  doc.text('TOTAL',bx+8,by+31);
-  doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(19,48,94);
-  doc.text(cur+' '+fmt(inv.total),bx+bw-6,by+31,{align:'right'});
+  const finalY = doc.lastAutoTable.finalY;
+  const bx = W - M - 75, bw = 75, bh = 36, by = finalY + 8;
+  doc.setFillColor(245, 249, 255); doc.roundedRect(bx, by, bw, bh, 3, 3, 'F');
+  doc.setDrawColor(210, 225, 245); doc.setLineWidth(0.4); doc.roundedRect(bx, by, bw, bh, 3, 3, 'S');
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(110, 130, 160);
+  doc.text('Subtotal', bx + 8, by + 10); doc.text('Tax (0%)', bx + 8, by + 19);
+  doc.setTextColor(11, 29, 58); doc.text(cur + ' ' + fmt(inv.total), bx + bw - 6, by + 10, { align: 'right' }); doc.text(cur + ' 0.00', bx + bw - 6, by + 19, { align: 'right' });
+  doc.setDrawColor(200, 218, 242); doc.line(bx + 5, by + 23, bx + bw - 5, by + 23);
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.setTextColor(11, 29, 58);
+  doc.text('TOTAL', bx + 8, by + 31);
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(13); doc.setTextColor(19, 48, 94);
+  doc.text(cur + ' ' + fmt(inv.total), bx + bw - 6, by + 31, { align: 'right' });
 
   return doc.output('blob');
 }
-function printInv(){ window.print(); }
+
+function printInv() { window.print(); }
 
 // ══════════════════════════════════════════════════════════════
 //  CHART
 // ══════════════════════════════════════════════════════════════
-let perfChart=null, chartView='bar';
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-function parseInvDate(dateStr){
-  if(!dateStr) return null;
-  const s=String(dateStr).trim();
-  const dmy=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
-  if(dmy){const d=new Date(+dmy[3],+dmy[2]-1,+dmy[1]);if(!isNaN(d)) return d;}
-  const dmy2=s.match(/^(\d{1,2})[\s\-]([A-Za-z]{3,})[\s\-](\d{4})$/);
-  if(dmy2){const d=new Date(`${dmy2[2]} ${dmy2[1]} ${dmy2[3]}`);if(!isNaN(d)) return d;}
-  const iso=s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if(iso){const d=new Date(+iso[1],+iso[2]-1,+iso[3]);if(!isNaN(d)) return d;}
-  const d=new Date(s);if(!isNaN(d)) return d;
+let perfChart = null, chartView = 'bar';
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function parseInvDate(dateStr) {
+  if (!dateStr) return null;
+  const s = String(dateStr).trim();
+  const dmy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+  if (dmy) { const d = new Date(+dmy[3], +dmy[2] - 1, +dmy[1]); if (!isNaN(d)) return d; }
+  const dmy2 = s.match(/^(\d{1,2})[\s\-]([A-Za-z]{3,})[\s\-](\d{4})$/);
+  if (dmy2) { const d = new Date(`${dmy2[2]} ${dmy2[1]} ${dmy2[3]}`); if (!isNaN(d)) return d; }
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) { const d = new Date(+iso[1], +iso[2] - 1, +iso[3]); if (!isNaN(d)) return d; }
+  const d = new Date(s); if (!isNaN(d)) return d;
   return null;
 }
-function buildMonthlyData(year){
-  const data=Array.from({length:12},(_,i)=>({month:MONTHS[i],paid:0,pending:0,count:0}));
-  ALL.forEach(inv=>{
-    const d=parseInvDate(inv.billingDate);
-    if(!d||d.getFullYear()!==year) return;
-    const mi=d.getMonth(); data[mi].count++;
-    if(inv.status==='paid') data[mi].paid+=inv.total;
-    else data[mi].pending+=inv.total;
+
+function buildMonthlyData(year) {
+  const data = Array.from({ length: 12 }, (_, i) => ({ month: MONTHS[i], paid: 0, pending: 0, count: 0 }));
+  ALL.forEach(inv => {
+    const d = parseInvDate(inv.billingDate);
+    if (!d || d.getFullYear() !== year) return;
+    const mi = d.getMonth(); data[mi].count++;
+    if (inv.status === 'paid') data[mi].paid += inv.total;
+    else data[mi].pending += inv.total;
   });
   return data;
 }
-function getAvailableYears(){
-  const years=new Set();
-  ALL.forEach(inv=>{const d=parseInvDate(inv.billingDate);if(d) years.add(d.getFullYear());});
-  return [...years].sort((a,b)=>b-a);
+
+function getAvailableYears() {
+  const years = new Set();
+  ALL.forEach(inv => { const d = parseInvDate(inv.billingDate); if (d) years.add(d.getFullYear()); });
+  return [...years].sort((a, b) => b - a);
 }
-function openChart(){
-  if(!ALL.length){alert('Load data first!');return;}
-  const sel=ge('chartYearSel'); sel.innerHTML='';
-  const years=getAvailableYears();
-  if(!years.length){alert('No dated invoices found.');return;}
-  years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);});
-  ge('chartOverlay').classList.add('open'); document.body.style.overflow='hidden'; renderChart();
+
+function openChart() {
+  if (!ALL.length) { alert('Load data first!'); return; }
+  const sel = ge('chartYearSel'); sel.innerHTML = '';
+  const years = getAvailableYears();
+  if (!years.length) { alert('No dated invoices found.'); return; }
+  years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o); });
+  ge('chartOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; renderChart();
 }
-function closeChart(){ ge('chartOverlay').classList.remove('open'); document.body.style.overflow=''; if(perfChart){perfChart.destroy();perfChart=null;} }
-function chartOverlayClick(e){ if(e.target===ge('chartOverlay')) closeChart(); }
-function setChartView(view,btn){ chartView=view; document.querySelectorAll('.chart-tab').forEach(t=>t.classList.remove('active')); btn.classList.add('active'); const isTable=view==='table'; ge('chartWrap').style.display=isTable?'none':'block'; ge('chartTblWrap').style.display=isTable?'block':'none'; renderChart(); }
-function renderChart(){
-  const year=parseInt(ge('chartYearSel').value);
-  const data=buildMonthlyData(year);
-  const totPaid=data.reduce((s,m)=>s+m.paid,0);
-  ge('cy-total').textContent='S$ '+fmt(totPaid);
-  ge('cy-paid').textContent='S$ '+fmt(totPaid);
-  if(chartView==='table'){renderChartTable(data);return;}
-  if(perfChart){perfChart.destroy();perfChart=null;}
-  const ctx=ge('perfChart').getContext('2d');
-  const type=chartView==='line'?'line':'bar';
-  const sharedOpts={tension:0.4,pointRadius:chartView==='line'?4:0,pointHoverRadius:6,borderWidth:chartView==='line'?2.5:0,fill:chartView==='line'};
-  perfChart=new Chart(ctx,{type,data:{labels:MONTHS,datasets:[{label:'Total',data:data.map(m=>m.paid+m.pending),backgroundColor:chartView==='line'?'rgba(19,48,94,.15)':'rgba(19,48,94,.8)',borderColor:'rgba(19,48,94,1)',...sharedOpts}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'top',labels:{font:{family:'Outfit,sans-serif',size:12},padding:16}},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: S$ ${fmt(ctx.raw)}`}}},scales:{x:{stacked:chartView==='bar',grid:{display:false},ticks:{font:{family:'Outfit,sans-serif',size:11}}},y:{stacked:chartView==='bar',beginAtZero:true,grid:{color:'rgba(210,223,240,.5)'},ticks:{font:{family:'Outfit,sans-serif',size:11},callback:v=>'S$'+(v>=1000?(v/1000).toFixed(1)+'k':v)}}}}});
+function closeChart() { ge('chartOverlay').classList.remove('open'); document.body.style.overflow = ''; if (perfChart) { perfChart.destroy(); perfChart = null; } }
+function chartOverlayClick(e) { if (e.target === ge('chartOverlay')) closeChart(); }
+function setChartView(view, btn) { chartView = view; document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active')); btn.classList.add('active'); const isTable = view === 'table'; ge('chartWrap').style.display = isTable ? 'none' : 'block'; ge('chartTblWrap').style.display = isTable ? 'block' : 'none'; renderChart(); }
+
+function renderChart() {
+  const year = parseInt(ge('chartYearSel').value);
+  const data = buildMonthlyData(year);
+  const totPaid = data.reduce((s, m) => s + m.paid, 0);
+  ge('cy-total').textContent = 'S$ ' + fmt(totPaid);
+  ge('cy-paid').textContent = 'S$ ' + fmt(totPaid);
+  if (chartView === 'table') { renderChartTable(data); return; }
+  if (perfChart) { perfChart.destroy(); perfChart = null; }
+  const ctx = ge('perfChart').getContext('2d');
+  const type = chartView === 'line' ? 'line' : 'bar';
+  const sharedOpts = { tension: 0.4, pointRadius: chartView === 'line' ? 4 : 0, pointHoverRadius: 6, borderWidth: chartView === 'line' ? 2.5 : 0, fill: chartView === 'line' };
+  perfChart = new Chart(ctx, { type, data: { labels: MONTHS, datasets: [{ label: 'Total', data: data.map(m => m.paid + m.pending), backgroundColor: chartView === 'line' ? 'rgba(19,48,94,.15)' : 'rgba(19,48,94,.8)', borderColor: 'rgba(19,48,94,1)', ...sharedOpts }] }, options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { position: 'top', labels: { font: { family: 'Outfit,sans-serif', size: 12 }, padding: 16 } }, tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: S$ ${fmt(ctx.raw)}` } } }, scales: { x: { stacked: chartView === 'bar', grid: { display: false }, ticks: { font: { family: 'Outfit,sans-serif', size: 11 } } }, y: { stacked: chartView === 'bar', beginAtZero: true, grid: { color: 'rgba(210,223,240,.5)' }, ticks: { font: { family: 'Outfit,sans-serif', size: 11 }, callback: v => 'S$' + (v >= 1000 ? (v / 1000).toFixed(1) + 'k' : v) } } } } });
 }
-function renderChartTable(data){
-  const rows=data.map(m=>{const total=m.paid+m.pending;if(!total&&!m.count) return '';return `<tr><td><b>${m.month}</b></td><td class="r">S$ ${fmt(total)}</td><td class="r">${m.count}</td></tr>`;}).join('');
-  ge('chartTblBody').innerHTML=rows||'<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:2rem">No data for this year</td></tr>';
+function renderChartTable(data) {
+  const rows = data.map(m => { const total = m.paid + m.pending; if (!total && !m.count) return ''; return `<tr><td><b>${m.month}</b></td><td class="r">S$ ${fmt(total)}</td><td class="r">${m.count}</td></tr>`; }).join('');
+  ge('chartTblBody').innerHTML = rows || '<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:2rem">No data for this year</td></tr>';
 }
 
 // ══════════════════════════════════════════════════════════════
-//  PAYROLL — SUPABASE
+//  PAYROLL
 // ══════════════════════════════════════════════════════════════
-let PR_ALL = [];
-let prSortCol = 'month', prSortAsc = false;
-let prEditingId = null;
+let PR_ALL = [], prSortCol = 'month', prSortAsc = false, prEditingId = null;
 
 function prUpdateUI() {
   const ok = !!(SUPABASE_URL && SUPABASE_ANON_KEY && !SUPABASE_URL.includes('%%'));
@@ -1781,19 +1600,19 @@ function prUpdateUI() {
 }
 
 function prCalc() {
-  const earn = prNv('ps_basic')+prNv('ps_ot')+prNv('ps_comm')+prNv('ps_allow')+prNv('ps_earn_other');
-  const ded  = prNv('ps_cpf')+prNv('ps_sdl')+prNv('ps_ded_other');
+  const earn = prNv('ps_basic') + prNv('ps_ot') + prNv('ps_comm') + prNv('ps_allow') + prNv('ps_earn_other');
+  const ded  = prNv('ps_cpf') + prNv('ps_sdl') + prNv('ps_ded_other');
   ge('ps_total_earn').textContent = prMf(earn);
   ge('ps_total_ded').textContent  = prMf(ded);
-  ge('ps_net').textContent        = prMf(earn-ded);
+  ge('ps_net').textContent        = prMf(earn - ded);
 }
 
-async function prFetch(manual=false) {
-  prSetSync('spin-dot','Loading from Database…');
-  ge('ph_loading').style.display='block';
-  ge('ph_table_wrap').style.display='none';
-  ge('ph_empty').style.display='none';
-  ge('ph_totals').style.display='none';
+async function prFetch(manual = false) {
+  prSetSync('spin-dot', 'Loading from Database…');
+  ge('ph_loading').style.display = 'block';
+  ge('ph_table_wrap').style.display = 'none';
+  ge('ph_empty').style.display = 'none';
+  ge('ph_totals').style.display = 'none';
   try {
     const { data, error } = await sb.from('salary_records').select('*').order('created_at', { ascending: false });
     if (error) throw error;
@@ -1809,23 +1628,23 @@ async function prFetch(manual=false) {
     prSetSync('ok', `Live · ${PR_ALL.length} records`);
     if (manual) alert('✅ ' + PR_ALL.length + ' records loaded');
   } catch(e) {
-    prSetSync('err', 'Load failed: ' + (e.message||'error'));
-    ge('ph_loading').style.display='none';
-    ge('ph_empty').style.display='block';
+    prSetSync('err', 'Load failed: ' + (e.message || 'error'));
+    ge('ph_loading').style.display = 'none';
+    ge('ph_empty').style.display = 'block';
   }
 }
 
 async function prSave() {
   const name = ge('ps_name').value.trim();
-  const month = ge('ps_month').value.slice(0,7);
+  const month = ge('ps_month').value.slice(0, 7);
   const basic = prNv('ps_basic');
-  ['ps_name','ps_month','ps_basic'].forEach(id=>ge(id).classList.remove('error'));
-  if(!name){ ge('ps_name').classList.add('error'); alert('Employee Name is required'); return; }
-  if(!month){ ge('ps_month').classList.add('error'); alert('Salary Month is required'); return; }
-  if(!basic||basic<=0){ ge('ps_basic').classList.add('error'); alert('Basic Pay is required'); return; }
+  ['ps_name', 'ps_month', 'ps_basic'].forEach(id => ge(id).classList.remove('error'));
+  if (!name) { ge('ps_name').classList.add('error'); alert('Employee Name is required'); return; }
+  if (!month) { ge('ps_month').classList.add('error'); alert('Salary Month is required'); return; }
+  if (!basic || basic <= 0) { ge('ps_basic').classList.add('error'); alert('Basic Pay is required'); return; }
 
-  const earn = prNv('ps_basic')+prNv('ps_ot')+prNv('ps_comm')+prNv('ps_allow')+prNv('ps_earn_other');
-  const ded  = prNv('ps_cpf')+prNv('ps_sdl')+prNv('ps_ded_other');
+  const earn = prNv('ps_basic') + prNv('ps_ot') + prNv('ps_comm') + prNv('ps_allow') + prNv('ps_earn_other');
+  const ded  = prNv('ps_cpf') + prNv('ps_sdl') + prNv('ps_ded_other');
   const net  = earn - ded;
   const id   = prEditingId || String(Date.now());
 
@@ -1858,9 +1677,9 @@ async function prSave() {
 }
 
 function prClearForm() {
-  ['ps_name','ps_nric','ps_desig','ps_ref','ps_basic','ps_ot','ps_comm','ps_allow','ps_earn_other','ps_cpf','ps_sdl','ps_ded_other'].forEach(id=>ge(id).value='');
-  ge('ps_month').value = new Date().toISOString().slice(0,7);
-  ge('ps_paydate').value = new Date().toISOString().slice(0,10);
+  ['ps_name', 'ps_nric', 'ps_desig', 'ps_ref', 'ps_basic', 'ps_ot', 'ps_comm', 'ps_allow', 'ps_earn_other', 'ps_cpf', 'ps_sdl', 'ps_ded_other'].forEach(id => ge(id).value = '');
+  ge('ps_month').value = new Date().toISOString().slice(0, 7);
+  ge('ps_paydate').value = new Date().toISOString().slice(0, 10);
   prCalc();
   prEditingId = null;
   ge('pr-edit-banner').classList.remove('show');
@@ -1882,40 +1701,40 @@ function prSetEditMode(id, name, month) {
 }
 
 function prRenderTable() {
-  const nameF = (ge('phf_name')?.value||'').toLowerCase().trim();
-  const monF  = ge('phf_month')?.value||'';
-  const yearF = ge('phf_year')?.value||'';
+  const nameF = (ge('phf_name')?.value || '').toLowerCase().trim();
+  const monF  = ge('phf_month')?.value || '';
+  const yearF = ge('phf_year')?.value || '';
 
-  const years = [...new Set(PR_ALL.map(r=>(r.month||'').slice(0,4)).filter(Boolean))].sort().reverse();
+  const years = [...new Set(PR_ALL.map(r => (r.month || '').slice(0, 4)).filter(Boolean))].sort().reverse();
   const sel = ge('phf_year'); const curY = sel.value;
-  sel.innerHTML = '<option value="">All Years</option>' + years.map(y=>`<option value="${y}"${y===curY?' selected':''}>${y}</option>`).join('');
+  sel.innerHTML = '<option value="">All Years</option>' + years.map(y => `<option value="${y}"${y === curY ? ' selected' : ''}>${y}</option>`).join('');
 
   let f = PR_ALL.filter(r => {
-    if(nameF && !String(r.name||'').toLowerCase().includes(nameF)) return false;
-    if(monF && r.month !== monF) return false;
-    if(yearF && !(r.month||'').startsWith(yearF)) return false;
+    if (nameF && !String(r.name || '').toLowerCase().includes(nameF)) return false;
+    if (monF && r.month !== monF) return false;
+    if (yearF && !(r.month || '').startsWith(yearF)) return false;
     return true;
   });
 
-  f.sort((a,b)=>{
-    let va,vb;
-    if(prSortCol==='month'){va=a.month;vb=b.month;}
-    else if(prSortCol==='name'){va=String(a.name||'').toLowerCase();vb=String(b.name||'').toLowerCase();}
-    else if(prSortCol==='earn'){va=+a.earn;vb=+b.earn;}
-    else{va=+a.net;vb=+b.net;}
-    return prSortAsc?(va<vb?-1:va>vb?1:0):(va>vb?-1:va<vb?1:0);
+  f.sort((a, b) => {
+    let va, vb;
+    if (prSortCol === 'month') { va = a.month; vb = b.month; }
+    else if (prSortCol === 'name') { va = String(a.name || '').toLowerCase(); vb = String(b.name || '').toLowerCase(); }
+    else if (prSortCol === 'earn') { va = +a.earn; vb = +b.earn; }
+    else { va = +a.net; vb = +b.net; }
+    return prSortAsc ? (va < vb ? -1 : va > vb ? 1 : 0) : (va > vb ? -1 : va < vb ? 1 : 0);
   });
 
-  ge('ph_loading').style.display='none';
-  if(PR_ALL.length===0){ ge('ph_empty').style.display='block'; ge('ph_totals').style.display='none'; }
-  else{ ge('ph_table_wrap').style.display='block'; ge('ph_totals').style.display='flex'; }
+  ge('ph_loading').style.display = 'none';
+  if (PR_ALL.length === 0) { ge('ph_empty').style.display = 'block'; ge('ph_totals').style.display = 'none'; }
+  else { ge('ph_table_wrap').style.display = 'block'; ge('ph_totals').style.display = 'flex'; }
 
-  ge('ph_tbody').innerHTML = f.map(r=>`
+  ge('ph_tbody').innerHTML = f.map(r => `
     <tr>
-      <td><span class="pr-month-pill">${r.month||''}</span><br><small style="color:#aaa;font-size:.68rem">${prFmtMonth(r.month)}</small></td>
-      <td><strong>${r.name||''}</strong><br><small style="color:#999;font-size:.68rem">${r.nric||''}</small></td>
-      <td style="color:#666">${r.desig||'—'}</td>
-      <td style="color:#666;font-size:.78rem">${r.ref||'—'}</td>
+      <td><span class="pr-month-pill">${r.month || ''}</span><br><small style="color:#aaa;font-size:.68rem">${prFmtMonth(r.month)}</small></td>
+      <td><strong>${r.name || ''}</strong><br><small style="color:#999;font-size:.68rem">${r.nric || ''}</small></td>
+      <td style="color:#666">${r.desig || '—'}</td>
+      <td style="color:#666;font-size:.78rem">${r.ref || '—'}</td>
       <td style="text-align:right">${prMf(r.earn)}</td>
       <td style="text-align:right;color:#c0392b">−${prMf(r.ded)}</td>
       <td style="text-align:right;font-weight:700;color:var(--sage)">${prMf(r.net)}</td>
@@ -1926,110 +1745,90 @@ function prRenderTable() {
     </tr>`).join('') || '<tr><td colspan="8" style="text-align:center;padding:20px;color:#bbb">No records match filter</td></tr>';
 
   ge('phb_count').textContent = f.length;
-  ge('phb_earn').textContent  = prMf(f.reduce((a,r)=>a+(+r.earn||0),0));
-  ge('phb_net').textContent   = prMf(f.reduce((a,r)=>a+(+r.net||0),0));
+  ge('phb_earn').textContent  = prMf(f.reduce((a, r) => a + (+r.earn || 0), 0));
+  ge('phb_net').textContent   = prMf(f.reduce((a, r) => a + (+r.net || 0), 0));
 
-  const names = new Set(PR_ALL.map(r=>r.name).filter(Boolean));
-  const totalPaid = PR_ALL.reduce((a,r)=>a+(+r.net||0),0);
-  const months = PR_ALL.map(r=>r.month).filter(Boolean).sort().reverse();
+  const names = new Set(PR_ALL.map(r => r.name).filter(Boolean));
+  const totalPaid = PR_ALL.reduce((a, r) => a + (+r.net || 0), 0);
+  const months = PR_ALL.map(r => r.month).filter(Boolean).sort().reverse();
   ge('ph_records').textContent = PR_ALL.length;
   ge('ph_emp').textContent     = names.size;
-  ge('ph_paid').textContent    = 'S$ ' + (+totalPaid).toLocaleString('en',{maximumFractionDigits:0});
+  ge('ph_paid').textContent    = 'S$ ' + (+totalPaid).toLocaleString('en', { maximumFractionDigits: 0 });
   ge('ph_latest').textContent  = months[0] ? prFmtMonth(months[0]) : '—';
 }
 
 function prApplyFilters() { prRenderTable(); }
-function prSortBy(col) { if(prSortCol===col)prSortAsc=!prSortAsc;else{prSortCol=col;prSortAsc=false;} prApplyFilters(); }
-function prClearFilters() { ge('phf_name').value=''; ge('phf_month').value=''; ge('phf_year').value=''; prApplyFilters(); }
+function prSortBy(col) { if (prSortCol === col) prSortAsc = !prSortAsc; else { prSortCol = col; prSortAsc = false; } prApplyFilters(); }
+function prClearFilters() { ge('phf_name').value = ''; ge('phf_month').value = ''; ge('phf_year').value = ''; prApplyFilters(); }
 
 function prLoadRec(id) {
-  const r = PR_ALL.find(x=>String(x.id)===String(id));
-  if(!r){ alert('Record not found'); return; }
-  ge('ps_name').value         = r.name  ||'';
-  ge('ps_nric').value         = r.nric  ||'';
-  ge('ps_desig').value        = r.desig ||'';
-  ge('ps_month').value        = (r.month||'').slice(0,7);
-  ge('ps_paydate').value      = r.paydate||'';
-  ge('ps_ref').value          = r.ref   ||'';
-  ge('ps_basic').value        = r.basic ||'';
-  ge('ps_ot').value           = r.ot    ||'';
-  ge('ps_comm').value         = r.comm  ||'';
-  ge('ps_allow').value        = r.allow ||'';
-  ge('ps_earn_other').value   = r.oe    ||'';
-  ge('ps_cpf').value          = r.cpf   ||'';
-  ge('ps_sdl').value          = r.sdl   ||'';
-  ge('ps_ded_other').value    = r.od    ||'';
+  const r = PR_ALL.find(x => String(x.id) === String(id));
+  if (!r) { alert('Record not found'); return; }
+  ge('ps_name').value       = r.name   || '';
+  ge('ps_nric').value       = r.nric   || '';
+  ge('ps_desig').value      = r.desig  || '';
+  ge('ps_month').value      = (r.month || '').slice(0, 7);
+  ge('ps_paydate').value    = r.paydate || '';
+  ge('ps_ref').value        = r.ref    || '';
+  ge('ps_basic').value      = r.basic  || '';
+  ge('ps_ot').value         = r.ot     || '';
+  ge('ps_comm').value       = r.comm   || '';
+  ge('ps_allow').value      = r.allow  || '';
+  ge('ps_earn_other').value = r.oe     || '';
+  ge('ps_cpf').value        = r.cpf    || '';
+  ge('ps_sdl').value        = r.sdl    || '';
+  ge('ps_ded_other').value  = r.od     || '';
   prCalc();
   prSetEditMode(r.id, r.name, r.month);
   showPrTab('slip', ge('prtab-slip'));
-  window.scrollTo({top:0, behavior:'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 async function prPdfRec(id) {
-  const r = PR_ALL.find(x=>String(x.id)===String(id));
-  if(!r) return;
+  const r = PR_ALL.find(x => String(x.id) === String(id));
+  if (!r) return;
   await prGenPDFFromRecord(r);
 }
 
 function prSetSync(state, msg) {
-  const dot=ge('pr-sdot'), txt=ge('pr-sstatus');
-  if(dot) dot.className='pr-sdot '+state;
-  if(txt) txt.textContent=msg;
+  const dot = ge('pr-sdot'), txt = ge('pr-sstatus');
+  if (dot) dot.className = 'pr-sdot ' + state;
+  if (txt) txt.textContent = msg;
 }
 
-// ── SALARY PDF ──
 async function prGenPDF() {
-  // ── Validation ────────────────────────────────────────────
   const name = ge('ps_name').value.trim();
-  const month = ge('ps_month').value.slice(0,7);
+  const month = ge('ps_month').value.slice(0, 7);
   const basic = prNv('ps_basic');
-  ['ps_name','ps_month','ps_basic'].forEach(id=>ge(id).classList.remove('error'));
-  if(!name){ ge('ps_name').classList.add('error'); alert('Employee Name is required'); return; }
-  if(!month){ ge('ps_month').classList.add('error'); alert('Salary Month is required'); return; }
-  if(!basic||basic<=0){ ge('ps_basic').classList.add('error'); alert('Basic Pay is required'); return; }
-  // ── Save warning ──────────────────────────────────────────
+  ['ps_name', 'ps_month', 'ps_basic'].forEach(id => ge(id).classList.remove('error'));
+  if (!name) { ge('ps_name').classList.add('error'); alert('Employee Name is required'); return; }
+  if (!month) { ge('ps_month').classList.add('error'); alert('Salary Month is required'); return; }
+  if (!basic || basic <= 0) { ge('ps_basic').classList.add('error'); alert('Basic Pay is required'); return; }
 
-  if(name && month) {
-    const existing = PR_ALL.find(r =>
-      String(r.name||'').toLowerCase() === name.toLowerCase() &&
-      String(r.month||'').slice(0,7) === month
-    );
-
-    if(!existing && !prEditingId) {
-      // NEW record — not saved at all
-      const go = confirm(
-        '⚠️ Unsaved Data Warning\n\n' +
-        'This salary slip for ' + name + ' (' + prFmtMonth(month) + ') has NOT been saved yet.\n\n' +
-        'Download now without saving? Your data will be lost when you leave this page.\n\n' +
-        'OK = Download anyway\nCancel = Go back and Save first'
-      );
-      if(!go) return;
-
-    } else if(prEditingId) {
-      // EDIT mode — unsaved changes
-      const go = confirm(
-        '⚠️ Unsaved Changes Warning\n\n' +
-        'You are editing ' + name + ' (' + prFmtMonth(month) + ') and have NOT saved your changes yet.\n\n' +
-        'The PDF will reflect your current edits, but changes will be lost if you leave without saving.\n\n' +
-        'OK = Download with current changes (unsaved)\nCancel = Save first, then download'
-      );
-      if(!go) return;
+  if (name && month) {
+    const existing = PR_ALL.find(r => String(r.name || '').toLowerCase() === name.toLowerCase() && String(r.month || '').slice(0, 7) === month);
+    if (!existing && !prEditingId) {
+      const go = confirm('⚠️ Unsaved Data Warning\n\nThis salary slip for ' + name + ' (' + prFmtMonth(month) + ') has NOT been saved yet.\n\nDownload now without saving? Your data will be lost when you leave this page.\n\nOK = Download anyway\nCancel = Go back and Save first');
+      if (!go) return;
+    } else if (prEditingId) {
+      const go = confirm('⚠️ Unsaved Changes Warning\n\nYou are editing ' + name + ' (' + prFmtMonth(month) + ') and have NOT saved your changes yet.\n\nThe PDF will reflect your current edits, but changes will be lost if you leave without saving.\n\nOK = Download with current changes (unsaved)\nCancel = Save first, then download');
+      if (!go) return;
     }
   }
   const rec = {
-    id: prEditingId||'tmp',
-    name: ge('ps_name').value.trim()||'—',
-    nric: ge('ps_nric').value.trim()||'—',
-    desig: ge('ps_desig').value.trim()||'—',
-    month: ge('ps_month').value||'',
-    paydate: ge('ps_paydate').value||'—',
-    ref: ge('ps_ref').value.trim()||'—',
+    id: prEditingId || 'tmp',
+    name: ge('ps_name').value.trim() || '—',
+    nric: ge('ps_nric').value.trim() || '—',
+    desig: ge('ps_desig').value.trim() || '—',
+    month: ge('ps_month').value || '',
+    paydate: ge('ps_paydate').value || '—',
+    ref: ge('ps_ref').value.trim() || '—',
     basic: prNv('ps_basic'), ot: prNv('ps_ot'), comm: prNv('ps_comm'),
     allow: prNv('ps_allow'), oe: prNv('ps_earn_other'),
     cpf: prNv('ps_cpf'), sdl: prNv('ps_sdl'), od: prNv('ps_ded_other'),
-    earn: prNv('ps_basic')+prNv('ps_ot')+prNv('ps_comm')+prNv('ps_allow')+prNv('ps_earn_other'),
-    ded: prNv('ps_cpf')+prNv('ps_sdl')+prNv('ps_ded_other'),
-    net: (prNv('ps_basic')+prNv('ps_ot')+prNv('ps_comm')+prNv('ps_allow')+prNv('ps_earn_other'))-(prNv('ps_cpf')+prNv('ps_sdl')+prNv('ps_ded_other')),
+    earn: prNv('ps_basic') + prNv('ps_ot') + prNv('ps_comm') + prNv('ps_allow') + prNv('ps_earn_other'),
+    ded: prNv('ps_cpf') + prNv('ps_sdl') + prNv('ps_ded_other'),
+    net: (prNv('ps_basic') + prNv('ps_ot') + prNv('ps_comm') + prNv('ps_allow') + prNv('ps_earn_other')) - (prNv('ps_cpf') + prNv('ps_sdl') + prNv('ps_ded_other')),
   };
   await prGenPDFFromRecord(rec);
 }
@@ -2037,211 +1836,140 @@ async function prGenPDF() {
 async function prGenPDFFromRecord(r) {
   const FOOTER_H_PR = 22;
   const earn = +r.earn, ded = +r.ded, net = +r.net;
-  const ml = prFmtMonth(r.month||'');
-  function words(n){
-    const O=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
-    const T=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
-    if(!n) return 'Zero Dollars Only';
-    const iv=Math.floor(n),cv=Math.round((n-iv)*100);
-    let w='';
-    if(iv>=1000) w+=O[Math.floor(iv/1000)]+' Thousand ';
-    const h=Math.floor((iv%1000)/100); if(h) w+=O[h]+' Hundred ';
-    const rr=iv%100;
-    if(rr>=20) w+=T[Math.floor(rr/10)]+' '+(O[rr%10]||''); else if(rr) w+=O[rr];
-    w=w.trim()+' Dollars';
-    if(cv>0){const cc=cv>19?T[Math.floor(cv/10)]+' '+(O[cv%10]||''):O[cv]; w+=' and '+cc.trim()+' Cents';}
-    return w.trim()+' Only';
+  const ml = prFmtMonth(r.month || '');
+  function words(n) {
+    const O = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+    const T = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+    if (!n) return 'Zero Dollars Only';
+    const iv = Math.floor(n), cv = Math.round((n - iv) * 100);
+    let w = '';
+    if (iv >= 1000) w += O[Math.floor(iv / 1000)] + ' Thousand ';
+    const h = Math.floor((iv % 1000) / 100); if (h) w += O[h] + ' Hundred ';
+    const rr = iv % 100;
+    if (rr >= 20) w += T[Math.floor(rr / 10)] + ' ' + (O[rr % 10] || ''); else if (rr) w += O[rr];
+    w = w.trim() + ' Dollars';
+    if (cv > 0) { const cc = cv > 19 ? T[Math.floor(cv / 10)] + ' ' + (O[cv % 10] || '') : O[cv]; w += ' and ' + cc.trim() + ' Cents'; }
+    return w.trim() + ' Only';
   }
-  const {jsPDF}=window.jspdf;
-  const doc=new jsPDF({format:'a4',unit:'mm'});
-  doc.setFillColor(250,247,240); doc.rect(0,0,210,297,'F');
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ format: 'a4', unit: 'mm' });
+  doc.setFillColor(250, 247, 240); doc.rect(0, 0, 210, 297, 'F');
 
-  // Header + Footer + QR - preload via canvas (works in browser)
   const [prHdrImg, prFtrImg, prQrImg] = await Promise.all([
-    loadImg('./header.png'),
-    loadImg('./footer.png'),
-    loadImg('./QRCode.jpeg'),
+    loadImg('./header.png'), loadImg('./footer.png'), loadImg('./QRCode.jpeg'),
   ]);
-  if(prHdrImg){ doc.addImage(prHdrImg.d, prHdrImg.ext, 0, 0, 210, 35, '', 'NONE'); }
-  else{
-    doc.setFillColor(26,26,46);doc.rect(0,0,210,36,'F');
-    doc.setFillColor(201,168,76);doc.rect(0,36,210,2,'F');
-    doc.setFont('helvetica','bold');doc.setFontSize(15);doc.setTextColor(255,255,255);
-    doc.text('CHARAN LOGISTICS PTE LTD',105,13,{align:'center'});
-    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(200,190,160);
-    doc.text('101 Kitchener Road #03-14, Singapore 208511  |  HP: 91858511  |  charanlogistics@gmail.com',105,20,{align:'center'});
-    doc.text('Reg No: 202502540D',105,27,{align:'center'});
+  if (prHdrImg) { doc.addImage(prHdrImg.d, prHdrImg.ext, 0, 0, 210, 35, '', 'NONE'); }
+  else {
+    doc.setFillColor(26, 26, 46); doc.rect(0, 0, 210, 36, 'F');
+    doc.setFillColor(201, 168, 76); doc.rect(0, 36, 210, 2, 'F');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(15); doc.setTextColor(255, 255, 255);
+    doc.text('CHARAN LOGISTICS PTE LTD', 105, 13, { align: 'center' });
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(200, 190, 160);
+    doc.text('101 Kitchener Road #03-14, Singapore 208511  |  HP: 91858511  |  charanlogistics@gmail.com', 105, 20, { align: 'center' });
+    doc.text('Reg No: 202502540D', 105, 27, { align: 'center' });
   }
-  const hH=35;
+  const hH = 35;
 
-  // Footer image strip
-  if(prFtrImg){ doc.addImage(prFtrImg.d, prFtrImg.ext, 0, 297-22, 210, 22, '', 'NONE'); }
-  else{
-    doc.setFillColor(19,48,94);doc.rect(0,297-22,210,22,'F');
-    doc.setFont('helvetica','italic');doc.setFontSize(8);doc.setTextColor(180,200,240);
-    doc.text('CHARAN LOGISTICS PTE LTD  ·  101 Kitchener Road #03-14, Singapore 208511  ·  Reg No: 202502540D',105,297-11,{align:'center'});
+  if (prFtrImg) { doc.addImage(prFtrImg.d, prFtrImg.ext, 0, 297 - 22, 210, 22, '', 'NONE'); }
+  else {
+    doc.setFillColor(19, 48, 94); doc.rect(0, 297 - 22, 210, 22, 'F');
+    doc.setFont('helvetica', 'italic'); doc.setFontSize(8); doc.setTextColor(180, 200, 240);
+    doc.text('CHARAN LOGISTICS PTE LTD  ·  101 Kitchener Road #03-14, Singapore 208511  ·  Reg No: 202502540D', 105, 297 - 11, { align: 'center' });
   }
-  // Title
-  doc.setFillColor(201,168,76);doc.roundedRect(70,hH+4,70,10,2,2,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(26,26,46);
-  doc.text('SALARY SLIP',105,hH+11,{align:'center'});
 
-  // Employee info
-  let y=hH+20;
-  doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);doc.setLineWidth(.4);
-  doc.roundedRect(14,y,182,34,3,3,'FD');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);
-  doc.text('EMPLOYEE NAME',15,y+8);doc.text('NRIC/FIN NO.',15,y+17);doc.text('DESIGNATION',15,y+26);
-  doc.text('PAYMENT DATE',130,y+8);doc.text('SALARY MONTH',130,y+17);doc.text('REFERENCE NO.',130,y+26);
-  doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(26,26,46);
-  doc.text(r.name||'—',50,y+8);doc.text(r.nric||'—',50,y+17);doc.text(r.desig||'—',50,y+26);
-  doc.text(r.paydate||'—',165,y+8);doc.text(ml,165,y+17);doc.text(r.ref||'—',165,y+26);
+  doc.setFillColor(201, 168, 76); doc.roundedRect(70, hH + 4, 70, 10, 2, 2, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.setTextColor(26, 26, 46);
+  doc.text('SALARY SLIP', 105, hH + 11, { align: 'center' });
 
-  // Earnings / Deductions table
-  y+=40; const cw=91;
-  doc.setFillColor(255,255,255);
-  doc.roundedRect(14,y,cw,90,3,3,'FD');doc.roundedRect(14+cw,y,cw,90,3,3,'FD');
-  doc.setFillColor(26,26,46);doc.rect(14,y,cw,10,'F');doc.rect(14+cw,y,cw,10,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(201,168,76);
-  doc.text('EARNINGS',18,y+7);doc.text('S$',97,y+7,{align:'right'});
-  doc.text('DEDUCTIONS',14+cw+4,y+7);doc.text('S$',14+cw+cw-5,y+7,{align:'right'});
-  doc.setFont('helvetica','normal');doc.setFontSize(9);
-  let ry=y+17;
-  [['Basic Pay',r.basic],['Overtime',r.ot],['Commission',r.comm],['Allowance',r.allow],['Other',r.oe]].forEach(([l,v])=>{
-    doc.setTextColor(26,26,46);doc.text(l,18,ry);
-    doc.setTextColor(+v>0?74:160,+v>0?103:160,+v>0?65:160);
-    doc.text((+v||0).toFixed(2),97,ry,{align:'right'}); ry+=12;
+  let y = hH + 20;
+  doc.setFillColor(255, 255, 255); doc.setDrawColor(212, 201, 168); doc.setLineWidth(.4);
+  doc.roundedRect(14, y, 182, 34, 3, 3, 'FD');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(120, 110, 88);
+  doc.text('EMPLOYEE NAME', 15, y + 8); doc.text('NRIC/FIN NO.', 15, y + 17); doc.text('DESIGNATION', 15, y + 26);
+  doc.text('PAYMENT DATE', 130, y + 8); doc.text('SALARY MONTH', 130, y + 17); doc.text('REFERENCE NO.', 130, y + 26);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(26, 26, 46);
+  doc.text(r.name || '—', 50, y + 8); doc.text(r.nric || '—', 50, y + 17); doc.text(r.desig || '—', 50, y + 26);
+  doc.text(r.paydate || '—', 165, y + 8); doc.text(ml, 165, y + 17); doc.text(r.ref || '—', 165, y + 26);
+
+  y += 40; const cw = 91;
+  doc.setFillColor(255, 255, 255);
+  doc.roundedRect(14, y, cw, 90, 3, 3, 'FD'); doc.roundedRect(14 + cw, y, cw, 90, 3, 3, 'FD');
+  doc.setFillColor(26, 26, 46); doc.rect(14, y, cw, 10, 'F'); doc.rect(14 + cw, y, cw, 10, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(201, 168, 76);
+  doc.text('EARNINGS', 18, y + 7); doc.text('S$', 97, y + 7, { align: 'right' });
+  doc.text('DEDUCTIONS', 14 + cw + 4, y + 7); doc.text('S$', 14 + cw + cw - 5, y + 7, { align: 'right' });
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9);
+  let ry = y + 17;
+  [['Basic Pay', r.basic], ['Overtime', r.ot], ['Commission', r.comm], ['Allowance', r.allow], ['Other', r.oe]].forEach(([l, v]) => {
+    doc.setTextColor(26, 26, 46); doc.text(l, 18, ry);
+    doc.setTextColor(+v > 0 ? 74 : 160, +v > 0 ? 103 : 160, +v > 0 ? 65 : 160);
+    doc.text((+v || 0).toFixed(2), 97, ry, { align: 'right' }); ry += 12;
   });
-  ry=y+17;
-  [['CPF Employee',r.cpf],['SDL / SHG',r.sdl],['Other Deductions',r.od]].forEach(([l,v])=>{
-    doc.setTextColor(26,26,46);doc.text(l,14+cw+4,ry);
-    doc.setTextColor(+v>0?139:160,+v>0?58:160,+v>0?46:160);
-    doc.text((+v||0).toFixed(2),14+cw+cw-5,ry,{align:'right'}); ry+=12;
+  ry = y + 17;
+  [['CPF Employee', r.cpf], ['SDL / SHG', r.sdl], ['Other Deductions', r.od]].forEach(([l, v]) => {
+    doc.setTextColor(26, 26, 46); doc.text(l, 14 + cw + 4, ry);
+    doc.setTextColor(+v > 0 ? 139 : 160, +v > 0 ? 58 : 160, +v > 0 ? 46 : 160);
+    doc.text((+v || 0).toFixed(2), 14 + cw + cw - 5, ry, { align: 'right' }); ry += 12;
   });
-  doc.setFillColor(240,235,220);doc.rect(14,y+79,cw,11,'F');doc.rect(14+cw,y+79,cw,11,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(26,26,46);
-  doc.text('TOTAL EARNINGS',18,y+86);doc.text(earn.toFixed(2),97,y+86,{align:'right'});
-  doc.text('TOTAL DEDUCTIONS',14+cw+4,y+86);doc.setTextColor(139,58,46);doc.text(ded.toFixed(2),14+cw+cw-5,y+86,{align:'right'});
+  doc.setFillColor(240, 235, 220); doc.rect(14, y + 79, cw, 11, 'F'); doc.rect(14 + cw, y + 79, cw, 11, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(26, 26, 46);
+  doc.text('TOTAL EARNINGS', 18, y + 86); doc.text(earn.toFixed(2), 97, y + 86, { align: 'right' });
+  doc.text('TOTAL DEDUCTIONS', 14 + cw + 4, y + 86); doc.setTextColor(139, 58, 46); doc.text(ded.toFixed(2), 14 + cw + cw - 5, y + 86, { align: 'right' });
 
-  // Net salary box
- // --- 3 Boxes instead of 1 ---
-y += 92;
+  y += 92;
+  const boxW = 58, gap = 3;
+  doc.setFillColor(240, 235, 220); doc.roundedRect(14, y, boxW, 26, 3, 3, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(8.5); doc.setTextColor(26, 26, 46);
+  doc.text('TOTAL EARNINGS', 18, y + 7);
+  doc.setFontSize(12); doc.setTextColor(74, 103, 65);
+  doc.text(prMf(earn), 14 + boxW - 4, y + 17, { align: 'right' });
 
-const boxW = 58;   // reduced width (182 / 3 ≈ 60 → keep margin safe)
-const gap = 3;
+  const x2 = 14 + boxW + gap;
+  doc.setFillColor(240, 235, 220); doc.roundedRect(x2, y, boxW, 26, 3, 3, 'F');
+  doc.setFontSize(8.5); doc.setTextColor(26, 26, 46);
+  doc.text('TOTAL DEDUCTIONS', x2 + 4, y + 7);
+  doc.setFontSize(12); doc.setTextColor(139, 58, 46);
+  doc.text(prMf(ded), x2 + boxW - 4, y + 17, { align: 'right' });
 
-// --- 1. Earnings ---
-doc.setFillColor(240,235,220);
-doc.roundedRect(14, y, boxW, 26, 3, 3, 'F');
+  const x3 = x2 + boxW + gap;
+  doc.setFillColor(26, 26, 46); doc.roundedRect(x3, y, boxW, 26, 3, 3, 'F');
+  doc.setFontSize(8.5); doc.setTextColor(200, 190, 160);
+  doc.text('NET SALARY', x3 + 4, y + 7);
+  doc.setFontSize(14); doc.setTextColor(201, 168, 76);
+  doc.text(prMf(net), x3 + boxW - 4, y + 17, { align: 'right' });
 
-doc.setFont('helvetica','bold');
-doc.setFontSize(8.5);
-doc.setTextColor(26,26,46);
-doc.text('TOTAL EARNINGS', 18, y+7);
+  y += 32;
+  doc.setFillColor(255, 255, 255); doc.setDrawColor(212, 201, 168); doc.roundedRect(14, y, 182, 16, 3, 3, 'FD');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(120, 110, 88); doc.text('AMOUNT IN WORDS:', 18, y + 5.5);
+  doc.setFont('helvetica', 'italic'); doc.setFontSize(8.5); doc.setTextColor(26, 26, 46); doc.text(words(net), 18, y + 13);
 
-doc.setFontSize(12);
-doc.setTextColor(74,103,65);
-doc.text(prMf(earn), 14 + boxW - 4, y+17, { align:'right' });
+  y += 24;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(120, 110, 88);
+  doc.text('APPROVED BY', 20, y);
+  doc.text('RECEIVED BY', 190, y, { align: 'right' });
+  doc.setDrawColor(180); doc.setLineWidth(0.3);
+  doc.line(20, y + 10, 80, y + 10);
+  doc.line(130, y + 10, 190, y + 10);
 
+  y += 18;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(120, 110, 88);
+  doc.text('FOR CHARAN LOGISTICS', 190, y, { align: 'right' });
+  doc.line(130, y + 10, 190, y + 10);
+  doc.setFontSize(7);
+  doc.text('Authorised Signatory & Seal', 190, y + 14, { align: 'right' });
 
-// --- 2. Deductions ---
-const x2 = 14 + boxW + gap;
-
-doc.setFillColor(240,235,220);
-doc.roundedRect(x2, y, boxW, 26, 3, 3, 'F');
-
-doc.setFontSize(8.5);
-doc.setTextColor(26,26,46);
-doc.text('TOTAL DEDUCTIONS', x2 + 4, y+7);
-
-doc.setFontSize(12);
-doc.setTextColor(139,58,46);
-doc.text(prMf(ded), x2 + boxW - 4, y+17, { align:'right' });
-
-
-// --- 3. Net Salary (highlight) ---
-const x3 = x2 + boxW + gap;
-
-doc.setFillColor(26,26,46);
-doc.roundedRect(x3, y, boxW, 26, 3, 3, 'F');
-
-doc.setFontSize(8.5);
-doc.setTextColor(200,190,160);
-doc.text('NET SALARY', x3 + 4, y+7);
-
-doc.setFontSize(14);
-doc.setTextColor(201,168,76);
-doc.text(prMf(net), x3 + boxW - 4, y+17, { align:'right' });
-
-  y+=32;
-  doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);doc.roundedRect(14,y,182,16,3,3,'FD');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);doc.text('AMOUNT IN WORDS:',18,y+5.5);
-  doc.setFont('helvetica','italic');doc.setFontSize(8.5);doc.setTextColor(26,26,46);doc.text(words(net),18,y+13);
-
-
-  // --- Approval / Receipt Section ---
-y += 24;
-
-doc.setFont('helvetica','bold');
-doc.setFontSize(8);
-doc.setTextColor(120,110,88);
-
-// LEFT → Approved By
-doc.text('APPROVED BY', 20, y);
-
-// RIGHT → Received By
-doc.text('RECEIVED BY', 190, y, { align: 'right' });
-
-// Signature lines
-doc.setDrawColor(180);
-doc.setLineWidth(0.3);
-
-// Line under Approved By (left)
-doc.line(20, y+10, 80, y+10);
-
-// Line under Received By (right)
-doc.line(130, y+10, 190, y+10);
-
-
-// --- Seal & Signature (Right side below Received By) ---
-y += 18;
-
-doc.setFont('helvetica','bold');
-doc.setFontSize(8);
-doc.setTextColor(120,110,88);
-
-// Right aligned block
-doc.text('FOR CHARAN LOGISTICS', 190, y, { align: 'right' });
-
-// Signature line
-doc.line(130, y+10, 190, y+10);
-
-// Caption
-doc.setFontSize(7);
-doc.text('Authorised Signatory & Seal', 190, y+14, { align: 'right' });
-  // QR Code - show in top right of footer area
-  /*if(prQrImg){
-    const qsz=28;
-    const qx=210-8-qsz;
-    const qy=297-FOOTER_H_PR+3;
-    doc.addImage(prQrImg.d,prQrImg.ext,qx,qy,qsz,qsz,'','NONE');
-    doc.setFont('helvetica','normal');doc.setFontSize(6);doc.setTextColor(200,190,160);
-    doc.text('Scan to Pay',qx+qsz/2,qy+qsz+3.5,{align:'center'});
-  }*/
-
-
-  doc.save(`SalarySlip_${(r.name||'').replace(/\s+/g,'_')}_${ml.replace(/\s/g,'_')}.pdf`);
+  doc.save(`SalarySlip_${(r.name || '').replace(/\s+/g, '_')}_${ml.replace(/\s/g, '_')}.pdf`);
 }
 
 // ══════════════════════════════════════════════════════════════
 //  QUOTATION
 // ══════════════════════════════════════════════════════════════
 let qtRowId = 0;
-function qtAddItem(desc='', price='', qty=1) {
+function qtAddItem(desc = '', price = '', qty = 1) {
   qtRowId++;
-  const n=qtRowId, idx=ge('qt_body').children.length+1;
-  const tr=document.createElement('tr'); tr.id='qtr'+n;
-  tr.innerHTML=`
+  const n = qtRowId, idx = ge('qt_body').children.length + 1;
+  const tr = document.createElement('tr'); tr.id = 'qtr' + n;
+  tr.innerHTML = `
     <td style="text-align:center;color:#7a6e58;font-weight:600">${idx}</td>
     <td><input type="text" placeholder="Description" value="${desc}" oninput="qtCalc()"/></td>
     <td><input type="number" placeholder="0.00" value="${price}" min="0" step="0.01" oninput="qtCalc()" style="text-align:right"/></td>
@@ -2251,202 +1979,183 @@ function qtAddItem(desc='', price='', qty=1) {
   ge('qt_body').appendChild(tr); qtCalc();
 }
 function qtDelItem(n) {
-  ge('qtr'+n)?.remove();
-  [...ge('qt_body').children].forEach((r,i)=>r.cells[0].textContent=i+1);
+  ge('qtr' + n)?.remove();
+  [...ge('qt_body').children].forEach((r, i) => r.cells[0].textContent = i + 1);
   qtCalc();
 }
 function qtCalc() {
-  let sub=0;
-  [...ge('qt_body').querySelectorAll('tr')].forEach(r=>{
-    const p=parseFloat(r.cells[2].querySelector('input').value)||0;
-    const q=parseFloat(r.cells[3].querySelector('input').value)||0;
-    const t=p*q; sub+=t;
-    const el=ge('qtrt'+r.id.replace('qtr',''));
-    if(el) el.textContent='S$ '+t.toFixed(2);
+  let sub = 0;
+  [...ge('qt_body').querySelectorAll('tr')].forEach(r => {
+    const p = parseFloat(r.cells[2].querySelector('input').value) || 0;
+    const q = parseFloat(r.cells[3].querySelector('input').value) || 0;
+    const t = p * q; sub += t;
+    const el = ge('qtrt' + r.id.replace('qtr', ''));
+    if (el) el.textContent = 'S$ ' + t.toFixed(2);
   });
-  const gst=ge('qt_gst').checked?sub*.09:0;
-  ge('qt_sub').textContent=qtMf(sub);
-  ge('qt_gst_val').textContent=qtMf(gst);
-  ge('qt_grand').textContent=qtMf(sub+gst);
+  const gst = ge('qt_gst').checked ? sub * .09 : 0;
+  ge('qt_sub').textContent = qtMf(sub);
+  ge('qt_gst_val').textContent = qtMf(gst);
+  ge('qt_grand').textContent = qtMf(sub + gst);
 }
 
-const imgCache={};
-function loadImg(src){
-  return new Promise(res=>{
-    if(imgCache[src]) return res(imgCache[src]);
-    const img=new Image(); img.crossOrigin='anonymous';
-    img.onload=()=>{
-      try{
-        const c=document.createElement('canvas');
-        c.width=img.naturalWidth; c.height=img.naturalHeight;
-        c.getContext('2d').drawImage(img,0,0);
-        const ext=src.endsWith('.jpg')?'JPEG':'PNG';
-        imgCache[src]={d:c.toDataURL('image/'+ext.toLowerCase()),ext,w:img.naturalWidth,h:img.naturalHeight};
+const imgCache = {};
+function loadImg(src) {
+  return new Promise(res => {
+    if (imgCache[src]) return res(imgCache[src]);
+    const img = new Image(); img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth; c.height = img.naturalHeight;
+        c.getContext('2d').drawImage(img, 0, 0);
+        const ext = src.endsWith('.jpg') || src.endsWith('.jpeg') ? 'JPEG' : 'PNG';
+        imgCache[src] = { d: c.toDataURL('image/' + ext.toLowerCase()), ext, w: img.naturalWidth, h: img.naturalHeight };
         res(imgCache[src]);
-      }catch(e){res(null);}
+      } catch(e) { res(null); }
     };
-    img.onerror=()=>res(null);
-    img.src=src;
+    img.onerror = () => res(null);
+    img.src = src;
   });
 }
 
 async function qtGenPDF() {
-  const qno=ge('q_num').value||'QT-001', qdate=ge('q_date').value||today_str();
-  const client=ge('q_client').value||'—', addr=ge('q_addr').value||'', notes=ge('q_notes').value||'';
-  const useGst=ge('qt_gst').checked;
-  const rows=[];
-  [...ge('qt_body').querySelectorAll('tr')].forEach((r,i)=>{
-    const desc=r.cells[1].querySelector('input').value;
-    const price=parseFloat(r.cells[2].querySelector('input').value)||0;
-    const qty=parseFloat(r.cells[3].querySelector('input').value)||1;
-    if(desc||price) rows.push({n:i+1,desc,price,qty,total:price*qty});
+  const qno = ge('q_num').value || 'QT-001', qdate = ge('q_date').value || today_str();
+  const client = ge('q_client').value || '—', addr = ge('q_addr').value || '', notes = ge('q_notes').value || '';
+  const useGst = ge('qt_gst').checked;
+  const rows = [];
+  [...ge('qt_body').querySelectorAll('tr')].forEach((r, i) => {
+    const desc = r.cells[1].querySelector('input').value;
+    const price = parseFloat(r.cells[2].querySelector('input').value) || 0;
+    const qty = parseFloat(r.cells[3].querySelector('input').value) || 1;
+    if (desc || price) rows.push({ n: i + 1, desc, price, qty, total: price * qty });
   });
-  const sub=rows.reduce((a,r)=>a+r.total,0),gst=useGst?sub*.09:0,grand=sub+gst;
-  const {jsPDF}=window.jspdf;
-  const doc=new jsPDF({format:'a4',unit:'mm'});
-  doc.setFillColor(250,247,240);doc.rect(0,0,210,297,'F');
+  const sub = rows.reduce((a, r) => a + r.total, 0), gst = useGst ? sub * .09 : 0, grand = sub + gst;
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ format: 'a4', unit: 'mm' });
+  doc.setFillColor(250, 247, 240); doc.rect(0, 0, 210, 297, 'F');
 
-  const hdrImg=await loadImg('./header.png');
-  if(hdrImg){doc.addImage(hdrImg.d,hdrImg.ext,0,0,210,35,'','NONE');}
-  else{doc.setFillColor(26,26,46);doc.rect(0,0,210,36,'F');doc.setFillColor(201,168,76);doc.rect(0,36,210,2,'F');doc.setFont('helvetica','bold');doc.setFontSize(15);doc.setTextColor(255,255,255);doc.text('CHARAN LOGISTICS PTE LTD',105,13,{align:'center'});doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(200,190,160);doc.text('101 Kitchener Road #03-14, Singapore 208511  |  Reg No: 202502540D',105,20,{align:'center'});}
+  const hdrImg = await loadImg('./header.png');
+  if (hdrImg) { doc.addImage(hdrImg.d, hdrImg.ext, 0, 0, 210, 35, '', 'NONE'); }
+  else { doc.setFillColor(26, 26, 46); doc.rect(0, 0, 210, 36, 'F'); doc.setFillColor(201, 168, 76); doc.rect(0, 36, 210, 2, 'F'); doc.setFont('helvetica', 'bold'); doc.setFontSize(15); doc.setTextColor(255, 255, 255); doc.text('CHARAN LOGISTICS PTE LTD', 105, 13, { align: 'center' }); doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(200, 190, 160); doc.text('101 Kitchener Road #03-14, Singapore 208511  |  Reg No: 202502540D', 105, 20, { align: 'center' }); }
 
-  const ftrImg=await loadImg('./footer.png');
-  if(ftrImg){doc.addImage(ftrImg.d,ftrImg.ext,0,297-22,210,22,'','NONE');}
-  else{doc.setFillColor(19,48,94);doc.rect(0,297-22,210,22,'F');doc.setFont('helvetica','italic');doc.setFontSize(8);doc.setTextColor(180,200,240);doc.text('CHARAN LOGISTICS PTE LTD  ·  101 Kitchener Road #03-14  ·  Singapore 208511',105,297-11,{align:'center'});}
+  const ftrImg = await loadImg('./footer.png');
+  if (ftrImg) { doc.addImage(ftrImg.d, ftrImg.ext, 0, 297 - 22, 210, 22, '', 'NONE'); }
+  else { doc.setFillColor(19, 48, 94); doc.rect(0, 297 - 22, 210, 22, 'F'); doc.setFont('helvetica', 'italic'); doc.setFontSize(8); doc.setTextColor(180, 200, 240); doc.text('CHARAN LOGISTICS PTE LTD  ·  101 Kitchener Road #03-14  ·  Singapore 208511', 105, 297 - 11, { align: 'center' }); }
 
-  doc.setFillColor(201,168,76);doc.roundedRect(73,39,64,10,2,2,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(10);doc.setTextColor(26,26,46);
-  doc.text('QUOTATION',105,46,{align:'center'});
+  doc.setFillColor(201, 168, 76); doc.roundedRect(73, 39, 64, 10, 2, 2, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.setTextColor(26, 26, 46);
+  doc.text('QUOTATION', 105, 46, { align: 'center' });
 
-  let y=55;
-  doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);doc.setLineWidth(.4);
-  doc.roundedRect(14,y,182,26,3,3,'FD');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);
-  doc.text('QUOTATION NO.',20,y+8);doc.text('DATE',20,y+18);doc.text('CLIENT',108,y+8);doc.text('ADDRESS',108,y+18);
-  doc.setFont('helvetica','normal');doc.setFontSize(9.5);doc.setTextColor(26,26,46);
-  doc.text(qno,66,y+8);doc.text(qdate,66,y+18);doc.text(client,138,y+8);doc.text((doc.splitTextToSize(addr,58)[0]||''),138,y+18);
+  let y = 55;
+  doc.setFillColor(255, 255, 255); doc.setDrawColor(212, 201, 168); doc.setLineWidth(.4);
+  doc.roundedRect(14, y, 182, 26, 3, 3, 'FD');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(120, 110, 88);
+  doc.text('QUOTATION NO.', 20, y + 8); doc.text('DATE', 20, y + 18); doc.text('CLIENT', 108, y + 8); doc.text('ADDRESS', 108, y + 18);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); doc.setTextColor(26, 26, 46);
+  doc.text(qno, 66, y + 8); doc.text(qdate, 66, y + 18); doc.text(client, 138, y + 8); doc.text((doc.splitTextToSize(addr, 58)[0] || ''), 138, y + 18);
 
-  y+=32;doc.setFillColor(26,26,46);doc.rect(14,y,182,9,'F');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(201,168,76);
-  doc.text('NO.',18,y+6);doc.text('DESCRIPTION',30,y+6);doc.text('UNIT PRICE',132,y+6,{align:'right'});doc.text('QTY',150,y+6,{align:'right'});doc.text('TOTAL (S$)',196,y+6,{align:'right'});
-  y+=9;doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(26,26,46);
-  rows.forEach((r,i)=>{
-    const bg=i%2===0?[255,255,255]:[245,240,232];doc.setFillColor(...bg);doc.rect(14,y,182,10,'F');
-    doc.setDrawColor(220,212,196);doc.line(14,y+10,196,y+10);
-    doc.text(String(r.n),20,y+7,{align:'center'});
-    doc.text(doc.splitTextToSize(r.desc,96)[0],30,y+7);
-    doc.text(r.price.toFixed(2),132,y+7,{align:'right'});
-    doc.text(String(r.qty),150,y+7,{align:'right'});
-    doc.text(r.total.toFixed(2),196,y+7,{align:'right'}); y+=10;
-  });
-
-  y+=5;
-  [{l:'Subtotal',v:sub,b:false},...(useGst?[{l:'GST (9%)',v:gst,b:false}]:[]),{l:'GRAND TOTAL',v:grand,b:true}].forEach(t=>{
-    if(t.b){doc.setFillColor(26,26,46);doc.rect(118,y,78,11,'F');doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(201,168,76);doc.text(t.l,124,y+7.5);doc.text(qtMf(t.v),196,y+7.5,{align:'right'});y+=11;}
-    else{doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(100,90,75);doc.text(t.l,124,y+6);doc.setTextColor(26,26,46);doc.text(qtMf(t.v),196,y+6,{align:'right'});y+=9;}
+  y += 32; doc.setFillColor(26, 26, 46); doc.rect(14, y, 182, 9, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(201, 168, 76);
+  doc.text('NO.', 18, y + 6); doc.text('DESCRIPTION', 30, y + 6); doc.text('UNIT PRICE', 132, y + 6, { align: 'right' }); doc.text('QTY', 150, y + 6, { align: 'right' }); doc.text('TOTAL (S$)', 196, y + 6, { align: 'right' });
+  y += 9; doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(26, 26, 46);
+  rows.forEach((r, i) => {
+    const bg = i % 2 === 0 ? [255, 255, 255] : [245, 240, 232]; doc.setFillColor(...bg); doc.rect(14, y, 182, 10, 'F');
+    doc.setDrawColor(220, 212, 196); doc.line(14, y + 10, 196, y + 10);
+    doc.text(String(r.n), 20, y + 7, { align: 'center' });
+    doc.text(doc.splitTextToSize(r.desc, 96)[0], 30, y + 7);
+    doc.text(r.price.toFixed(2), 132, y + 7, { align: 'right' });
+    doc.text(String(r.qty), 150, y + 7, { align: 'right' });
+    doc.text(r.total.toFixed(2), 196, y + 7, { align: 'right' }); y += 10;
   });
 
-  if(notes){
-    y+=6;const nl=doc.splitTextToSize(notes,172);
-    doc.setFillColor(255,255,255);doc.setDrawColor(212,201,168);
-    doc.roundedRect(14,y,182,8+nl.length*5.5,3,3,'FD');
-    doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(120,110,88);doc.text('NOTES & TERMS',18,y+6);
-    doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(50,50,50);doc.text(nl,18,y+12);
+  y += 5;
+  [{ l: 'Subtotal', v: sub, b: false }, ...(useGst ? [{ l: 'GST (9%)', v: gst, b: false }] : []), { l: 'GRAND TOTAL', v: grand, b: true }].forEach(t => {
+    if (t.b) { doc.setFillColor(26, 26, 46); doc.rect(118, y, 78, 11, 'F'); doc.setFont('helvetica', 'bold'); doc.setFontSize(9); doc.setTextColor(201, 168, 76); doc.text(t.l, 124, y + 7.5); doc.text(qtMf(t.v), 196, y + 7.5, { align: 'right' }); y += 11; }
+    else { doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(100, 90, 75); doc.text(t.l, 124, y + 6); doc.setTextColor(26, 26, 46); doc.text(qtMf(t.v), 196, y + 6, { align: 'right' }); y += 9; }
+  });
+
+  if (notes) {
+    y += 6; const nl = doc.splitTextToSize(notes, 172);
+    doc.setFillColor(255, 255, 255); doc.setDrawColor(212, 201, 168);
+    doc.roundedRect(14, y, 182, 8 + nl.length * 5.5, 3, 3, 'FD');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(120, 110, 88); doc.text('NOTES & TERMS', 18, y + 6);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); doc.setTextColor(50, 50, 50); doc.text(nl, 18, y + 12);
   }
-  doc.save(`Quotation_${qno}_${(client||'').replace(/\s+/g,'_')}.pdf`);
+  doc.save(`Quotation_${qno}_${(client || '').replace(/\s+/g, '_')}.pdf`);
 }
 
 // ══════════════════════════════════════════════════════════════
 //  WHATSAPP
 // ══════════════════════════════════════════════════════════════
 const WA_TEMPLATES = {
-  payment_reminder: (name,ref,amount) =>
-    `Hello ${name||'[Client]'},\n\nThis is a friendly reminder that payment for Invoice ${ref||'[Ref]'} of ${amount||'[Amount]'} is due.\n\nKindly arrange the payment at your earliest convenience.\n\nThank you!\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
-  invoice_sent: (name,ref,amount) =>
-    `Hello ${name||'[Client]'},\n\nPlease find attached Invoice ${ref||'[Ref]'} for ${amount||'[Amount]'}.\n\nIf you have any questions, please don't hesitate to contact us.\n\nThank you for your business!\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
-  thank_you: (name,ref,amount) =>
-    `Hello ${name||'[Client]'},\n\nThank you for your payment of ${amount||'[Amount]'} for Invoice ${ref||'[Ref]'}.\n\nWe appreciate your prompt settlement.\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
-  quotation: (name,ref,amount) =>
-    `Hello ${name||'[Client]'},\n\nI hope this message finds you well. I wanted to follow up on Quotation ${ref||'[Ref]'} for ${amount||'[Amount]'} that we sent over.\n\nPlease let us know if you have any questions or need any adjustments.\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
+  payment_reminder: (name, ref, amount) => `Hello ${name || '[Client]'},\n\nThis is a friendly reminder that payment for Invoice ${ref || '[Ref]'} of ${amount || '[Amount]'} is due.\n\nKindly arrange the payment at your earliest convenience.\n\nThank you!\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
+  invoice_sent: (name, ref, amount) => `Hello ${name || '[Client]'},\n\nPlease find attached Invoice ${ref || '[Ref]'} for ${amount || '[Amount]'}.\n\nIf you have any questions, please don't hesitate to contact us.\n\nThank you for your business!\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
+  thank_you: (name, ref, amount) => `Hello ${name || '[Client]'},\n\nThank you for your payment of ${amount || '[Amount]'} for Invoice ${ref || '[Ref]'}.\n\nWe appreciate your prompt settlement.\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
+  quotation: (name, ref, amount) => `Hello ${name || '[Client]'},\n\nI hope this message finds you well. I wanted to follow up on Quotation ${ref || '[Ref]'} for ${amount || '[Amount]'} that we sent over.\n\nPlease let us know if you have any questions or need any adjustments.\n\n*Charan Logistics Pte Ltd*\n📞 +65 9185 8511`,
 };
 
 function waTemplate(type) {
-  const name = ge('wa_name').value.trim();
-  const ref  = ge('wa_ref').value.trim();
-  const amount = ge('wa_amount').value.trim();
+  const name = ge('wa_name').value.trim(), ref = ge('wa_ref').value.trim(), amount = ge('wa_amount').value.trim();
   const tpl = WA_TEMPLATES[type];
-  if(tpl) ge('wa_msg').value = tpl(name, ref, amount);
+  if (tpl) ge('wa_msg').value = tpl(name, ref, amount);
   waUpdatePreview();
 }
-
 function waUpdatePreview() {
   const msg = ge('wa_msg').value.trim();
   const prev = ge('wa_preview');
-  if(msg){ prev.textContent = msg; prev.classList.add('show'); }
-  else { prev.classList.remove('show'); }
+  if (msg) { prev.textContent = msg; prev.classList.add('show'); } else { prev.classList.remove('show'); }
 }
-
 function waSend() {
-  const phone = (ge('wa_phone').value||'').trim().replace(/[\s\-\+\(\)]/g,'');
-  const msg = (ge('wa_msg').value||'').trim();
-  if(!phone){ alert('Please enter a WhatsApp number'); return; }
-  if(!msg){ alert('Please enter a message'); return; }
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url,'_blank');
+  const phone = (ge('wa_phone').value || '').trim().replace(/[\s\-\+\(\)]/g, '');
+  const msg = (ge('wa_msg').value || '').trim();
+  if (!phone) { alert('Please enter a WhatsApp number'); return; }
+  if (!msg) { alert('Please enter a message'); return; }
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
 }
-
 function waClear() {
-  ['wa_phone','wa_name','wa_ref','wa_amount','wa_msg'].forEach(id=>ge(id).value='');
+  ['wa_phone', 'wa_name', 'wa_ref', 'wa_amount', 'wa_msg'].forEach(id => ge(id).value = '');
   ge('wa_preview').classList.remove('show');
 }
 
 // ══════════════════════════════════════════════════════════════
 //  HELPERS
 // ══════════════════════════════════════════════════════════════
-function ge(id){ return document.getElementById(id); }
-function fmt(n){ return Number(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
-function cap(s){ return s?s[0].toUpperCase()+s.slice(1):''; }
-function today_str(){ return new Date().toISOString().slice(0,10); }
-function shortAddr(a){ if(!a) return ''; const p=a.split(','); return p.length>2?p[0].trim()+', '+p[p.length-1].trim():a; }
-function esc(s){ return (s||'').replace(/'/g,"\\'"); }
-function loadingRow(){ ge('tBody').innerHTML=`<tr><td colspan="6"><div class="state"><div class="spin"></div><div class="state-title">Loading…</div><div class="state-msg">Fetching your invoices</div></div></td></tr>`; }
-
-// Payroll helpers
-function prNv(id){ return parseFloat(ge(id).value)||0; }
-function prMf(v){ return 'S$ '+(parseFloat(v)||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
-function qtMf(v){ return 'S$ '+(parseFloat(v)||0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
-function prFmtMonth(raw){
-  if(!raw) return '—';
-  let s=String(raw).trim();
-  const parts=s.slice(0,7).split('-');
-  if(parts.length<2) return '—';
-  const yyyy=parseInt(parts[0]),mm=parseInt(parts[1]);
-  if(isNaN(yyyy)||isNaN(mm)) return '—';
-  const d=new Date(Date.UTC(yyyy,mm-1,1));
-  if(isNaN(d)) return '—';
-  return d.toLocaleString('default',{month:'long',year:'numeric',timeZone:'UTC'});
+function ge(id) { return document.getElementById(id); }
+function fmt(n) { return Number(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function cap(s) { return s ? s[0].toUpperCase() + s.slice(1) : ''; }
+function today_str() { return new Date().toISOString().slice(0, 10); }
+function shortAddr(a) { if (!a) return ''; const p = a.split(','); return p.length > 2 ? p[0].trim() + ', ' + p[p.length - 1].trim() : a; }
+function esc(s) { return (s || '').replace(/'/g, "\\'"); }
+function loadingRow() { ge('tBody').innerHTML = `<tr><td colspan="6"><div class="state"><div class="spin"></div><div class="state-title">Loading…</div><div class="state-msg">Fetching your invoices</div></div></td></tr>`; }
+function prNv(id) { return parseFloat(ge(id).value) || 0; }
+function prMf(v) { return 'S$ ' + (parseFloat(v) || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function qtMf(v) { return 'S$ ' + (parseFloat(v) || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function prFmtMonth(raw) {
+  if (!raw) return '—';
+  const parts = String(raw).trim().slice(0, 7).split('-');
+  if (parts.length < 2) return '—';
+  const yyyy = parseInt(parts[0]), mm = parseInt(parts[1]);
+  if (isNaN(yyyy) || isNaN(mm)) return '—';
+  const d = new Date(Date.UTC(yyyy, mm - 1, 1));
+  if (isNaN(d)) return '—';
+  return d.toLocaleString('default', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 
 // ══════════════════════════════════════════════════════════════
-//  ADD INVOICE — post to clients + line_items tables
+//  ADD INVOICE
 // ══════════════════════════════════════════════════════════════
 let aiRowId = 0;
 
 function aiInit() {
-  // Default billing date = today
   ge('ai_billingdate').value = today_str();
-  // Add 3 blank rows to start
-  if(ge('ai_tbody').children.length === 0){
-    aiAddRow(); aiAddRow(); aiAddRow();
-  }
+  if (ge('ai_tbody').children.length === 0) { aiAddRow(); aiAddRow(); aiAddRow(); }
 }
 
-function aiAddRow(date='', desc='', qty='', rate='') {
+function aiAddRow(date = '', desc = '', qty = '', rate = '') {
   aiRowId++;
   const n = aiRowId;
   const idx = ge('ai_tbody').children.length + 1;
-  const tr = document.createElement('tr');
-  tr.id = 'airow' + n;
+  const tr = document.createElement('tr'); tr.id = 'airow' + n;
   tr.innerHTML = `
     <td style="text-align:center;color:#7a6e58;font-weight:600;font-size:.82rem">${idx}</td>
     <td><input type="date" value="${date}" oninput="aiCalcTotal()" style="min-width:130px"/></td>
@@ -2455,402 +2164,182 @@ function aiAddRow(date='', desc='', qty='', rate='') {
     <td><input type="number" placeholder="0.00" value="${rate}" min="0" step="0.01" oninput="aiClearRowErr(${n});aiCalcTotal()" style="text-align:right"/></td>
     <td style="text-align:right;font-weight:600;font-size:.85rem;color:var(--ink)" id="aiamt${n}">S$ 0.00</td>
     <td><button class="qt-del-btn" onclick="aiDelRow(${n})" title="Remove row">✕</button></td>`;
-  ge('ai_tbody').appendChild(tr);
-  aiCalcTotal();
+  ge('ai_tbody').appendChild(tr); aiCalcTotal();
 }
-
 function aiDelRow(n) {
   ge('airow' + n)?.remove();
-  // renumber
   [...ge('ai_tbody').children].forEach((r, i) => r.cells[0].textContent = i + 1);
   aiCalcTotal();
 }
-
 function aiCalcTotal() {
   let total = 0;
   [...ge('ai_tbody').querySelectorAll('tr')].forEach(r => {
-    const qty  = parseFloat(r.cells[3].querySelector('input').value) || 0;
+    const qty = parseFloat(r.cells[3].querySelector('input').value) || 0;
     const rate = parseFloat(r.cells[4].querySelector('input').value) || 0;
-    const amt  = qty * rate;
-    total += amt;
-    const id = r.id.replace('airow','');
+    const amt = qty * rate; total += amt;
+    const id = r.id.replace('airow', '');
     const el = ge('aiamt' + id);
-    if(el) el.textContent = 'S$ ' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    if (el) el.textContent = 'S$ ' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   });
-  ge('ai_total').textContent = 'S$ ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  ge('ai_total').textContent = 'S$ ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return total;
 }
-
-function aiClearErr(id) {
-  ge(id)?.classList.remove('error');
-}
-function aiClearRowErr(n) {
-  const row = ge('airow' + n);
-  if(row) row.querySelectorAll('input').forEach(i => i.classList.remove('error'));
-}
+function aiClearErr(id) { ge(id)?.classList.remove('error'); }
+function aiClearRowErr(n) { const row = ge('airow' + n); if (row) row.querySelectorAll('input').forEach(i => i.classList.remove('error')); }
 
 function aiReset() {
-  ['ai_invnum','ai_billingdate','ai_name','ai_address'].forEach(id => {
-    const el = ge(id);
-    if(el){ el.value = ''; el.classList.remove('error'); }
-  });
-  ge('ai_status').value = '';
-  ge('ai_status').classList.remove('error');
-  ge('ai_tbody').innerHTML = '';
-  aiRowId = 0;
+  ['ai_invnum', 'ai_billingdate', 'ai_name', 'ai_address'].forEach(id => { const el = ge(id); if (el) { el.value = ''; el.classList.remove('error'); } });
+  ge('ai_status').value = ''; ge('ai_status').classList.remove('error');
+  ge('ai_tbody').innerHTML = ''; aiRowId = 0;
   ge('ai_total').textContent = 'S$ 0.00';
-  ge('ai-success').style.display = 'none';
-  ge('ai-error').style.display   = 'none';
+  ge('ai-success').style.display = 'none'; ge('ai-error').style.display = 'none';
   ge('ai_billingdate').value = today_str();
   aiAddRow(); aiAddRow(); aiAddRow();
 }
 
 async function aiSubmit() {
-  // ── Hide banners ──
-  ge('ai-success').style.display = 'none';
-  ge('ai-error').style.display   = 'none';
-
-  // ── Validate header fields ──
+  ge('ai-success').style.display = 'none'; ge('ai-error').style.display = 'none';
   let valid = true;
-  const req = [
-    { id:'ai_invnum',     label:'Invoice Number' },
-    { id:'ai_billingdate',label:'Billing Date'   },
-    { id:'ai_status',     label:'Status'         },
-    { id:'ai_name',       label:'Client Name'    },
-  ];
-  req.forEach(({id}) => {
-    const el = ge(id);
-    if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+  [{ id: 'ai_invnum' }, { id: 'ai_billingdate' }, { id: 'ai_status' }, { id: 'ai_name' }].forEach(({ id }) => {
+    const el = ge(id); if (!el.value.trim()) { el.classList.add('error'); valid = false; }
   });
-  if (!valid) {
-    ge('ai-error').style.display = 'block';
-    ge('ai-error-msg').textContent = 'Please fill all required fields marked with *.';
-    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-    return;
-  }
+  if (!valid) { ge('ai-error').style.display = 'block'; ge('ai-error-msg').textContent = 'Please fill all required fields marked with *.'; ge('ai-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
-  // ── Convert billing date: YYYY-MM-DD (date input) → DD-MM-YYYY (text storage) ──
   const billingDateRaw = ge('ai_billingdate').value;
-  const [by, bm, bd]  = billingDateRaw.split('-');
-  const billingDate   = `${bd}-${bm}-${by}`;
+  const [by, bm, bd] = billingDateRaw.split('-');
+  const billingDate = `${bd}-${bm}-${by}`;
 
-  // ── Validate line items ──
   const rows = [...ge('ai_tbody').querySelectorAll('tr')];
-  const lineItems = [];
-  let liValid = true, hasAtLeastOne = false;
-
+  const lineItems = []; let liValid = true, hasAtLeastOne = false;
   rows.forEach(r => {
-    const desc      = r.cells[2].querySelector('input').value.trim();
-    const qty       = parseFloat(r.cells[3].querySelector('input').value);
-    const rate      = parseFloat(r.cells[4].querySelector('input').value);
+    const desc = r.cells[2].querySelector('input').value.trim();
+    const qty = parseFloat(r.cells[3].querySelector('input').value);
+    const rate = parseFloat(r.cells[4].querySelector('input').value);
     const dateInput = r.cells[1].querySelector('input');
-
-    // Skip fully blank rows
     if (!desc && !qty && !rate) return;
-
-    hasAtLeastOne = true;
-    let rowOk = true;
-
-    if (!desc)               { r.cells[2].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if (!qty || qty <= 0)    { r.cells[3].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if (isNaN(rate)||rate<0) { r.cells[4].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-
-    // Convert line-item date: YYYY-MM-DD → DD-MM-YYYY (null if blank)
+    hasAtLeastOne = true; let rowOk = true;
+    if (!desc) { r.cells[2].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    if (!qty || qty <= 0) { r.cells[3].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    if (isNaN(rate) || rate < 0) { r.cells[4].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     let dateVal = null;
-    if (dateInput.value) {
-      const [y, m, d] = dateInput.value.split('-');
-      dateVal = `${d}-${m}-${y}`;
-    }
-
-    if (rowOk) {
-      lineItems.push({
-        invoice_number: ge('ai_invnum').value.trim(),
-        description:    desc,
-        qty:            qty,
-        unit_price:     rate,
-        date:           dateVal,
-      });
-    }
+    if (dateInput.value) { const [y, m, d] = dateInput.value.split('-'); dateVal = `${d}-${m}-${y}`; }
+    if (rowOk) lineItems.push({ invoice_number: ge('ai_invnum').value.trim(), description: desc, qty, unit_price: rate, date: dateVal });
   });
+  if (!hasAtLeastOne) { ge('ai-error').style.display = 'block'; ge('ai-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.'; return; }
+  if (!liValid) { ge('ai-error').style.display = 'block'; ge('ai-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.'; ge('ai-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
-  if (!hasAtLeastOne) {
-    ge('ai-error').style.display = 'block';
-    ge('ai-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.';
-    return;
-  }
-  if (!liValid) {
-    ge('ai-error').style.display = 'block';
-    ge('ai-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.';
-    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-    return;
-  }
-
-  // ── Calculate total ──
   const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
+  const clientRecord = { invoice_number: ge('ai_invnum').value.trim(), name: ge('ai_name').value.trim(), address: ge('ai_address').value.trim() || null, billing_date: billingDate, status: ge('ai_status').value, total };
 
-  // ── Build client record ──
-  const clientRecord = {
-    invoice_number: ge('ai_invnum').value.trim(),
-    name:           ge('ai_name').value.trim(),
-    address:        ge('ai_address').value.trim() || null,
-    billing_date:   billingDate,
-    status:         ge('ai_status').value,
-    total:          total,
-  };
-
-  // ── Disable button / show loading ──
-  const btn  = ge('ai-submit-btn');
-  const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
-
+  const btn = ge('ai-submit-btn'); const orig = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
   try {
-    // 1. Upsert into clients
-    const { error: e1 } = await sb
-      .from('clients')
-      .upsert(clientRecord, { onConflict: 'invoice_number' });
+    const { error: e1 } = await sb.from('clients').upsert(clientRecord, { onConflict: 'invoice_number' });
     if (e1) throw new Error('clients table: ' + e1.message);
-
-    // 2. Delete existing line items for this invoice
-    const { error: e2 } = await sb
-      .from('line_items')
-      .delete()
-      .eq('invoice_number', clientRecord.invoice_number);
+    const { error: e2 } = await sb.from('line_items').delete().eq('invoice_number', clientRecord.invoice_number);
     if (e2) throw new Error('clearing line_items: ' + e2.message);
-
-    // 3. Insert new line items
-    const { error: e3 } = await sb
-      .from('line_items')
-      .insert(lineItems);
+    const { error: e3 } = await sb.from('line_items').insert(lineItems);
     if (e3) throw new Error('line_items table: ' + e3.message);
-
-    // ── Success ──
     ge('ai-success').style.display = 'block';
-    ge('ai-success-msg').textContent =
-      `Invoice ${clientRecord.invoice_number} saved! ` +
-      `${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · ` +
-      `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-    ge('ai-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
-
+    ge('ai-success-msg').textContent = `Invoice ${clientRecord.invoice_number} saved! ${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+    ge('ai-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     setTimeout(() => { loadData(); aiReset(); }, 1000);
-
   } catch(err) {
-    ge('ai-error').style.display = 'block';
-    ge('ai-error-msg').textContent = 'Save failed: ' + err.message;
-    ge('ai-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = orig;
-  }
+    ge('ai-error').style.display = 'block'; ge('ai-error-msg').textContent = 'Save failed: ' + err.message;
+    ge('ai-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } finally { btn.disabled = false; btn.innerHTML = orig; }
 }
 
 async function fetchClientAddress() {
   const clientName = document.getElementById('ai_name').value.trim();
-
-  if (!clientName) {
-    alert('Enter client name first');
-    return;
-  }
-
-  const { data, error } = await sb
-    .from('clients')
-    .select('name, address')
-    .ilike('name', `%${clientName}%`)
-    .order('updated_at', { ascending: false }) // latest first
-    .limit(1);
-
-  if (error || !data || data.length === 0) {
-    alert('No matching client found');
-    return;
-  }
-
+  if (!clientName) { alert('Enter client name first'); return; }
+  const { data, error } = await sb.from('clients').select('name, address').ilike('name', `%${clientName}%`).order('updated_at', { ascending: false }).limit(1);
+  if (error || !data || data.length === 0) { alert('No matching client found'); return; }
   document.getElementById('ai_address').value = data[0].address || '';
 }
 
 async function fetchAutoInvoiceNumber() {
   const btn = document.querySelector('button[onclick="fetchAutoInvoiceNumber()"]');
-  const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '…';
-
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '…';
   try {
     const currentYear = new Date().getFullYear();
-
-    // Fetch all invoice numbers for the current year
-    const { data, error } = await sb
-      .from('clients')
-      .select('invoice_number')
-      .like('invoice_number', `${currentYear}/%`)
-      .order('invoice_number', { ascending: false })
-      .limit(1);
-
+    const { data, error } = await sb.from('clients').select('invoice_number').like('invoice_number', `${currentYear}/%`).order('invoice_number', { ascending: false }).limit(1);
     if (error) throw new Error(error.message);
-
-    let nextNumber = 1; // default if no invoices yet this year
-
-    if (data && data.length > 0) {
-      // invoice_number format: "2026/00001" → extract the numeric part
-      const lastInv  = data[0].invoice_number;          // e.g. "2026/00078"
-      const lastSeq  = parseInt(lastInv.split('/')[1]);  // → 78
-      nextNumber = lastSeq + 1;
-    }
-
-    // Pad to 5 digits: 79 → "00079"
-    const padded = String(nextNumber).padStart(5, '0');
-    document.getElementById('ai_invnum').value = `${currentYear}/${padded}`;
+    let nextNumber = 1;
+    if (data && data.length > 0) { const lastSeq = parseInt(data[0].invoice_number.split('/')[1]); nextNumber = lastSeq + 1; }
+    document.getElementById('ai_invnum').value = `${currentYear}/${String(nextNumber).padStart(5, '0')}`;
     aiClearErr('ai_invnum');
-
-  } catch (err) {
-    alert('Could not fetch invoice number: ' + err.message);
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = orig;
-  }
+  } catch(err) { alert('Could not fetch invoice number: ' + err.message); }
+  finally { btn.disabled = false; btn.innerHTML = orig; }
 }
+
 async function markAsPaid() {
   if (!curInv) return;
-
-  if (curInv.status === 'paid') {
-    alert('This invoice is already marked as Paid.');
-    return;
-  }
-
-  const password = prompt(
-    `🔐 Enter your login password to mark Invoice #${curInv.number} as Paid:\n\n` +
-    `Client: ${curInv.name}\nAmount: S$ ${fmt(curInv.total)}`
-  );
-
-  if (password === null) return; // cancelled
+  if (curInv.status === 'paid') { alert('This invoice is already marked as Paid.'); return; }
+  const password = prompt(`🔐 Enter your login password to mark Invoice #${curInv.number} as Paid:\n\nClient: ${curInv.name}\nAmount: S$ ${fmt(curInv.total)}`);
+  if (password === null) return;
   if (!password.trim()) { alert('❌ Password cannot be empty.'); return; }
-
-  // Re-authenticate using current user's email + entered password
   const { data: { user } } = await sb.auth.getUser();
   if (!user) { alert('❌ Session expired. Please log in again.'); return; }
-
-  const { error: authError } = await sb.auth.signInWithPassword({
-    email: user.email,
-    password: password.trim()
-  });
-
-  if (authError) {
-    alert('❌ Incorrect password. Access denied.');
-    return;
-  }
-
-  // Confirmed — update status
-  const confirmed = confirm(
-    `✅ Password verified!\n\nMark Invoice #${curInv.number} (${curInv.name}) as PAID?\n\nAmount: S$ ${fmt(curInv.total)}`
-  );
+  const { error: authError } = await sb.auth.signInWithPassword({ email: user.email, password: password.trim() });
+  if (authError) { alert('❌ Incorrect password. Access denied.'); return; }
+  const confirmed = confirm(`✅ Password verified!\n\nMark Invoice #${curInv.number} (${curInv.name}) as PAID?\n\nAmount: S$ ${fmt(curInv.total)}`);
   if (!confirmed) return;
-
   try {
-    const { error } = await sb
-      .from('clients')
-      .update({ status: 'paid' })
-      .eq('invoice_number', curInv.number);
-
+    const { error } = await sb.from('clients').update({ status: 'paid' }).eq('invoice_number', curInv.number);
     if (error) throw error;
-
     alert(`✅ Invoice #${curInv.number} marked as Paid!`);
     closeModal();
     await loadData();
-  } catch (err) {
-    alert('❌ Update failed: ' + err.message);
-  }
+  } catch(err) { alert('❌ Update failed: ' + err.message); }
 }
 
 // ══════════════════════════════════════════════════════════════
-//  EDIT INVOICE FUNCTIONS
+//  EDIT INVOICE
 // ══════════════════════════════════════════════════════════════
 let eiRowId = 0;
 
 function openEditInvoiceModal() {
   if (!curInv) return;
-  
-  // Initialize edit form with current invoice data
   ge('ei_invnum').value = curInv.number || '';
-  
-  // Convert billing date: DD-MM-YYYY → YYYY-MM-DD (for date input)
   const billingDateRaw = curInv.billingDate || '';
   let billingDateISO = '';
   if (billingDateRaw) {
     const parts = billingDateRaw.split('-');
-    if (parts.length === 3) {
-      const [dd, mm, yyyy] = parts;
-      billingDateISO = `${yyyy}-${mm}-${dd}`;
-    }
+    if (parts.length === 3) { const [dd, mm, yyyy] = parts; billingDateISO = `${yyyy}-${mm}-${dd}`; }
   }
   ge('ei_billingdate').value = billingDateISO;
   ge('ei_status').value = curInv.status || '';
   ge('ei_name').value = curInv.name || '';
   ge('ei_address').value = curInv.addr || '';
-  
-  // Clear previous line items
-  ge('ei_tbody').innerHTML = '';
-  eiRowId = 0;
-  
-  // Populate line items with same sort order as view modal (by date ascending)
+  ge('ei_tbody').innerHTML = ''; eiRowId = 0;
+
   if (curInv.items && curInv.items.length > 0) {
-    // Sort line items by date ascending, then by row id as tiebreaker (same as view modal)
     const sortedItems = [...curInv.items].sort((a, b) => {
-      const parseDate = (li) => {
-        const raw = getLineItemDate(li);
-        if (!raw) return 0;
-        const [dd, mm, yyyy] = raw.split(/[-\/]/);
-        if (!dd || !mm || !yyyy) return 0;
-        return new Date(`${yyyy}-${mm}-${dd}`).getTime();
-      };
+      const parseDate = (li) => { const raw = getLineItemDate(li); if (!raw) return 0; const [dd, mm, yyyy] = raw.split(/[-\/]/); if (!dd || !mm || !yyyy) return 0; return new Date(`${yyyy}-${mm}-${dd}`).getTime(); };
       const dateDiff = parseDate(a) - parseDate(b);
       if (dateDiff !== 0) return dateDiff;
       return (a.id ?? 0) - (b.id ?? 0);
     });
-    
     sortedItems.forEach(li => {
       let date = getLineItemDate(li) || '';
-      // Convert date from DD-MM-YYYY to YYYY-MM-DD for date input
-      if (date) {
-        const parts = date.split('-');
-        if (parts.length === 3) {
-          const [dd, mm, yyyy] = parts;
-          date = `${yyyy}-${mm}-${dd}`;
-        }
-      }
-      const desc = getDesc(li) || '';
-      const qty = getQty(li) || '';
-      const rate = getPrice(li) || '';
-      eiAddRow(date, desc, qty, rate);
+      if (date) { const parts = date.split('-'); if (parts.length === 3) { const [dd, mm, yyyy] = parts; date = `${yyyy}-${mm}-${dd}`; } }
+      eiAddRow(date, getDesc(li) || '', getQty(li) || '', getPrice(li) || '');
     });
-  } else {
-    // Add 3 blank rows if no items
-    eiAddRow(); eiAddRow(); eiAddRow();
-  }
-  
+  } else { eiAddRow(); eiAddRow(); eiAddRow(); }
+
   eiCalcTotal();
-  ge('ei-success').style.display = 'none';
-  ge('ei-error').style.display = 'none';
-  
-  // Open edit modal
-  ge('editInvoiceOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  ge('ei-success').style.display = 'none'; ge('ei-error').style.display = 'none';
+  ge('editInvoiceOverlay').classList.add('open'); document.body.style.overflow = 'hidden';
 }
 
-function closeEditInvoiceModal() {
-  ge('editInvoiceOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
+function closeEditInvoiceModal() { ge('editInvoiceOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+function editInvoiceOverlayClick(e) { if (e.target === ge('editInvoiceOverlay')) closeEditInvoiceModal(); }
 
-function editInvoiceOverlayClick(e) {
-  if (e.target === ge('editInvoiceOverlay')) {
-    closeEditInvoiceModal();
-  }
-}
-
-function eiAddRow(date='', desc='', qty='', rate='') {
+function eiAddRow(date = '', desc = '', qty = '', rate = '') {
   eiRowId++;
-  const n = eiRowId;
-  const idx = ge('ei_tbody').children.length + 1;
-  const tr = document.createElement('tr');
-  tr.id = 'eirow' + n;
+  const n = eiRowId; const idx = ge('ei_tbody').children.length + 1;
+  const tr = document.createElement('tr'); tr.id = 'eirow' + n;
   tr.innerHTML = `
     <td style="text-align:center;color:#7a6e58;font-weight:600;font-size:.82rem">${idx}</td>
     <td><input type="date" value="${date}" oninput="eiCalcTotal()" style="min-width:130px"/></td>
@@ -2859,186 +2348,89 @@ function eiAddRow(date='', desc='', qty='', rate='') {
     <td><input type="number" placeholder="0.00" value="${rate}" min="0" step="0.01" oninput="eiClearRowErr(${n});eiCalcTotal()" style="text-align:right"/></td>
     <td style="text-align:right;font-weight:600;font-size:.85rem;color:var(--ink)" id="eiamt${n}">S$ 0.00</td>
     <td><button class="qt-del-btn" onclick="eiDelRow(${n})" title="Remove row">✕</button></td>`;
-  ge('ei_tbody').appendChild(tr);
-  eiCalcTotal();
+  ge('ei_tbody').appendChild(tr); eiCalcTotal();
 }
-
 function eiDelRow(n) {
   ge('eirow' + n)?.remove();
-  // renumber
   [...ge('ei_tbody').children].forEach((r, i) => r.cells[0].textContent = i + 1);
   eiCalcTotal();
 }
-
 function eiCalcTotal() {
   let total = 0;
   [...ge('ei_tbody').querySelectorAll('tr')].forEach(r => {
-    const qty  = parseFloat(r.cells[3].querySelector('input').value) || 0;
+    const qty = parseFloat(r.cells[3].querySelector('input').value) || 0;
     const rate = parseFloat(r.cells[4].querySelector('input').value) || 0;
-    const amt  = qty * rate;
-    total += amt;
-    const id = r.id.replace('eirow','');
+    const amt = qty * rate; total += amt;
+    const id = r.id.replace('eirow', '');
     const el = ge('eiamt' + id);
-    if(el) el.textContent = 'S$ ' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    if (el) el.textContent = 'S$ ' + amt.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   });
-  ge('ei_total').textContent = 'S$ ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  ge('ei_total').textContent = 'S$ ' + total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return total;
 }
-
-function eiClearErr(id) {
-  ge(id)?.classList.remove('error');
-}
-
-function eiClearRowErr(n) {
-  const row = ge('eirow' + n);
-  if(row) row.querySelectorAll('input').forEach(i => i.classList.remove('error'));
-}
+function eiClearErr(id) { ge(id)?.classList.remove('error'); }
+function eiClearRowErr(n) { const row = ge('eirow' + n); if (row) row.querySelectorAll('input').forEach(i => i.classList.remove('error')); }
 
 async function eiSubmit() {
-  // Hide banners
-  ge('ei-success').style.display = 'none';
-  ge('ei-error').style.display = 'none';
-
-  // Validate header fields
+  ge('ei-success').style.display = 'none'; ge('ei-error').style.display = 'none';
   let valid = true;
-  const req = [
-    { id:'ei_billingdate',label:'Billing Date'   },
-    { id:'ei_status',     label:'Status'         },
-    { id:'ei_name',       label:'Client Name'    },
-  ];
-  req.forEach(({id}) => {
-    const el = ge(id);
-    if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+  [{ id: 'ei_billingdate' }, { id: 'ei_status' }, { id: 'ei_name' }].forEach(({ id }) => {
+    const el = ge(id); if (!el.value.trim()) { el.classList.add('error'); valid = false; }
   });
-  if (!valid) {
-    ge('ei-error').style.display = 'block';
-    ge('ei-error-msg').textContent = 'Please fill all required fields marked with *.';
-    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-    return;
-  }
+  if (!valid) { ge('ei-error').style.display = 'block'; ge('ei-error-msg').textContent = 'Please fill all required fields marked with *.'; ge('ei-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
-  // Convert billing date: YYYY-MM-DD → DD-MM-YYYY
   const billingDateRaw = ge('ei_billingdate').value;
   const [by, bm, bd] = billingDateRaw.split('-');
   const billingDate = `${bd}-${bm}-${by}`;
 
-  // Validate line items
   const rows = [...ge('ei_tbody').querySelectorAll('tr')];
-  const lineItems = [];
-  let liValid = true, hasAtLeastOne = false;
-
+  const lineItems = []; let liValid = true, hasAtLeastOne = false;
   rows.forEach(r => {
-    const desc      = r.cells[2].querySelector('input').value.trim();
-    const qty       = parseFloat(r.cells[3].querySelector('input').value);
-    const rate      = parseFloat(r.cells[4].querySelector('input').value);
+    const desc = r.cells[2].querySelector('input').value.trim();
+    const qty = parseFloat(r.cells[3].querySelector('input').value);
+    const rate = parseFloat(r.cells[4].querySelector('input').value);
     const dateInput = r.cells[1].querySelector('input');
-
-    // Skip fully blank rows
     if (!desc && !qty && !rate) return;
-
-    hasAtLeastOne = true;
-    let rowOk = true;
-
-    if (!desc)               { r.cells[2].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if (!qty || qty <= 0)    { r.cells[3].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-    if (isNaN(rate)||rate<0) { r.cells[4].querySelector('input').classList.add('error'); liValid=false; rowOk=false; }
-
-    // Convert line-item date: YYYY-MM-DD → DD-MM-YYYY (null if blank)
+    hasAtLeastOne = true; let rowOk = true;
+    if (!desc) { r.cells[2].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    if (!qty || qty <= 0) { r.cells[3].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    if (isNaN(rate) || rate < 0) { r.cells[4].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     let dateVal = null;
-    if (dateInput.value) {
-      const [y, m, d] = dateInput.value.split('-');
-      dateVal = `${d}-${m}-${y}`;
-    }
-
-    if (rowOk) {
-      lineItems.push({
-        invoice_number: curInv.number,
-        description:    desc,
-        qty:            qty,
-        unit_price:     rate,
-        date:           dateVal,
-      });
-    }
+    if (dateInput.value) { const [y, m, d] = dateInput.value.split('-'); dateVal = `${d}-${m}-${y}`; }
+    if (rowOk) lineItems.push({ invoice_number: curInv.number, description: desc, qty, unit_price: rate, date: dateVal });
   });
+  if (!hasAtLeastOne) { ge('ei-error').style.display = 'block'; ge('ei-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.'; return; }
+  if (!liValid) { ge('ei-error').style.display = 'block'; ge('ei-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.'; ge('ei-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
-  if (!hasAtLeastOne) {
-    ge('ei-error').style.display = 'block';
-    ge('ei-error-msg').textContent = 'Please add at least one line item with Description, Qty and Rate.';
-    return;
-  }
-  if (!liValid) {
-    ge('ei-error').style.display = 'block';
-    ge('ei-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.';
-    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-    return;
-  }
-
-  // Calculate total
   const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
+  const clientRecord = { invoice_number: curInv.number, name: ge('ei_name').value.trim(), address: ge('ei_address').value.trim() || null, billing_date: billingDate, status: ge('ei_status').value, total };
 
-  // Build client record
-  const clientRecord = {
-    invoice_number: curInv.number,
-    name:           ge('ei_name').value.trim(),
-    address:        ge('ei_address').value.trim() || null,
-    billing_date:   billingDate,
-    status:         ge('ei_status').value,
-    total:          total,
-  };
-
-  // Disable button / show loading
-  const btn  = ge('ei-submit-btn');
-  const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
-
+  const btn = ge('ei-submit-btn'); const orig = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
   try {
-    // 1. Upsert into clients
-    const { error: e1 } = await sb
-      .from('clients')
-      .upsert(clientRecord, { onConflict: 'invoice_number' });
+    const { error: e1 } = await sb.from('clients').upsert(clientRecord, { onConflict: 'invoice_number' });
     if (e1) throw new Error('clients table: ' + e1.message);
-
-    // 2. Delete existing line items for this invoice
-    const { error: e2 } = await sb
-      .from('line_items')
-      .delete()
-      .eq('invoice_number', clientRecord.invoice_number);
+    const { error: e2 } = await sb.from('line_items').delete().eq('invoice_number', clientRecord.invoice_number);
     if (e2) throw new Error('clearing line_items: ' + e2.message);
-
-    // 3. Insert new line items
-    const { error: e3 } = await sb
-      .from('line_items')
-      .insert(lineItems);
+    const { error: e3 } = await sb.from('line_items').insert(lineItems);
     if (e3) throw new Error('line_items table: ' + e3.message);
 
-    // Success
+    // FIX 3: Clear stale cache for this invoice so next view/PDF gets fresh data
     delete invoiceLineItemCache[clientRecord.invoice_number];
+
     ge('ei-success').style.display = 'block';
-    ge('ei-success-msg').textContent =
-      `Invoice ${clientRecord.invoice_number} updated! ` +
-      `${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · ` +
-      `Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-    ge('ei-success').scrollIntoView({ behavior:'smooth', block:'nearest' });
-
-    setTimeout(() => {
-      loadData().then(()=>{;
+    ge('ei-success-msg').textContent = `Invoice ${clientRecord.invoice_number} updated! ${lineItems.length} line item${lineItems.length !== 1 ? 's' : ''} · Total: S$ ${total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+    ge('ei-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(async () => {
+      await loadData();
       closeEditInvoiceModal();
-      // Reload the invoice display
       openInv(clientRecord.invoice_number);
-      })
     }, 1000);
-
   } catch(err) {
-    ge('ei-error').style.display = 'block';
-    ge('ei-error-msg').textContent = 'Save failed: ' + err.message;
-    ge('ei-error').scrollIntoView({ behavior:'smooth', block:'nearest' });
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = orig;
-  }
+    ge('ei-error').style.display = 'block'; ge('ei-error-msg').textContent = 'Save failed: ' + err.message;
+    ge('ei-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } finally { btn.disabled = false; btn.innerHTML = orig; }
 }
-
 </script>
 </body>
 </html>
