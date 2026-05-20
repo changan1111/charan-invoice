@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Charan Logistics </title>
+<title>Charan Logistics</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -72,6 +72,7 @@ body{font-family:'Outfit',sans-serif;background:var(--pale);color:var(--ink);min
 .sb-signout:hover{background:rgba(192,57,43,.8);color:#fff;border-color:#c0392b;}
 
 .content-area{flex:1;overflow-y:auto;min-width:0;}
+.content-area.modal-open{overflow:hidden;}
 .page{max-width:1180px;margin:0 auto;padding:1.8rem 1.5rem 3rem;}
 
 .panel{display:none;}
@@ -213,9 +214,13 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
 .inv-tbl td.r.bold{font-weight:600;}
 .inv-tbl td.date-col{white-space:nowrap;color:var(--muted);font-size:.82rem;}
 .totals-wrap{display:flex;justify-content:flex-end;margin-bottom:2rem;}
-.totals-box{min-width:245px;}
-.tot-row{display:flex;justify-content:space-between;padding:.4rem 0;font-size:.85rem;border-bottom:1px solid var(--border);}
+.totals-box{width:100%;max-width:300px;}
+.tot-row{display:flex;justify-content:space-between;align-items:baseline;padding:.45rem 0;font-size:.85rem;border-bottom:1px solid var(--border);gap:2rem;}
+.tot-row span:first-child{color:var(--muted);white-space:nowrap;flex-shrink:0;}
+.tot-row span:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500;margin-left:auto;}
 .tot-row:last-child{border-bottom:none;margin-top:.35rem;padding-top:.6rem;font-size:1rem;font-weight:700;color:var(--ink);}
+.tot-row:last-child span:first-child{color:var(--ink);}
+.tot-row:last-child span:last-child{font-size:1.05rem;}
 .grand{font-family:'Outfit Garamond',serif;font-size:1.05rem;color:var(--navy);}
 .inv-foot{background:var(--pale);border-radius:10px;padding:.9rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 .inv-foot-note{font-size:.79rem;color:var(--muted);}
@@ -359,12 +364,14 @@ tbody tr:hover td{background:var(--ice);cursor:pointer;}
   .dhead-right{width:100%;flex-direction:column;gap:10px;}
   .search{width:100%!important;}
   .search input{width:100%!important;}
-  .tcard,.chart-tbl-wrap,.qt-items-table,.pr-hist-table{width:100%!important;max-width:calc(100vw - 20px)!important;overflow-x:auto!important;display:block;-webkit-overflow-scrolling:touch;box-sizing:border-box;}
+  .tcard,.chart-tbl-wrap,.pr-hist-table{width:100%!important;max-width:calc(100vw - 20px)!important;overflow-x:auto!important;display:block;-webkit-overflow-scrolling:touch;box-sizing:border-box;}
+  .qt-items-table-wrap{width:100%!important;max-width:calc(100vw - 40px)!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;box-sizing:border-box;display:block;}
   table{min-width:500px;}
   #invDoc{padding:1rem!important;}
   .inv-hd,.inv-parties{grid-template-columns:1fr!important;gap:15px;}
   .inv-numbox{text-align:left!important;}
-  .totals-box{width:100%!important;margin-left:0;}
+  .totals-box{max-width:100%!important;}
+  .sidebar.modal-open{overflow:hidden;}
   .inv-foot{flex-direction:column;gap:10px;}
   .chart-modal{width:95%!important;margin:10px auto;}
   .chart-wrap{height:250px!important;}
@@ -640,21 +647,23 @@ canvas{max-width:100%!important;height:auto!important;}
     </div>
     <div class="pr-card">
       <div class="pr-card-title">Line Items</div>
-      <table class="qt-items-table">
-        <thead><tr>
-          <th style="width:40px">No.</th><th>Description</th>
-          <th style="width:130px;text-align:right">Unit Price (S$)</th>
-          <th style="width:70px;text-align:right">Qty</th>
-          <th style="width:130px;text-align:right">Total (S$)</th>
-          <th style="width:36px"></th>
-        </tr></thead>
-        <tbody id="qt_body"></tbody>
-      </table>
+      <div class="qt-items-table-wrap">
+        <table class="qt-items-table" style="min-width:520px">
+          <thead><tr>
+            <th style="width:40px">No.</th><th>Description</th>
+            <th style="width:130px;text-align:right">Unit Price (S$)</th>
+            <th style="width:70px;text-align:right">Qty</th>
+            <th style="width:130px;text-align:right">Total (S$)</th>
+            <th style="width:36px"></th>
+          </tr></thead>
+          <tbody id="qt_body"></tbody>
+        </table>
+      </div>
       <button class="qt-add-row-btn" onclick="qtAddItem()">+ Add Item</button>
-      <div class="qt-totals-row">
+      <div class="qt-totals-row" style="flex-wrap:wrap;gap:16px;">
         <div class="qt-total-item"><div class="qt-total-label">Subtotal</div><div class="qt-total-value" id="qt_sub">S$ 0.00</div></div>
         <div class="qt-total-item">
-          <div class="qt-total-label">GST 9% <input type="checkbox" id="qt_gst" onchange="qtCalc()" style="width:auto;margin-left:4px;transform:scale(1.2);vertical-align:middle"/></div>
+          <div class="qt-total-label" style="display:flex;align-items:center;gap:6px;">GST 9% <input type="checkbox" id="qt_gst" onchange="qtCalc()" style="width:16px;height:16px;cursor:pointer;accent-color:var(--gold);flex-shrink:0;"/></div>
           <div class="qt-total-value" id="qt_gst_val">S$ 0.00</div>
         </div>
         <div class="qt-total-item"><div class="qt-total-label">Grand Total</div><div class="qt-total-value grand" id="qt_grand">S$ 0.00</div></div>
@@ -927,8 +936,8 @@ canvas{max-width:100%!important;height:auto!important;}
 // ══════════════════════════════════════════════════════════════
 //  SUPABASE INIT
 // ══════════════════════════════════════════════════════════════
-const SUPABASE_URL      = "https://tcqtwakxszryzrfxoyze.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjcXR3YWt4c3pyeXpyZnhveXplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1NzQzNzUsImV4cCI6MjA4OTE1MDM3NX0.uMYxktFu0E04WrM8VGsXng7WkuO6ACUBIAvoceylXS0";
+const SUPABASE_URL      = "%%SUPABASE_URL%%";
+const SUPABASE_ANON_KEY = "%%SUPABASE_ANON_KEY%%";
 
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1103,6 +1112,9 @@ async function preloadLineItemsForCurrentPage() {
 
 async function preloadLineItemsForInvoice(num) {
   if (!num) return;
+  // Always delete from cache first — guarantees every View and PDF click
+  // fetches fresh line items from DB, no stale data ever shown
+  delete invoiceLineItemCache[num];
   await fetchLineItemsForInvoiceNumbers([num]);
 }
 
@@ -1342,8 +1354,8 @@ async function openInv(num) {
       <tbody>${rows}</tbody>
     </table>
     <div class="totals-wrap"><div class="totals-box">
-      <div class="tot-row"><span style="color:var(--ink)">Subtotal</span><span>${cur} ${fmt(inv.total)}</span></div>
-      <div class="tot-row"><span style="color:var(--ink)">Tax (0%)</span><span>${cur} 0.00</span></div>
+      <div class="tot-row"><span>Subtotal</span><span>${cur} ${fmt(inv.total)}</span></div>
+      <div class="tot-row"><span>Tax (0%)</span><span>${cur} 0.00</span></div>
       <div class="tot-row"><span>Total Due</span><span class="grand">${cur} ${fmt(inv.total)}</span></div>
     </div></div>
     <div class="inv-foot">
@@ -1352,6 +1364,8 @@ async function openInv(num) {
     </div>`;
   ge('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  ge('contentArea').classList.add('modal-open');
+  ge('sidebar').classList.add('modal-open');
 }
 
 function sortLineItems(items) {
@@ -1371,7 +1385,7 @@ function sortLineItems(items) {
 }
 
 function overlayClick(e) { if (e.target === ge('overlay')) closeModal(); }
-function closeModal() { ge('overlay').classList.remove('open'); document.body.style.overflow = ''; }
+function closeModal() { ge('overlay').classList.remove('open'); document.body.style.overflow = ''; ge('contentArea').classList.remove('modal-open'); ge('sidebar').classList.remove('modal-open'); }
 
 // ── PDF ──
 async function dlPDF() { if (!curInv) return; const blob = await makePDF(curInv); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; const runNum = (curInv.number || '').split('/').pop() || '0000'; const clientName = (curInv.name || 'Client').replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_').trim(); const billingDate = (curInv.billingDate || '').replace(/[\/\-]/g, '-').trim(); a.download = `${runNum}_${clientName}_Invoice_${billingDate}.pdf`; a.click(); URL.revokeObjectURL(url); }
@@ -1564,9 +1578,9 @@ function openChart() {
   const years = getAvailableYears();
   if (!years.length) { alert('No dated invoices found.'); return; }
   years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; sel.appendChild(o); });
-  ge('chartOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; renderChart();
+  ge('chartOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; ge('contentArea').classList.add('modal-open'); ge('sidebar').classList.add('modal-open'); renderChart();
 }
-function closeChart() { ge('chartOverlay').classList.remove('open'); document.body.style.overflow = ''; if (perfChart) { perfChart.destroy(); perfChart = null; } }
+function closeChart() { ge('chartOverlay').classList.remove('open'); document.body.style.overflow = ''; ge('contentArea').classList.remove('modal-open'); ge('sidebar').classList.remove('modal-open'); if (perfChart) { perfChart.destroy(); perfChart = null; } }
 function chartOverlayClick(e) { if (e.target === ge('chartOverlay')) closeChart(); }
 function setChartView(view, btn) { chartView = view; document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active')); btn.classList.add('active'); const isTable = view === 'table'; ge('chartWrap').style.display = isTable ? 'none' : 'block'; ge('chartTblWrap').style.display = isTable ? 'block' : 'none'; renderChart(); }
 
@@ -2185,7 +2199,16 @@ function aiCalcTotal() {
   return total;
 }
 function aiClearErr(id) { ge(id)?.classList.remove('error'); }
-function aiClearRowErr(n) { const row = ge('airow' + n); if (row) row.querySelectorAll('input').forEach(i => i.classList.remove('error')); }
+function aiClearRowErr(n) {
+  const row = ge('airow' + n);
+  if (row) {
+    row.querySelectorAll('input').forEach(i => {
+      i.classList.remove('error');
+      i.style.borderColor = '';
+      i.style.boxShadow = '';
+    });
+  }
+}
 
 function aiReset() {
   ['ai_invnum', 'ai_billingdate', 'ai_name', 'ai_address'].forEach(id => { const el = ge(id); if (el) { el.value = ''; el.classList.remove('error'); } });
@@ -2221,6 +2244,21 @@ async function aiSubmit() {
     if (!desc) { r.cells[2].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     if (!qty || qty <= 0) { r.cells[3].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     if (isNaN(rate) || rate < 0) { r.cells[4].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    // Validate date — if filled must be a real valid date
+    if (dateInput.value) {
+      const parsed = new Date(dateInput.value);
+      if (isNaN(parsed.getTime())) {
+        dateInput.style.borderColor = '#e53935';
+        dateInput.style.boxShadow = '0 0 0 3px rgba(229,57,53,.15)';
+        liValid = false; rowOk = false;
+      } else {
+        dateInput.style.borderColor = '';
+        dateInput.style.boxShadow = '';
+      }
+    } else {
+      dateInput.style.borderColor = '';
+      dateInput.style.boxShadow = '';
+    }
     let dateVal = null;
     if (dateInput.value) { const [y, m, d] = dateInput.value.split('-'); dateVal = `${d}-${m}-${y}`; }
     if (rowOk) lineItems.push({ invoice_number: ge('ai_invnum').value.trim(), description: desc, qty, unit_price: rate, date: dateVal });
@@ -2330,10 +2368,10 @@ function openEditInvoiceModal() {
 
   eiCalcTotal();
   ge('ei-success').style.display = 'none'; ge('ei-error').style.display = 'none';
-  ge('editInvoiceOverlay').classList.add('open'); document.body.style.overflow = 'hidden';
+  ge('editInvoiceOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; ge('contentArea').classList.add('modal-open'); ge('sidebar').classList.add('modal-open');
 }
 
-function closeEditInvoiceModal() { ge('editInvoiceOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+function closeEditInvoiceModal() { ge('editInvoiceOverlay').classList.remove('open'); document.body.style.overflow = ''; ge('contentArea').classList.remove('modal-open'); ge('sidebar').classList.remove('modal-open'); }
 function editInvoiceOverlayClick(e) { if (e.target === ge('editInvoiceOverlay')) closeEditInvoiceModal(); }
 
 function eiAddRow(date = '', desc = '', qty = '', rate = '') {
@@ -2369,7 +2407,16 @@ function eiCalcTotal() {
   return total;
 }
 function eiClearErr(id) { ge(id)?.classList.remove('error'); }
-function eiClearRowErr(n) { const row = ge('eirow' + n); if (row) row.querySelectorAll('input').forEach(i => i.classList.remove('error')); }
+function eiClearRowErr(n) {
+  const row = ge('eirow' + n);
+  if (row) {
+    row.querySelectorAll('input').forEach(i => {
+      i.classList.remove('error');
+      i.style.borderColor = '';
+      i.style.boxShadow = '';
+    });
+  }
+}
 
 async function eiSubmit() {
   ge('ei-success').style.display = 'none'; ge('ei-error').style.display = 'none';
@@ -2395,6 +2442,21 @@ async function eiSubmit() {
     if (!desc) { r.cells[2].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     if (!qty || qty <= 0) { r.cells[3].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
     if (isNaN(rate) || rate < 0) { r.cells[4].querySelector('input').classList.add('error'); liValid = false; rowOk = false; }
+    // Validate date — if filled, must be a real valid date
+    if (dateInput.value) {
+      const parsed = new Date(dateInput.value);
+      if (isNaN(parsed.getTime())) {
+        dateInput.style.borderColor = '#e53935';
+        dateInput.style.boxShadow = '0 0 0 3px rgba(229,57,53,.15)';
+        liValid = false; rowOk = false;
+      } else {
+        dateInput.style.borderColor = '';
+        dateInput.style.boxShadow = '';
+      }
+    } else {
+      dateInput.style.borderColor = '';
+      dateInput.style.boxShadow = '';
+    }
     let dateVal = null;
     if (dateInput.value) { const [y, m, d] = dateInput.value.split('-'); dateVal = `${d}-${m}-${y}`; }
     if (rowOk) lineItems.push({ invoice_number: curInv.number, description: desc, qty, unit_price: rate, date: dateVal });
