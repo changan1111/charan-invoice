@@ -765,6 +765,10 @@ canvas{max-width:100%!important;height:auto!important;}
           <label>Client Address</label>
           <input type="text" id="ai_address" placeholder="e.g. 10 Anson Road, Singapore 079903"/>
         </div>
+        <div class="pr-field span2">
+  <label>ATTN (optional)</label>
+  <input type="text" id="ai_attn" placeholder="e.g. Mr. John / Accounts Dept"/>
+</div>
       </div>
     </div>
     <div class="pr-card">
@@ -895,6 +899,10 @@ canvas{max-width:100%!important;height:auto!important;}
             <label>Client Address</label>
             <input type="text" id="ei_address" placeholder="e.g. 10 Anson Road, Singapore 079903"/>
           </div>
+          <div class="pr-field span2">
+            <label>ATTN (optional)</label>
+            <input type="text" id="ei_attn" placeholder="e.g. Mr. John / Accounts Dept"/>
+          </div>
         </div>
       </div>
       <div class="pr-card">
@@ -938,6 +946,8 @@ canvas{max-width:100%!important;height:auto!important;}
 // ══════════════════════════════════════════════════════════════
 const SUPABASE_URL      = "%%SUPABASE_URL%%";
 const SUPABASE_ANON_KEY = "%%SUPABASE_ANON_KEY%%";
+
+
 
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -1081,26 +1091,40 @@ function getPrice(li) { return parseFloat(li.unit_price || li.price || li.amount
 function getLineItemDate(li) { return li.date || li.delivery_date || li.service_date || li.item_date || ''; }
 
 // ── CACHE HELPERS ──
+const _fetchingNums = new Set(); // ← track in-progress fetches
+
 async function fetchLineItemsForInvoiceNumbers(invoiceNumbers) {
   const uniqNums = Array.from(new Set((invoiceNumbers || []).map(n => String(n || '').trim()).filter(Boolean)));
-  const missing = uniqNums.filter(n => !invoiceLineItemCache[n]);
+  
+  // Skip already cached AND already in-flight
+  const missing = uniqNums.filter(n => !invoiceLineItemCache[n] && !_fetchingNums.has(n));
   if (!missing.length) return;
-  const { data, error } = await sb.from('line_items').select('*').in('invoice_number', missing);
-  if (error) throw new Error('line_items: ' + error.message);
-  // Seed empty arrays so invoices with no line items don't get re-fetched
-  missing.forEach(n => { invoiceLineItemCache[n] = invoiceLineItemCache[n] || []; });
-  (data || []).forEach(li => {
-    const num = getInvNum(li);
-    if (!num) return;
-    if (!invoiceLineItemCache[num]) invoiceLineItemCache[num] = [];
-    invoiceLineItemCache[num].push({
-      invoice_number: num,
-      description: li.description,
-      qty: li.qty,
-      unit_price: li.unit_price,
-      date: li.date,
+
+  // Mark all as in-flight immediately
+  missing.forEach(n => _fetchingNums.add(n));
+
+  try {
+    const { data, error } = await sb.from('line_items').select('*').in('invoice_number', missing);
+    if (error) throw new Error('line_items: ' + error.message);
+
+    // Seed empty arrays for all missing
+    missing.forEach(n => { invoiceLineItemCache[n] = []; });
+
+    (data || []).forEach(li => {
+      const num = getInvNum(li);
+      if (!num || !invoiceLineItemCache[num]) return;
+      invoiceLineItemCache[num].push({
+        invoice_number: num,
+        description: li.description,
+        qty: li.qty,
+        unit_price: li.unit_price,
+        date: li.date,
+      });
     });
-  });
+  } finally {
+    // Always clear in-flight markers when done
+    missing.forEach(n => _fetchingNums.delete(n));
+  }
 }
 
 async function preloadLineItemsForCurrentPage() {
@@ -1112,10 +1136,10 @@ async function preloadLineItemsForCurrentPage() {
 
 async function preloadLineItemsForInvoice(num) {
   if (!num) return;
-  // Always delete from cache first — guarantees every View and PDF click
-  // fetches fresh line items from DB, no stale data ever shown
-  delete invoiceLineItemCache[num];
-  await fetchLineItemsForInvoiceNumbers([num]);
+  // Only fetch if not already cached — don't delete good data
+  if (!invoiceLineItemCache[num]) {
+    await fetchLineItemsForInvoiceNumbers([num]);
+  }
 }
 
 function buildAllInvoices() {
@@ -1128,12 +1152,14 @@ async function loadData() {
   loadingRow();
   // FIX 2: Clear cache on every full refresh so stale data never persists
   Object.keys(invoiceLineItemCache).forEach(k => delete invoiceLineItemCache[k]);
+ _fetchingNums.clear(); // ← ADD THIS LINE
+
   try {
     const { data: clients, error: e1 } = await sb
       .from('clients').select('*').order('invoice_number', { ascending: false });
     if (e1) throw new Error('clients: ' + e1.message);
     CLIENTS = (clients || []).map(c => ({
-      invoice_number: c.invoice_number, name: c.name, address: c.address,
+      invoice_number: c.invoice_number, name: c.name, address: c.address,attn: c.attn || null,
       billing_date: c.billing_date, due_date: c.due_date, status: c.status, total: c.total,
     }));
     buildAllInvoices();
@@ -1169,11 +1195,11 @@ function build(clients, lineItems) {
     const calcTotal = items.reduce((s, li) => s + getQty(li) * getPrice(li), 0);
     const rawTotal = c.total || '0';
     const sheetTotal = parseFloat(String(rawTotal).trim().replace(/[$, ]/g, '')) || 0;
-    const total = calcTotal > 0 ? calcTotal : sheetTotal;
+    const total = sheetTotal > 0 ? sheetTotal : calcTotal;
     const rawStatus = (c.status || 'pending').toLowerCase().trim();
     const status = ['paid', 'pending', 'overdue'].includes(rawStatus) ? rawStatus : 'pending';
     const billingDate = c.billing_date || c.date || c.invoice_date || today_str();
-    return { number: num, name: c.name || c.client_name || '', addr: c.address || c.client_address || '', billingDate, due: c.due_date || c.due || '', status, total, items };
+    return { number: num, name: c.name || c.client_name || '', addr: c.address || c.client_address || '', attn: c.attn || null, billingDate, due: c.due_date || c.due || '', status, total, items };
   });
 }
 
@@ -1194,23 +1220,31 @@ async function setFilter(f, btn) {
   await applyFilters();
 }
 
+let _filterToken = 0;
+
 async function applyFilters() {
+  const token = ++_filterToken;
   const q = (ge('qSearch').value || '').toLowerCase();
   currentPage = 1;
+
   buildAllInvoices();
+
   SHOWN = ALL.filter(inv => {
     const mf = activeFilter === 'all' || inv.status === activeFilter;
-    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
+    const mq = !q || inv.number.toLowerCase().includes(q)
+             || inv.name.toLowerCase().includes(q)
+             || (inv.addr || '').toLowerCase().includes(q);
     return mf && mq;
   });
-  await preloadLineItemsForCurrentPage();
-  buildAllInvoices();
-  // Rebuild SHOWN after line items loaded so totals are accurate
-  SHOWN = ALL.filter(inv => {
-    const mf = activeFilter === 'all' || inv.status === activeFilter;
-    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
-    return mf && mq;
-  });
+
+  if (token !== _filterToken) return;
+
+  // Fetch line items for ALL matched invoices in one batch
+  const allMatchedNums = SHOWN.map(inv => inv.number).filter(Boolean);
+  await fetchLineItemsForInvoiceNumbers(allMatchedNums);
+
+  if (token !== _filterToken) return;
+
   renderRows();
 }
 
@@ -1264,19 +1298,18 @@ function getPageRange(cur, total) {
   return pages;
 }
 
+let _pageToken = 0;
+
 async function goPage(p) {
+  const token = ++_pageToken;
   const totalPages = Math.ceil(SHOWN.length / pageSize);
   if (p < 1 || p > totalPages) return;
   currentPage = p;
+
   await preloadLineItemsForCurrentPage();
-  buildAllInvoices();
-  // Rebuild SHOWN so page items have fresh line items
-  const q = (ge('qSearch').value || '').toLowerCase();
-  SHOWN = ALL.filter(inv => {
-    const mf = activeFilter === 'all' || inv.status === activeFilter;
-    const mq = !q || inv.number.toLowerCase().includes(q) || inv.name.toLowerCase().includes(q) || (inv.addr || '').toLowerCase().includes(q);
-    return mf && mq;
-  });
+
+  if (token !== _pageToken) return;
+
   renderRows();
   ge('tBody').closest('.tcard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -1294,6 +1327,7 @@ async function openInv(num) {
   const inv = ALL.find(i => i.number === num);
   if (!inv) return;
   curInv = inv;
+  ge('markPaidBtn').style.display = inv.status === 'paid' ? 'none' : '';
   const cur = 'S$';
   ge('mLabel').textContent = `Invoice #${inv.number} · ${inv.name}`;
   const hasItems = inv.items && inv.items.length;
@@ -1393,7 +1427,9 @@ async function shareInv() { if (!curInv) return; const blob = await makePDF(curI
 
 // FIX: quickPDF always fetches line items first — no View needed
 async function quickPDF(num) {
-  await preloadLineItemsForInvoice(num);
+  if (!invoiceLineItemCache[num]) {
+    await fetchLineItemsForInvoiceNumbers([num]);
+  }
   buildAllInvoices();
   const inv = ALL.find(i => i.number === num);
   if (!inv) return;
@@ -1482,8 +1518,23 @@ async function makePDF(inv) {
   const aLines = (inv.addr || '').split(/,|\n/).map(s => s.trim()).filter(Boolean);
   aLines.forEach((l, i) => doc.text(l, M, partyY + 12 + i * 5));
 
-  const hasLineItemDates = (inv.items || []).some(li => getLineItemDate(li));
-  const tableY = partyY + 14 + aLines.length * 5.5 + 3;
+  // Add ATTN after address — only if present
+if (inv.attn) {
+  const attnY = partyY + 12 + aLines.length * 5+ 3;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(12);
+  doc.setTextColor(11, 29, 58);
+  doc.text('ATTN: ' + inv.attn, M, attnY);
+}
+  //const hasLineItemDates = (inv.items || []).some(li => getLineItemDate(li));
+  //const tableY = partyY + 14 + aLines.length * 5.5 + 3;
+
+
+   const hasLineItemDates = (inv.items || []).some(li => getLineItemDate(li));
+  // ↓ +5 extra when ATTN is present so table doesn't overlap
+  const attnOffset = inv.attn ? 8 : 0;
+  const tableY = partyY + 14 + aLines.length * 5.5 + 3 + attnOffset;
+
   const tableHead = hasLineItemDates ? [['Date', 'Description', 'Qty', 'Rate', 'Amount']] : [['Description', 'Qty', 'Rate', 'Amount']];
   const allRows = sortLineItems(inv.items || []).map(li => {
     const q = getQty(li), p = getPrice(li), d = getDesc(li), liDate = getLineItemDate(li);
@@ -2211,7 +2262,7 @@ function aiClearRowErr(n) {
 }
 
 function aiReset() {
-  ['ai_invnum', 'ai_billingdate', 'ai_name', 'ai_address'].forEach(id => { const el = ge(id); if (el) { el.value = ''; el.classList.remove('error'); } });
+  ['ai_invnum', 'ai_billingdate', 'ai_name', 'ai_address','ai_attn'].forEach(id => { const el = ge(id); if (el) { el.value = ''; el.classList.remove('error'); } });
   ge('ai_status').value = ''; ge('ai_status').classList.remove('error');
   ge('ai_tbody').innerHTML = ''; aiRowId = 0;
   ge('ai_total').textContent = 'S$ 0.00';
@@ -2267,7 +2318,7 @@ async function aiSubmit() {
   if (!liValid) { ge('ai-error').style.display = 'block'; ge('ai-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.'; ge('ai-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
   const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
-  const clientRecord = { invoice_number: ge('ai_invnum').value.trim(), name: ge('ai_name').value.trim(), address: ge('ai_address').value.trim() || null, billing_date: billingDate, status: ge('ai_status').value, total };
+  const clientRecord = { invoice_number: ge('ai_invnum').value.trim(), name: ge('ai_name').value.trim(), address: ge('ai_address').value.trim() || null, billing_date: billingDate, status: ge('ai_status').value,  attn: ge('ai_attn').value.trim() || null, total };
 
   const btn = ge('ai-submit-btn'); const orig = btn.innerHTML;
   btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
@@ -2350,6 +2401,7 @@ function openEditInvoiceModal() {
   ge('ei_status').value = curInv.status || '';
   ge('ei_name').value = curInv.name || '';
   ge('ei_address').value = curInv.addr || '';
+  ge('ei_attn').value = curInv.attn || '';
   ge('ei_tbody').innerHTML = ''; eiRowId = 0;
 
   if (curInv.items && curInv.items.length > 0) {
@@ -2465,7 +2517,7 @@ async function eiSubmit() {
   if (!liValid) { ge('ei-error').style.display = 'block'; ge('ei-error-msg').textContent = 'Some line items have missing or invalid fields. Please fix them.'; ge('ei-error').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return; }
 
   const total = lineItems.reduce((s, li) => s + (li.qty * li.unit_price), 0);
-  const clientRecord = { invoice_number: curInv.number, name: ge('ei_name').value.trim(), address: ge('ei_address').value.trim() || null, billing_date: billingDate, status: ge('ei_status').value, total };
+  const clientRecord = { invoice_number: curInv.number, name: ge('ei_name').value.trim(), address: ge('ei_address').value.trim() || null, attn: ge('ei_attn').value.trim() || null, billing_date: billingDate, status: ge('ei_status').value, total };
 
   const btn = ge('ei-submit-btn'); const orig = btn.innerHTML;
   btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Saving…';
